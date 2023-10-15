@@ -1,4 +1,4 @@
-/* Bacons Material 3 Theme v2.1 */
+/* Bacons Material 3 Theme v2.1.1 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
@@ -40,77 +40,82 @@ html {
   background-color: var(--md-sys-color-surface);
 }
 
-/* Transparent elevated components using MD3 surface tones */
-.skinHeader {
-  background-color: var(--md-sys-color-surface-container-high);
-  backdrop-filter: var(--blur) !important;
-  -webkit-backdrop-filter: var(--blur) !important;
+/* Elements with transparency and blur effects */
+.skinHeader.semiTransparent,
+.skinHeader,
+.skinHeader,
+.actionSheet,
+.mainDrawer {
   border: 1px solid var(--md-sys-color-outline);
-  border-radius: var(--md-border-radius);
-  border-left: none;
-  border-right: none;
-  border-top: none;
 }
+  border-radius: var(--md-border-radius); /* 12px */
+  background-color: var(--bg-color);
+  backdrop-filter: var(--blur) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
 
-.mainDrawer,
 select:enabled,
 option {
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-border-radius);
   background-color: var(--md-sys-color-surface-container);
-  backdrop-filter: var(--blur) !important;
-  -webkit-backdrop-filter: var(--blur) !important;
-  border: 1px solid var(--md-sys-color-outline);
-  border-radius: var(--md-border-radius);
+  color: var(--md-sys-color-on-surface);
+}
+.actionSheet,
+.mainDrawer {
+  border: 1px solid transparent;
+  border-image-slice: 1;
+  border-image-source: var(--border-color);
 }
 
-.actionSheet {
-  background-color: var(--md-sys-color-surface-container-low);
-  backdrop-filter: var(--blur) !important;
-  -webkit-backdrop-filter: var(--blur) !important;
-  border: 1px solid var(--md-sys-color-outline);
-  border-radius: var(--md-border-radius);
+/* Specific styles for .skinHeader */
+.skinHeader {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-radius: 5px;
 }
 
+/* Form elements */
+select:enabled,
+option {
+  border-style: solid;
+  border-width: 1px;
+}
+
+/* Style for .skinHeader-withBackground.osdHeader */
 .skinHeader-withBackground.osdHeader {
   border: 0;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  background: linear-gradient(180deg, var(--md-sys-color-surface-container-high), transparent);
-  color: var(--md-sys-color-on-surface);
+  background: linear-gradient(180deg, hsla(0, 0%, 6%, .75), hsla(0, 0%, 6%, 0));
+  color: #eee;
   height: 7.5em;
   pointer-events: none;
   position: relative;
-  transition: opacity .3s ease-out;
+  transition: opacity .3sease-out;
   z-index: 1;
 }
 
 #indexPage {
   background-image: url('https://i.imgur.com/RprSuTS.jpeg');
-  background-position: top left;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  .backdropContainer {
+        height: 100vh;
+        left: 0%;
+        position: fixed;
+        width: 50vw;
+    }
 }
 
-.backdropContainer {
-  height: 100vh;
-  left: 0;
-  position: fixed;
-  width: 50vw;
-}
-
-#txtCustomCss,
-#txtLocalCustomCss {
-  height: 400px !important;
-  max-height: none !important;
-  overflow-y: scroll !important;
-  resize: vertical !important;
-  background-color: var(--md-sys-color-surface-variant);
-  color: var(--md-sys-color-on-surface);
-  border: 1px solid var(--md-sys-color-outline);
-  border-radius: var(--md-border-radius);
-  padding: 1em;
-  font-family: "Inter", monospace;
-  font-size: 0.95em;
+/* CSS Box Management */
+#txtCustomCss, #txtLocalCustomCss {
+	height: 400px !important;
+	max-height: none !important;
+	overflow-y: scroll !important;
+	resize: vertical !important;
 }
 
 /* If phone portrait mode we make some small changes but keep mostly stock jfweb */
