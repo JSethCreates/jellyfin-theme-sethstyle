@@ -1,0 +1,502 @@
+/* Bacons Material 3 Theme v2.2*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+/* Material Design 3 System Colors */
+:root {
+  --md-sys-color-primary: #6750A4;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-surface: #FFFBFE;
+  --md-sys-color-surface-container-low: #F7F2FA;
+  --md-sys-color-surface-container: #E8DEF8;
+  --md-sys-color-surface-container-high: #D0BCFF;
+  --md-sys-color-outline: #79747E;
+
+  --md-sys-color-secondary: #625B71;
+  --md-sys-color-on-surface: #1C1B1F;
+  --md-sys-color-surface-variant: #E7E0EC;
+
+  --md-border-radius: 12px;
+  --md-card-elevation: var(--md-sys-color-surface-container);
+  --md-dialog-elevation: var(--md-sys-color-surface-container-high);
+
+  --md-hover-primary: rgba(103, 80, 164, 0.12);
+  --md-hover-on-surface: rgba(28, 27, 31, 0.08);
+
+  /* Blur and visual effect support */
+  --blur: blur(16px) saturate(180%);
+
+  /* Legacy fallback and blend variables */
+  --bg-color: #18181849;
+  --card-bg: #101010;
+  --indicator-bg: #10101094;
+  --transparent-bg: #10101000;
+  --border-color: linear-gradient(45deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 41%, rgba(255, 255, 255, 0.1) 57%, rgba(255, 255, 255, 0.3) 100%);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif !important;
+  margin: 0;
+  padding: 0;
+  background-color: var(--md-sys-color-surface);
+}
+
+/* Elements with transparency and blur effects */
+.skinHeader.semiTransparent,
+.skinHeader,
+.mainDrawer,
+.actionSheet,
+select:enabled,
+option {
+  background-color: var(--bg-color);
+  backdrop-filter: var(--blur) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+}
+
+/* Border styling updated for MD3 */
+.skinHeader,
+.actionSheet,
+.mainDrawer {
+  border: 1px solid var(--md-sys-color-outline);
+}
+
+/* skinHeader rounded edge updated for MD3 */
+.skinHeader {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-radius: var(--md-border-radius); /* 12px */
+}
+
+/* Form elements styled for MD3 */
+select:enabled,
+option {
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-border-radius);
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Style for .skinHeader-withBackground.osdHeader */
+.skinHeader-withBackground.osdHeader {
+  border: 0;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background: linear-gradient(180deg, rgba(28, 27, 31, 0.75), rgba(28, 27, 31, 0));
+  color: var(--md-sys-color-surface);
+  height: 7.5em;
+  pointer-events: none;
+  position: relative;
+  transition: opacity 0.3s ease-out;
+  z-index: 1;
+}
+
+#indexPage {
+  background-image: url('https://i.imgur.com/RprSuTS.jpeg');
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#txtCustomCss, #txtLocalCustomCss {
+  height: 400px !important;
+  max-height: none !important;
+  overflow-y: scroll !important;
+  resize: vertical !important;
+
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-border-radius);
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  padding: 1em;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* If phone portrait mode we make some small changes but keep mostly stock jfweb */
+@media (max-width: 43em) {
+  .featurediframe {
+    margin-top: 0.0em !important;
+  }
+}
+
+/* If phone or device has width, we can apply all styles */
+@media (min-width: 44em) {
+
+.overflowBackdropCard, .overflowSmallBackdropCard {
+    width: 16.1vw;
+}
+
+.customCssContainer textarea {
+	height: auto !important;
+}
+
+/* Overlay elements */
+.cardOverlayContainer,
+.cardScalables,
+.cardPadder {
+  overlay: none;
+}
+
+.cardOverlayContainer {
+  background-color: var(--transparent-bg);
+}
+
+/* List and transition effects */
+.listItem {
+  transition: 0.3s all ease-in-out;
+}
+
+.listItem:hover {
+  background-color: var(--md-hover-primary);
+}
+
+/* Card styles */
+.cardBox {
+  background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+              var(--border-color) border-box;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.itemsContainer > .card > .cardBox:hover {
+  transform: translateY(-5px);
+}
+
+/* Text styles */
+.cardText {
+  font-size: large;
+  padding: 2%;
+}
+
+.cardText-secondary {
+  font-size: small;
+}
+
+/* Primary content styling */
+.detailPagePrimaryContainer {
+  background-color: var(--transparent-bg);
+  display: inline-table;
+  left: 5%;
+  padding-left: 5%;
+  z-index: 2;
+}
+
+/* Layout adjustments for desktop */
+.layout-desktop .detailPageContent {
+  padding-left: 5%;
+}
+
+.layout-desktop .detailPagePrimaryContent {
+  width: 45%;
+}
+
+.layout-desktop .detailPageSecondaryContainer {
+  background-color: var(--transparent-bg);
+  margin: 0 0 1.25em 0;
+}
+
+.layout-desktop .itemDetailsGroup {
+  margin-top: 0;
+}
+
+/* Desktop background settings */
+html.preload.layout-desktop {
+  background-color: #181818;
+}
+
+.detailLogo {
+  position: static;
+  display: block;
+  margin: 1em auto 0.5em auto;
+  transform: translateX(50%) scale(1.3);
+  transform-origin: top center;
+}
+
+.itemBackdrop {
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: fixed;
+  right: 0%;
+  width: 100vw;
+}
+
+/* Backdrop container */
+.backdropContainer {
+  height: 100vh;
+  left: 0%;
+  position: fixed;
+  width: 100vw;
+}
+
+.layout-desktop .detailPageWrapperContainer {
+  margin-top: -65vh;
+}
+
+/* Hide unnecessary elements */
+.layout-desktop .detailImageContainer .card,
+.layout-desktop .itemTags,
+.layout-desktop .itemName.originalTitle {
+  display: none;
+}
+
+.layout-desktop .itemName,
+.layout-mobile .itemName {
+  font-weight: normal;
+}
+
+.layout-desktop a.overview-expand.emby-button {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Status indicators */
+.countIndicator,
+.fullSyncIndicator,
+.mediaSourceIndicator,
+.playedIndicator {
+  backdrop-filter: var(--blur) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  background-color: var(--indicator-bg) !important;
+  box-shadow: none;
+}
+
+
+/* Hover effects for menu options */
+.actionSheetMenuItem:hover,
+.navMenuOption:hover {
+  background-color: #00a5dc28;
+}
+
+/* Floating action button (FAB) for cards */
+.cardOverlayFab-primary {
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background: linear-gradient(rgba(32, 32, 32, 0.1), rgba(32, 32, 32, 0.1)) padding-box,
+              var(--border-color) border-box;
+  background-color: rgba(0, 164, 220, 0.4);
+  backdrop-filter: var(--blur);
+  border: 2px solid transparent;
+}
+
+.cardOverlayFab-primary:hover {
+  background: linear-gradient(rgba(0, 164, 220, 0.1), rgba(0, 164, 220, 0.1)) padding-box,
+              var(--border-color) border-box;
+}
+
+/* Progress bars and inner card styles */
+.itemProgressBarForeground {
+  background-color: #00a5dc93;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.innerCardFooter > .itemProgressBar {
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: var(--blur);
+  background-color: #18181849;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  overflow: hidden;
+  padding: 5px;
+  position: relative;
+  right: 10px;
+}
+
+
+
+/* Headings */
+h2 {
+  font-weight: 700;
+}
+
+/* Desktop play button styles */
+.layout-desktop .btnPlay {
+  background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+              var(--border-color) border-box;
+  border: 1px solid transparent;
+  border-radius: 2em;
+}
+
+.layout-desktop .btnPlay:hover {
+  background-color: #00a5dc28;
+  transform: translateX(5px);
+}
+
+.layout-desktop .btnPlay::after {
+  color: white;
+  content: attr(title);
+  margin: 0 10px 0 2px;
+}
+
+.layout-desktop .btnPlay.detailButton {
+  flex-direction: row;
+}
+
+/* Media Query for hover effects */
+@media (hover: hover) and (pointer: fine) {
+  .paper-icon-button-light:hover:not(:disabled) {
+    background-color: #00a5dc11;
+    color: #00a5dcec;
+  }
+}
+
+/* Other styles */
+.raised {
+  border-radius: 4em;
+}
+
+#btnShutdown {
+  background-color: #bb4a4a;
+}
+
+.paperList {
+  border-radius: 1em;
+}
+
+
+.sliderContainer {
+  height: 1em;
+}
+
+
+.cardBox:not(.visualCardBox) .cardPadder{
+  background-color: #00000000;
+}
+
+.cardImageContainer {
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+/* Backdrop force for small screens */
+.layout-tv .itemBackdrop {
+    display: block !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1 !important;
+    animation: backdrop-fadein 0.8s ease-in normal both !important;
+    cursor: none !important;
+    z-index: -1;
+}
+
+.backgroundContainer,
+.dialog,
+.nowPlayingPlaylist,
+.nowPlayingContextMenu,
+html {
+    background-color: rgba(16, 16, 16, 0.8) !important;
+}
+
+/* Media Page Adjustments */
+.detailImageContainer .card {
+    position: fixed !important;
+    top: 40% !important; /* Vertically centered slightly higher */
+    left: 5% !important;
+    transform: translateY(-50%) !important;
+    height: 50vh !important;
+    aspect-ratio: 2 / 3 !important;
+    width: auto !important;
+    z-index: 99 !important;
+}
+
+/* Poster image styling */
+.detailImageContainer .cardImageContainer {
+    height: 100% !important;
+    width: 100% !important;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Title + buttons container */
+.detailPagePrimaryContainer {
+    position: fixed !important;
+    top: calc(40% + 27vh) !important;
+    left: 5% !important;
+    width: auto !important;
+    max-width: 90vw !important;
+    z-index: 98 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background: none !important;
+    font-size: clamp(0.1rem, 1.3vw, 1.8rem) !important;
+}
+
+.itemName {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    font-size: clamp(0.5rem, 2vw, 2.2rem) !important;
+    max-width: 100% !important;
+    display: block !important;
+    margin-bottom: 0.3em !important;
+}
+
+.infoWrapper {
+    max-width: 20vw !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+}
+
+.itemMiscInfo-primary {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 0.5em;
+  align-items: center;
+  font-size: clamp(0.1rem, 0.75vw, 1.3rem) !important;
+  min-width: 0 !important;
+}
+
+.tagline {
+  font-size: 1.4em;
+  line-height: 1.3;
+  font-family: 'Special Elite', monospace;
+  text-align: center !important;
+} 
+
+.detailSection {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.detailSection .detailSectionContent {
+    order: 1;
+    font-size: 1.4em !important;
+    line-height: 1.4em !important;
+}
+.detailSection .recordingFields {
+    order: 2;
+}
+.detailSection .trackSelections {
+    order: 3;
+}
+.detailSection .itemDetailsGroup {
+    order: 4;
+}
+
+}
