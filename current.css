@@ -1,4 +1,4 @@
-/* Bacons Material 3 Theme v2.1 */
+/* Bacons Material 3 Theme v2.2*/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
@@ -20,6 +20,9 @@
   --md-border-radius: 12px;
   --md-card-elevation: var(--md-sys-color-surface-container);
   --md-dialog-elevation: var(--md-sys-color-surface-container-high);
+
+  --md-hover-primary: rgba(103, 80, 164, 0.12);
+  --md-hover-on-surface: rgba(28, 27, 31, 0.08);
 
   /* Blur and visual effect support */
   --blur: blur(16px) saturate(180%);
@@ -81,35 +84,37 @@ option {
   border: 0;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  background: linear-gradient(180deg, hsla(0, 0%, 6%, .75), hsla(0, 0%, 6%, 0));
-  color: #eee;
+  background: linear-gradient(180deg, rgba(28, 27, 31, 0.75), rgba(28, 27, 31, 0));
+  color: var(--md-sys-color-surface);
   height: 7.5em;
   pointer-events: none;
   position: relative;
-  transition: opacity .3sease-out;
+  transition: opacity 0.3s ease-out;
   z-index: 1;
 }
 
 #indexPage {
   background-image: url('https://i.imgur.com/RprSuTS.jpeg');
-  background-position: center;
+  background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  .backdropContainer {
-        height: 100vh;
-        left: 0%;
-        position: fixed;
-        width: 50vw;
-    }
 }
 
-/* CSS Box Management */
 #txtCustomCss, #txtLocalCustomCss {
-	height: 400px !important;
-	max-height: none !important;
-	overflow-y: scroll !important;
-	resize: vertical !important;
+  height: 400px !important;
+  max-height: none !important;
+  overflow-y: scroll !important;
+  resize: vertical !important;
+
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-border-radius);
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  padding: 1em;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* If phone portrait mode we make some small changes but keep mostly stock jfweb */
@@ -147,9 +152,7 @@ option {
 }
 
 .listItem:hover {
-  background-color: #00a5dc28;
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  backdrop-filter: var(--blur);
+  background-color: var(--md-hover-primary);
 }
 
 /* Card styles */
