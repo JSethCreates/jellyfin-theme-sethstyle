@@ -1,4 +1,4 @@
-/* Bacons Material 3 Theme v2.2*/
+/* Bacons Material 3 Theme v2.4*/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
@@ -114,11 +114,6 @@ option {
   font-family: "Inter", sans-serif;
   font-size: 1rem;
   padding: 1em;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.customCssContainer textarea {
-	height: auto !important;
 }
 
 /* If phone portrait mode we make some small changes but keep mostly stock jfweb */
@@ -128,7 +123,7 @@ option {
   }
 }
 
-/* If phone or device has width, we can apply all styles */
+/* If phone or device has full width, we can apply all styles */
 @media (min-width: 44em) {
 
 .overflowBackdropCard, .overflowSmallBackdropCard {
@@ -137,11 +132,22 @@ option {
 
 .card {
   padding-left: 0.6em;
+
+}
+.cardScalable {
+  border-radius: var(--md-border-radius);
+}
+.cardImageContainer {
+  border-radius: inherit; /* Match the .cardScalable radius */
+}
+
+.customCssContainer textarea {
+	height: auto !important;
 }
 
 /* Overlay elements */
 .cardOverlayContainer,
-.cardScalables,
+.cardScalable,
 .cardPadder {
   overlay: none;
 }
@@ -162,18 +168,10 @@ option {
 /* Md3 Card styles */
 .cardBox {
   background-color: var(--md-sys-color-on-surface);
-  border: 1px solid var(--md-sys-color-outline);
+  \\border: 1px solid var(--md-sys-color-outline);
   border-radius: var(--md-border-radius); /* 12px */
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   padding: 1.5em;
   transition: transform 0.3s ease-in-out;
-}
-
-
-.itemsContainer > .card > .cardBox {
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 200ms cubic-bezier(0.2, 0, 0, 1),
-              transform 200ms cubic-bezier(0.2, 0, 0, 1);
 }
 
 .itemsContainer > .card > .cardBox:hover {
@@ -183,17 +181,25 @@ option {
 
 /* Text styles */
 .cardText {
-  font-size: large;
-  padding: 2%;
+  font-size: clamp(0.8rem, 1.8vw, 1.4rem);
+  line-height: 1.4;
+  padding: 0.2em 1em;
+  color: var(--md-sys-color-surface);
 }
 
 .cardText-secondary {
-  font-size: small;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0.2em 1em;
+  color: var(--md-sys-color-surface);
+  opacity: 0.72;
 }
 
-/* Primary content styling */
+/* Primary content (play ect. buttons) on media page styling */
 .detailPagePrimaryContainer {
-  background-color: var(--transparent-bg);
+  background-color: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-border-radius);
+  \\box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   display: inline-table;
   left: 5%;
   padding-left: 5%;
@@ -254,23 +260,10 @@ html.preload.layout-desktop {
   margin-top: -65vh;
 }
 
-/* Hide unnecessary elements */
-.layout-desktop .detailImageContainer .card,
-.layout-desktop .itemTags,
-.layout-desktop .itemName.originalTitle {
-  display: none;
-}
-
-.layout-desktop .itemName,
-.layout-mobile .itemName {
-  font-weight: normal;
-}
-
 .layout-desktop a.overview-expand.emby-button {
   margin: 0;
   padding: 0;
 }
-
 
 /* Status indicators */
 .countIndicator,
@@ -308,7 +301,7 @@ html.preload.layout-desktop {
 /* Progress bars and inner card styles */
 .itemProgressBarForeground {
   background-color: #00a5dc93;
-  border-radius: 10px;
+  border-radius: var(--md-border-radius); /* 12px */
   z-index: 1;
 }
 
@@ -365,7 +358,7 @@ h2 {
 
 /* Other styles */
 .raised {
-  border-radius: 4em;
+  border-radius: var(--md-border-radius);
 }
 
 #btnShutdown {
@@ -387,8 +380,8 @@ h2 {
 }
 
 .cardImageContainer {
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
+  border-top-right-radius: var(--md-border-radius);
+  border-top-left-radius: var(--md-border-radius);
 }
 
 /* Backdrop force for small screens */
@@ -425,7 +418,9 @@ html {
     height: 50vh !important;
     aspect-ratio: 2 / 3 !important;
     width: auto !important;
-    z-index: 99 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
 }
 
 /* Poster image styling */
