@@ -168,14 +168,24 @@ option {
 /* Md3 Card styles */
 .cardBox {
   background-color: var(--md-sys-color-on-surface);
-  \\border: 1px solid var(--md-sys-color-outline);
   border-radius: var(--md-border-radius); /* 12px */
   padding: 1.5em;
   transition: transform 0.3s ease-in-out;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
+  overflow: visible;
+}
+.cardBox:not(.visualCardBox) .cardPadder,
+.cardContent-shadow {
+    box-shadow: none !important;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+}
+.card:not(.show-animation) {
+    contain: none !important;
 }
 
 .itemsContainer > .card > .cardBox:hover {
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5);
   transform: scale(1.05); /* Slight growth */
 }
 
@@ -199,7 +209,6 @@ option {
 .detailPagePrimaryContainer {
   background-color: var(--md-sys-color-surface-container-low);
   border-radius: var(--md-border-radius);
-  \\box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   display: inline-table;
   left: 5%;
   padding-left: 5%;
@@ -374,11 +383,6 @@ h2 {
   height: 1em;
 }
 
-
-.cardBox:not(.visualCardBox) .cardPadder{
-  background-color: #00000000;
-}
-
 .cardImageContainer {
   border-top-right-radius: var(--md-border-radius);
   border-top-left-radius: var(--md-border-radius);
@@ -392,7 +396,7 @@ h2 {
     width: 100vw;
     height: 100vh;
     background-attachment: scroll;
-    background-position: center;
+    background-position: top left;
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 1 !important;
@@ -410,10 +414,15 @@ html {
 }
 
 /* Media Page Adjustments */
+.listItemImage-large {
+    height: 10vw !important;
+    width: 16vw !important;
+}
+
 .detailImageContainer .card {
     position: fixed !important;
     top: 40% !important; /* Vertically centered slightly higher */
-    left: 5% !important;
+    left: 4% !important;
     transform: translateY(-50%) !important;
     height: 50vh !important;
     aspect-ratio: 2 / 3 !important;
