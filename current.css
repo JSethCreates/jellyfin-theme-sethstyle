@@ -1,4 +1,4 @@
-/* Bacons Material 3 Theme v2.4*/
+/* Bacons GNAT Material design 3 style v2.5*/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
@@ -93,12 +93,17 @@ option {
   z-index: 1;
 }
 
+html, body, #indexPage {
+  height: 100%;
+  overflow-x: hidden;
+}
+
 #indexPage {
   background-image: url('https://i.imgur.com/RprSuTS.jpeg');
   background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: fixed !important;
 }
 
 #txtCustomCss, #txtLocalCustomCss {
@@ -127,7 +132,7 @@ option {
 @media (min-width: 44em) {
 
 .overflowBackdropCard, .overflowSmallBackdropCard {
-    width: 15.6vw;
+    width: 15.5vw;
 }
 
 .card {
@@ -487,18 +492,17 @@ html {
   min-width: 0 !important;
 }
 
+/* Reorganise the tagline/plot then director/tags/streams section sent to the bottom */
 .tagline {
   font-size: 1.4em;
   line-height: 1.3;
   font-family: 'Special Elite', monospace;
   text-align: center !important;
 } 
-
 .detailSection {
     display: flex !important;
     flex-direction: column !important;
 }
-
 .detailSection .detailSectionContent {
     order: 1;
     font-size: 1.4em !important;
@@ -512,6 +516,62 @@ html {
 }
 .detailSection .itemDetailsGroup {
     order: 4;
+}
+.detailPageContent {
+  position: relative !important;
+  padding-bottom: 550px; /* make space for the stacked items */
+}
+.trackSelections {
+  position: absolute;
+  bottom: -1050px;
+}
+.itemTags {
+  position: absolute;
+  bottom: -1150px;
+}
+.itemDetailsGroup {
+  position: absolute;
+  bottom: -1300px;
+}
+.itemExternalLinks {
+  position: absolute;
+  bottom: -1400px;
+  width: 200%;
+  padding-right: 2%;
+}
+
+/* Shared logo link styles */
+a[href*="imdb.com"]::before,
+a[href*="trakt.tv"]::before,
+a[href*="themoviedb.org"]::before,
+a[href*="themoviedb.org/collection"]::before,
+a[href*="thetvdb.com"]::before,
+a[href*="tvmaze.com"]::before {
+	content: "";
+	display: inline-block;
+	width: 50px;
+	height: 25px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-right: 15px;
+	vertical-align: middle;
+}
+
+/* Individual logos */
+a[href*="imdb.com"]::before { background-image: url('https://i.imgur.com/pbNvPMX.png'); }
+a[href*="trakt.tv"]::before { background-image: url('https://i.imgur.com/c1zc8d7.png'); }
+a[href*="themoviedb.org"]::before { background-image: url('https://i.imgur.com/RlC69qy.png'); }
+a[href*="themoviedb.org/collection"]::before { background-image: url('https://i.imgur.com/HDodxf3.png'); }
+a[href*="thetvdb.com"]::before { background-image: url('https://i.imgur.com/Jp1VNqp.png'); }
+a[href*="tvmaze.com"]::before { background-image: url('https://i.imgur.com/sd2al6G.png'); }
+
+/* Hide text for all links */
+a[href*="imdb.com"],
+a[href*="trakt.tv"],
+a[href*="themoviedb.org"],
+a[href*="thetvdb.com"],
+a[href*="tvmaze.com"] {
+	font-size: 0;
 }
 
 }
