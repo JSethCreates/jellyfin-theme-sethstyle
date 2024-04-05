@@ -1,4 +1,5 @@
-/* Bacons GNAT Material design 3 style v2.5*/
+
+/* Bacons GNAT Material design 3 style v2.6*/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
@@ -481,11 +482,11 @@ html {
 }
 
 .itemMiscInfo-primary {
-  white-space: nowrap !important;
+  white-space: normal !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   display: flex !important;
-  flex-wrap: nowrap !important;
+  flex-wrap: wrap !important;
   gap: 0.5em;
   align-items: center;
   font-size: clamp(0.1rem, 0.75vw, 1.3rem) !important;
@@ -518,7 +519,7 @@ html {
     order: 4;
 }
 .detailPageContent {
-  position: relative !important;
+  /* position: relative !important; */
   padding-bottom: 550px; /* make space for the stacked items */
 }
 .trackSelections {
@@ -536,7 +537,7 @@ html {
 .itemExternalLinks {
   position: absolute;
   bottom: -1400px;
-  width: 200%;
+  width: 100%;
   padding-right: 2%;
 }
 
@@ -573,5 +574,135 @@ a[href*="thetvdb.com"],
 a[href*="tvmaze.com"] {
 	font-size: 0;
 }
+
+/* --------------------
+   Play Button (Primary Action)
+--------------------- */
+.btnPlay.detailButton {
+  background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
+  border: none !important;
+  border-radius: var(--md-border-radius) !important;
+  width: 4.4em !important;
+  height: 4.4em !important;
+  font-size: 1.4rem !important;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-transform: none !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease !important;
+  transform: translateY(-0.7em) !important;
+  z-index: 2 !important;
+  margin-right: -0.6em !important;
+}
+
+.btnPlay.detailButton:hover {
+  background-color: #5f429a !important;
+  transform: translateY(-0.7em) scale(1.2) !important;
+}
+
+/* --------------------
+   Segmented Button Group (Secondary Actions)
+--------------------- */
+.segmentedButtonGroup {
+  display: inline-flex !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--md-sys-color-outline) !important;
+  background-color: transparent !important;
+  padding: 0.1em !important;
+  box-sizing: border-box !important;
+  z-index: 1 !important;
+}
+
+/* Individual Segmented Buttons — visible only */
+.mainDetailButtons > .btnReplay.detailButton:not(.hide),
+.mainDetailButtons > .btnPlayTrailer.detailButton:not(.hide),
+.mainDetailButtons > .btnShuffle.detailButton:not(.hide),
+.mainDetailButtons > .btnPlaystate.detailButton:not(.hide),
+.mainDetailButtons > .btnUserRating.detailButton:not(.hide),
+.mainDetailButtons > .btnMoreCommands.detailButton:not(.hide) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: clamp(0.3em, 1vw, 0.6em) clamp(0.6em, 2vw, 1em) !important;
+  font-size: clamp(0.7rem, 1vw, 0.95rem) !important;
+  flex-shrink: 1 !important;
+  color: var(--md-sys-color-surface) !important;
+  background-color: transparent !important;
+  border: 1px solid var(--md-sys-color-outline) !important;
+  border-top: 1px solid var(--md-sys-color-outline) !important;
+  border-bottom: 1px solid var(--md-sys-color-outline) !important;
+  transition: background-color 0.2s ease, color 0.2s ease, border-radius 0.2s ease !important;
+  text-transform: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Left and right caps */
+.mainDetailButtons > .btnReplay.detailButton:not(.hide) {
+  border-top-left-radius: 999px !important;
+  border-bottom-left-radius: 999px !important;
+}
+
+.mainDetailButtons > .btnMoreCommands.detailButton:not(.hide) {
+  border-top-right-radius: 999px !important;
+  border-bottom-right-radius: 999px !important;
+}
+
+/* Segment Dividers */
+.mainDetailButtons > .btnReplay.detailButton:not(.hide):not(:last-child),
+.mainDetailButtons > .btnPlayTrailer.detailButton:not(.hide):not(:last-child),
+.mainDetailButtons > .btnShuffle.detailButton:not(.hide):not(:last-child),
+.mainDetailButtons > .btnPlaystate.detailButton:not(.hide):not(:last-child),
+.mainDetailButtons > .btnUserRating.detailButton:not(.hide):not(:last-child) {
+  border-right: 1px solid var(--md-sys-color-outline) !important;
+}
+
+/* Segment Hover */
+.mainDetailButtons > .btnReplay.detailButton:not(.hide):hover,
+.mainDetailButtons > .btnPlayTrailer.detailButton:not(.hide):hover,
+.mainDetailButtons > .btnShuffle.detailButton:not(.hide):hover,
+.mainDetailButtons > .btnPlaystate.detailButton:not(.hide):hover,
+.mainDetailButtons > .btnUserRating.detailButton:not(.hide):hover,
+.mainDetailButtons > .btnMoreCommands.detailButton:not(.hide):hover {
+  background-color: var(--md-sys-color-surface-container) !important;
+  color: var(--md-sys-color-on-surface) !important;
+  border-radius: 0 !important;
+}
+
+/* Preserve right edge rounding on hover */
+.mainDetailButtons > .btnMoreCommands.detailButton:not(.hide):hover {
+  border-top-right-radius: 999px !important;
+  border-bottom-right-radius: 999px !important;
+}
+
+/* Preserve left edge rounding on hover */
+.mainDetailButtons > .btnReplay.detailButton:not(.hide):hover {
+  border-top-left-radius: 999px !important;
+  border-bottom-left-radius: 999px !important;
+}
+
+/* --------------------
+   Shared Icon/Layout Styling
+--------------------- */
+.detailButton-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.4em !important;
+}
+
+.detailButton-icon {
+  font-size: 1.3em !important;
+  vertical-align: middle !important;
+  transition: color 0.2s ease !important;
+}
+
+/* Respect .hide anywhere else, just in case */
+.detailButton.hide {
+  display: none !important;
+}
+
 
 }
