@@ -93,11 +93,6 @@ option {
   z-index: 1;
 }
 
-html, body, #indexPage {
-  height: 100%;
-  overflow-x: hidden;
-}
-
 #indexPage {
   background-image: url('https://i.imgur.com/RprSuTS.jpeg');
   background-position: top left;
@@ -332,8 +327,6 @@ html.preload.layout-desktop {
   right: 10px;
 }
 
-
-
 /* Headings */
 h2 {
   font-weight: 700;
@@ -375,14 +368,9 @@ h2 {
   border-radius: var(--md-border-radius);
 }
 
-#btnShutdown {
-  background-color: #bb4a4a;
-}
-
 .paperList {
   border-radius: 1em;
 }
-
 
 .sliderContainer {
   height: 1em;
@@ -393,7 +381,7 @@ h2 {
   border-top-left-radius: var(--md-border-radius);
 }
 
-/* Backdrop force for small screens */
+/* Backdrop force for small screen resolutions */
 .layout-tv .itemBackdrop {
     display: block !important;
     top: 0;
@@ -602,9 +590,11 @@ a[href*="tvmaze.com"] {
 	font-size: 0;
 }
 
-/* --------------------
-   Play Button (Primary Action)
---------------------- */
+/* -----------------------------------------------------------------------------------------
+
+Button Section 
+
+--------------------------------------------------------------------------------------------- */
 .btnPlay.detailButton {
   background-color: var(--md-sys-color-primary) !important;
   color: var(--md-sys-color-on-primary) !important;
@@ -629,9 +619,7 @@ a[href*="tvmaze.com"] {
   transform: translateY(-0.7em) scale(1.2) !important;
 }
 
-/* --------------------
-   Segmented Button Group (Secondary Actions)
---------------------- */
+/* Segmented Button Group (Secondary Actions)*/
 .segmentedButtonGroup {
   display: inline-flex !important;
   border-radius: 999px !important;
@@ -710,9 +698,7 @@ a[href*="tvmaze.com"] {
   border-bottom-left-radius: 999px !important;
 }
 
-/* --------------------
-   Shared Icon/Layout Styling
---------------------- */
+/* Shared Icon/Layout Styling */
 .detailButton-content {
   display: flex !important;
   align-items: center !important;
@@ -726,36 +712,83 @@ a[href*="tvmaze.com"] {
   transition: color 0.2s ease !important;
 }
 
-/* Respect .hide anywhere else, just in case */
-.detailButton.hide {
-  display: none !important;
-}
-
 a.button-link.itemAction.emby-button {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 0.2em 0.8em !important;
+  padding: 0.2em 0.7em !important;
   font-size: inherit !important;
   font-weight: 500 !important;
   text-decoration: none !important;
   border: 1px solid var(--md-sys-color-outline) !important;
-  border-radius: var(--md-border-radius) !important;
+  border-radius: 999px !important; /* Full pill shape */
   background-color: transparent !important;
-  color: inherit !important;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;
+  color: var(--md-sys-color-surface) !important; /* Light text by default */
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
   cursor: pointer !important;
+  line-height: 1.2 !important;
 }
 
 a.button-link.itemAction.emby-button:hover {
-  background-color: var(--md-hover-primary) !important;
-  color: var(--md-sys-color-on-surface) !important;
+  background-color: var(--md-sys-color-surface-container) !important; /* Light surface hover */
+  color: var(--md-sys-color-on-surface) !important; /* Darker text */
   border-color: var(--md-sys-color-outline) !important;
 }
 
 a.button-link.itemAction.emby-button:focus {
   outline: 2px solid var(--md-sys-color-primary) !important;
   outline-offset: 2px !important;
+}
+/* Overview "Show More" — pill-style outline */
+a.overview-expand.emby-button {
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.2em 0.7em !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  border: 1px solid var(--md-sys-color-outline) !important;
+  border-radius: 999px !important;
+  background-color: transparent !important;
+  color: var(--md-sys-color-surface) !important;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+  cursor: pointer !important;
+  line-height: 1.2 !important;
+}
+
+a.overview-expand.emby-button:hover {
+  background-color: var(--md-sys-color-surface-container) !important;
+  color: var(--md-sys-color-on-surface) !important;
+}
+
+/* "More" Button — MD3 Raised Mini Tonal Button */
+button.raised.more.raised-mini.noIcon.emby-button {
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.3em 1em !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  border: none !important;
+  border-radius: 999px !important;
+  background-color: var(--md-sys-color-surface-container-high) !important;
+  color: var(--md-sys-color-on-surface) !important;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) !important;
+  text-transform: none !important;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease !important;
+}
+
+button.raised.more.raised-mini.noIcon.emby-button:hover {
+  background-color: var(--md-sys-color-surface-container) !important;
+  color: var(--md-sys-color-on-surface) !important;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.25) !important;
+}
+/* Respect Jellyfin's logic for hidden buttons */
+.detailButton.hide {
+  display: none !important;
+}
+
+.emby-button.hide {
+  display: none !important;
 }
 
 }
