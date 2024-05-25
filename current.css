@@ -1,4 +1,4 @@
-/* Bacons GNAT Material design 3 style v2.7*/
+/* Bacons GNAT Material design 3 style v2.9*/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
@@ -35,6 +35,20 @@
   --border-color: linear-gradient(45deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 41%, rgba(255, 255, 255, 0.1) 57%, rgba(255, 255, 255, 0.3) 100%);
 }
 
+/* Spinner */
+.mdl-spinner__layer-1 {
+	border-color: var(--md-sys-color-surface-container-low);
+}
+.mdl-spinner__layer-2 {
+	border-color: var(--md-sys-color-surface-container);
+}
+.mdl-spinner__layer-3 {
+	border-color: var(--md-sys-color-surface-container-high);
+}
+.mdl-spinner__layer-4 {
+	border-color: var(--md-sys-color-primary);
+}
+
 html {
   box-sizing: border-box;
   font-family: "Inter", sans-serif !important;
@@ -62,12 +76,16 @@ option {
   border: 1px solid var(--md-sys-color-outline);
 }
 
-/* skinHeader rounded edge updated for MD3 */
+/* skinHeader rounded edge updated for MD3 but its ugly..*/
 .skinHeader {
   border-left: 0;
   border-right: 0;
   border-top: 0;
-  border-radius: var(--md-border-radius); /* 12px */
+  /* border-radius: var(--md-border-radius);  12px */
+}
+
+.headerTop {
+    padding: 0 !important;
 }
 
 /* Form elements styled for MD3 */
@@ -93,12 +111,19 @@ option {
   z-index: 1;
 }
 
+
 #indexPage {
   background-image: url('https://i.imgur.com/RprSuTS.jpeg');
   background-position: top left;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed !important;
+}
+
+/* Header Logo */
+.pageTitleWithLogo.pageTitleWithDefaultLogo {
+	transform: scale(0.7);
+	transform-origin: left;
 }
 
 #txtCustomCss, #txtLocalCustomCss {
@@ -116,6 +141,37 @@ option {
   padding: 1em;
 }
 
+.emby-scrollbuttons.padded-right {
+  display: none !important;
+}
+
+
+/* Reorder the Media Items Page */
+.detailPagePrimaryContent {
+	display: flex;
+	flex-direction: column;
+}
+
+#childrenCollapsible {
+	order: 1 !important;
+}
+
+#castCollapsible {
+	order: 2 !important;
+}
+
+#similarCollapsible {
+	order: 3 !important;
+}
+
+.nextUpSection {
+	order: 4 !important;
+}
+
+.moreFromSeasonSection {
+	order: 5 !important;
+}
+
 /* If phone portrait mode we make some small changes but keep mostly stock jfweb */
 @media (max-width: 43em) {
   .featurediframe {
@@ -127,6 +183,12 @@ option {
 @media (min-width: 44em) {
 
 .overflowBackdropCard, .overflowSmallBackdropCard {
+    width: 18.5vw;
+}
+.overflowPortraitCard, .overflowSmallPortraitCard {
+    width: 13vw;
+}
+#castContent .personCard {
     width: 15.5vw;
 }
 
@@ -289,7 +351,7 @@ html.preload.layout-desktop {
 /* Hover effects for menu options */
 .actionSheetMenuItem:hover,
 .navMenuOption:hover {
-  background-color: #00a5dc28;
+  background-color: var(--md-hover-primary);
 }
 
 /* Floating action button (FAB) for cards */
@@ -328,8 +390,58 @@ html.preload.layout-desktop {
 }
 
 /* Headings */
+h1 {
+  font-size: clamp(3rem, 5vw, 3.5625rem); /* Display Large */
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--md-sys-color-surface);
+  margin-bottom: 0.5em;
+}
+
 h2 {
-  font-weight: 700;
+  font-size: clamp(1.5rem, 2vw, 2rem); /* Display Medium */
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--md-sys-color-surface);
+  margin-bottom: 0.2em;
+}
+
+h3 {
+  font-size: clamp(2rem, 3vw, 2.25rem); /* Display Small */
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: var(--md-sys-color-surface);
+  margin-bottom: 0.5em;
+}
+
+h4 {
+  font-size: clamp(1.75rem, 2.5vw, 2rem); /* Headline Large */
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: var(--md-sys-color-surface);
+  margin-bottom: 0.4em;
+}
+
+h5 {
+  font-size: clamp(1.5rem, 2vw, 1.75rem); /* Headline Medium */
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--md-sys-color-surface);
+  margin-bottom: 0.4em;
+}
+
+h6 {
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem); /* Headline Small */
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: var(--md-sys-color-surface);
+  margin-bottom: 0.4em;
 }
 
 /* Desktop play button styles */
@@ -448,15 +560,18 @@ html {
     background: none !important;
     font-size: clamp(0.9rem, 1.3vw, 1.8rem) !important;
 }
+.parentName.focuscontainer-x {
+    padding-bottom: 0.2em;
+}
+
 
 .itemName {
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
-    line-height: 1.3 !important;
+    display: block !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
     text-overflow: ellipsis !important;
     font-size: clamp(1rem, 3vw, 2.6rem) !important;
     max-width: 100% !important;
-    display: block !important;
     margin-bottom: 0.3em !important;
 }
 .itemName .season::after {
@@ -489,10 +604,15 @@ html {
 
 /* Decrease the font size of the Season-/episode line */
 h3.itemName.infoText.subtitle.focuscontainer-x {
-  font-size: 2rem !important;      /* make this smaller or larger to taste */
-  line-height: 1.3 !important;
-  margin-top: 0.2rem !important;
-  margin-bottom: 0.4rem !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+    font-size: 2rem !important;
+    line-height: 1.3 !important;
+    margin-top: 0.2rem !important;
+    margin-bottom: 0.4rem !important;
 }
 
 /* Ensure the link inside follows the same size */
@@ -549,11 +669,44 @@ h3.itemName.infoText.subtitle.focuscontainer-x a.button-link::after {
   position: absolute;
   bottom: -1300px;
 }
+
+/*---External Links Styling (IMDb, Trakt, etc.) ---*/
 .itemExternalLinks {
-  position: absolute;
-  bottom: -1400px;
-  width: 100%;
-  padding-right: 2%;
+  position: fixed !important;
+  top: 95vh !important;
+  left: 0 !important;
+  width: 32vw !important;
+  display: flex !important;
+  justify-content: center !important;
+  flex-direction: row !important;
+  gap: 0.6em !important;
+  font-size: 0 !important;
+  z-index: 98 !important;
+}
+
+/* Remove commas between links */
+.itemExternalLinks::before,
+.itemExternalLinks::after {
+  content: none !important;
+}
+.itemExternalLinks > * + *::before {
+  content: "" !important;
+}
+
+/* Shared logo styling */
+.itemExternalLinks a::before {
+  content: "";
+  display: inline-block;
+  width: 2.4em;
+  height: 2.4em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: grayscale(100%) brightness(60%) opacity(0.4);
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+/* Hover effect to restore color */
+.itemExternalLinks a:hover::before {
+  filter: grayscale(0%) brightness(100%) opacity(1);
 }
 
 /* Shared logo link styles */
@@ -588,6 +741,180 @@ a[href*="themoviedb.org"],
 a[href*="thetvdb.com"],
 a[href*="tvmaze.com"] {
 	font-size: 0;
+}
+
+/* MD3 Dialog Box Styling — Dark Container with Light Text */
+.dialog.dialog-fixedSize.dialog-small.formDialog {
+  background-color: var(--md-dialog-elevation);
+  border-radius: var(--md-border-radius);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
+  color: var(--md-sys-color-on-primary); /* LIGHT TEXT FOR DARK BG */
+  padding: 1.5em;
+  max-width: 500px;
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--md-sys-color-outline);
+}
+
+/* Dialog header */
+.formDialogHeader {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--md-sys-color-on-primary);
+  margin-bottom: 1em;
+}
+.formDialogHeaderTitle {
+  color: var(--md-sys-color-on-primary);
+}
+
+/* Back icon */
+.formDialogHeader .btnCancel {
+  background-color: transparent;
+  border: none;
+  color: var(--md-sys-color-on-primary);
+  padding: 0.3em;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+.formDialogHeader .btnCancel:hover {
+  background-color: var(--md-hover-primary);
+}
+
+/* Dialog content */
+.formDialogContent {
+  background-color: transparent;
+  color: var(--md-sys-color-on-primary);
+  font-size: 1rem;
+  padding: 0;
+}
+
+/* Select & checkbox containers */
+.selectContainer,
+.checkboxContainer {
+  margin-bottom: 1.5em;
+}
+.selectContainer select.emby-select,
+.emby-checkbox {
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-border-radius);
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface); /* Still light surface bg */
+  padding: 0.6em;
+  font-size: 1rem;
+}
+
+/* Labels and descriptions — use light text */
+.selectLabel,
+.checkboxLabel,
+.fieldDescription,
+.formDialogContent label,
+.formDialogContent span {
+  color: var(--md-sys-color-on-primary); /* light text for dark bg */
+}
+
+/* Help text style */
+.fieldDescription {
+  opacity: 0.85;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Checkbox visuals */
+.checkboxOutline {
+  border-radius: var(--md-border-radius);
+  border: 1px solid var(--md-sys-color-outline);
+  background-color: var(--md-sys-color-surface-container);
+}
+.checkboxIcon {
+  font-size: 1.2rem;
+  color: var(--md-sys-color-primary);
+}
+
+/* Dialog footer & buttons */
+.formDialogFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+  margin-top: 2em;
+}
+.formDialogFooterItem.button-submit {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border-radius: var(--md-border-radius);
+  padding: 0.6em 1.5em;
+  font-size: 1rem;
+  border: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.formDialogFooterItem.button-submit:hover {
+  background-color: #5f429a;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* MD3 Action Sheet Container */
+.dialog.actionSheet {
+  background-color: var(--md-dialog-elevation);
+  border-radius: var(--md-border-radius);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
+  color: var(--md-sys-color-on-primary); /* Light text for dark container */
+  padding: 1em 0;
+  border: 1px solid var(--md-sys-color-outline);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+}
+
+/* Scrollable content */
+.actionSheetScroller {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Action Sheet Buttons */
+.actionSheetMenuItem {
+  display: flex !important;
+  align-items: center;
+  padding: 0.8em 1.2em;
+  border: none;
+  background: transparent;
+  width: 100%;
+  color: var(--md-sys-color-on-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover state for menu items */
+.actionSheetMenuItem:hover {
+  background-color: var(--md-hover-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+/* Menu item icon */
+.actionsheetMenuItemIcon {
+  font-size: 1.5rem;
+  margin-right: 1em;
+  color: var(--md-sys-color-on-primary);
+}
+
+/* Text inside the item */
+.actionSheetItemText {
+  color: var(--md-sys-color-on-primary);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Divider styling */
+.actionsheetDivider {
+  height: 1px;
+  margin: 0.5em 1em;
+  background-color: var(--md-sys-color-outline);
+  opacity: 0.5;
+  border-radius: 1px;
 }
 
 /* -----------------------------------------------------------------------------------------
@@ -639,11 +966,12 @@ Button Section
 .mainDetailButtons > .btnUserRating.detailButton:not(.hide),
 .mainDetailButtons > .btnMoreCommands.detailButton:not(.hide) {
   display: inline-flex !important;
+  width: 100% !important
   align-items: center !important;
   justify-content: center !important;
   padding: clamp(0.3em, 1vw, 0.6em) clamp(0.6em, 2vw, 1em) !important;
-  font-size: clamp(0.7rem, 1vw, 0.95rem) !important;
-  flex-shrink: 1 !important;
+  font-size: clamp(0.7rem, 2vw, 0.95rem) !important;
+  flex-grow: 1 !important;
   color: var(--md-sys-color-surface) !important;
   background-color: transparent !important;
   border: 1px solid var(--md-sys-color-outline) !important;
