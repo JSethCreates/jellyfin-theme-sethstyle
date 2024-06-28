@@ -1,9 +1,9 @@
-/* Bacons GNAT Material design 3 style v3.0*/
+/* Seths GNAT Material design 3 style v3.1*/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
-/* Material Design 3 System Colors */
+/* System Colors */
 :root {
   --md-sys-color-primary: #6750A4;
   --md-sys-color-on-primary: #FFFFFF;
@@ -83,7 +83,7 @@ option {
 }
 
 .headerTop {
-    padding: 0 !important;
+    padding: 10 !important;
 }
 
 /* Form elements styled for MD3 */
@@ -110,11 +110,8 @@ option {
 }
 
 #indexPage {
-  background-image: url('https://i.imgur.com/RprSuTS.jpeg');
-  background-position: top left;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed !important;
+  background-color: var(--md-sys-color-on-surface) !important;
+  min-height: 350vh;
 }
 
 /* Header Logo */
@@ -140,6 +137,12 @@ option {
 
 .emby-scrollbuttons.padded-right {
   display: none !important;
+}
+
+.cardOverlayButton.cardOverlayButton-br {
+  display: none !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
 }
 
 /* Slight card title shift */
@@ -230,7 +233,7 @@ option {
 
 /* Md3 Card styles */
 .cardBox {
-  background-color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-color-secondary);
   border-radius: var(--md-border-radius); /* 12px */
   padding: 1.5em;
   transition: transform 0.3s ease-in-out;
@@ -254,7 +257,7 @@ option {
 
 /* Text styles */
 .cardText {
-  font-size: clamp(0.8rem, 1.8vw, 1.4rem);
+  font-size: clamp(0.65rem, 1.3vw, 1.1rem);
   line-height: 1.4;
   padding: 0.2em 1em;
   color: var(--md-sys-color-surface);
@@ -447,6 +450,11 @@ h5 {
   margin-bottom: 0.4em;
 }
 
+.sectionTitle.padded-left:nth-of-type(1) {
+  visibility: hidden;
+  margin-bottom: 0.4em;
+}
+
 /* Desktop play button styles */
 .layout-desktop .btnPlay {
   background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
@@ -573,7 +581,7 @@ html {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    font-size: clamp(1rem, 3vw, 2.6rem) !important;
+    font-size: clamp(0.5rem, 2vw, 2.6rem) !important;
     max-width: 100% !important;
     margin-bottom: 0.3em !important;
 }
@@ -587,6 +595,7 @@ html {
     width: 100% !important;
     box-sizing: border-box !important;
     white-space: nowrap !important;
+    font-size: clamp(0.9rem, 1vw, 1.4rem) !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     display: block !important;
@@ -611,7 +620,7 @@ h3.itemName.infoText.subtitle.focuscontainer-x {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    font-size: 2rem !important;
+    font-size: clamp(1rem, 1.4vw, 2.0rem) !important;
     line-height: 1.3 !important;
     margin-top: 0.2rem !important;
     margin-bottom: 0.4rem !important;
@@ -662,15 +671,20 @@ h3.itemName.infoText.subtitle.focuscontainer-x a.button-link::after {
 }
 .trackSelections {
   position: absolute;
-  bottom: -1050px;
+  bottom: -155vh;
 }
 .itemTags {
   position: absolute;
-  bottom: -1150px;
+  top: 118vh;
+  font-size: 1.2em;
+  max-width: 52ch; 
+  white-space: normal;       /* Allow wrapping */
+  overflow-wrap: break-word; /* Break long words if needed */
 }
 .itemDetailsGroup {
   position: absolute;
-  bottom: -1300px;
+  bottom: -145vh;
+  font-size: 1.4em;
 }
 
 /*---External Links Styling (IMDb, Trakt, etc.) ---*/
@@ -972,14 +986,14 @@ Button Section
   width: 100% !important
   align-items: center !important;
   justify-content: center !important;
-  padding: clamp(0.3em, 1vw, 0.6em) clamp(0.6em, 2vw, 1em) !important;
-  font-size: clamp(0.7rem, 2vw, 0.95rem) !important;
+  padding: clamp(0.3em, 1vw, 0.6em) clamp(0.6em, 2vw, 1em);
+  font-size: clamp(0.7rem, 2vw, 0.95rem);
   flex-grow: 1 !important;
-  color: var(--md-sys-color-surface) !important;
-  background-color: transparent !important;
-  border: 1px solid var(--md-sys-color-outline) !important;
-  border-top: 1px solid var(--md-sys-color-outline) !important;
-  border-bottom: 1px solid var(--md-sys-color-outline) !important;
+  color: var(--md-sys-color-surface);
+  background-color: transparent;
+  border: 1px solid var(--md-sys-color-outline);
+  border-top: 1px solid var(--md-sys-color-outline);
+  border-bottom: 1px solid var(--md-sys-color-outline);
   transition: background-color 0.2s ease, color 0.2s ease, border-radius 0.2s ease !important;
   text-transform: none !important;
   box-sizing: border-box !important;
