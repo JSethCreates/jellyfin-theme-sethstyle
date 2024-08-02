@@ -1,4 +1,4 @@
-/* Seths GNAT Material design 3 style v3.2*/
+/* Seths GNAT Material design 3 style v3.5*/
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
@@ -100,10 +100,44 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 
 /* Volume & Progress Bar*/
 
-.mdl-slider{color:var(--md-sys-color-primary)!important;}
-.mdl-slider-background-lower{background-color:var(--md-sys-color-primary);}
-.mdl-slider::-moz-range-thumb,.mdl-slider::-ms-thumb,.mdl-slider::-webkit-slider-thumb{background:var(--md-sys-color-primary);}
 
+.mdl-slider {
+  color: var(--md-sys-color-primary) !important;
+}
+
+.mdl-slider::-webkit-slider-thumb {
+    background: var(--md-sys-color-primary) !important;
+}
+
+.mdl-slider::-moz-range-thumb,
+.mdl-slider::-ms-thumb,
+.mdl-slider::-webkit-slider-thumb {
+  background: var(--md-sys-color-primary) !important;
+}
+
+.sliderMarker.watched {
+    background-color: var(--md-sys-color-surface-container-high) !important;
+}
+
+.iconOsdProgressInner {
+  background: var(--md-sys-color-primary) !important;
+}
+
+/* Various hover and active button states */
+.paper-icon-button-light:hover,
+.paper-icon-button-light:hover:not(:disabled),
+.raised.homeLibraryButton:hover,
+.button-flat:hover,
+.playstatebutton-icon-played,
+.ratingbutton-icon-withrating,
+.emby-tab-button:hover,
+.selectLabelFocused,
+.inputLabelFocused,
+.textareaLabelFocused,
+.buttonActive,
+.button-link {
+  color: var(--md-sys-color-primary) !important;
+}
 
 .mdl-slider-background-lower {
   background: linear-gradient(
@@ -115,7 +149,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
   );
 }
 .mdl-slider-background-upper {
-	background: var(--md-sys-color-primary);
+	background: var(--md-sys-color-surface-container);
 }
 .mdl-slider::-moz-range-thumb,.mdl-slider::-ms-thumb,.mdl-slider::-webkit-slider-thumb{border-radius:var(--md-border-radius);}
 
@@ -323,6 +357,7 @@ option {
 
 .itemsContainer > .card > .cardBox:hover {
   box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5);
+  background-color: var(--md-sys-color-primary);
   transform: scale(1.05); /* Slight growth */
 }
 
@@ -535,7 +570,7 @@ h5 {
 }
 
 .layout-desktop .btnPlay:hover {
-  background-color: #00a5dc28;
+  background-color: var(--md-sys-color-primary);
   transform: translateX(5px);
 }
 
@@ -1011,7 +1046,7 @@ Button Section
 
 --------------------------------------------------------------------------------------------- */
 .btnPlay.detailButton {
-  background-color: var(--md-sys-color-primary) !important;
+  background-color: var(--md-sys-color-secondary) !important;
   color: var(--md-sys-color-on-primary) !important;
   border: none !important;
   border-radius: var(--md-border-radius) !important;
@@ -1030,7 +1065,7 @@ Button Section
 }
 
 .btnPlay.detailButton:hover {
-  background-color: #5f429a !important;
+  background-color: var(--md-sys-color-primary) !important;
   transform: translateY(-0.7em) scale(1.2) !important;
 }
 
