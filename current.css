@@ -3,10 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
-
-
-
-/* System Colors */
+/* System Colors and Fonts */
 :root {
   --md-sys-color-primary: #6750A4;
   --md-sys-color-on-primary: #FFFFFF;
@@ -38,6 +35,77 @@
   --indicator-bg: #10101094;
   --transparent-bg: #10101000;
   --border-color: linear-gradient(45deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 41%, rgba(255, 255, 255, 0.1) 57%, rgba(255, 255, 255, 0.3) 100%);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif !important;
+  font-weight: 450;
+  margin: 0;
+  padding: 0;
+  background-color: var(--md-sys-color-surface);
+}
+
+#indexPage {
+  background-color: var(--md-sys-color-on-surface) !important;
+  min-height: 350vh;
+}
+
+/* Elements with transparency and blur effects */
+.skinHeader.semiTransparent,
+.skinHeader,
+.mainDrawer,
+.actionSheet,
+select:enabled,
+option {
+  background-color: var(--bg-color);
+  backdrop-filter: var(--blur) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+}
+
+/* Border styling */
+.skinHeader,
+.actionSheet,
+.mainDrawer {
+  border: 1px solid var(--md-sys-color-outline);
+}
+
+.skinHeader {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
+.headerTop {
+    padding: 10 !important;
+}
+
+select:enabled,
+option {
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-border-radius);
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Style for .skinHeader-withBackground.osdHeader */
+.skinHeader-withBackground.osdHeader {
+  border: 0;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background: linear-gradient(180deg, rgba(28, 27, 31, 0.75), rgba(28, 27, 31, 0));
+  color: var(--md-sys-color-surface);
+  height: 7.5em;
+  pointer-events: none;
+  position: relative;
+  transition: opacity 0.3s ease-out;
+  z-index: 1;
+}
+
+/* Header Logo */
+.pageTitleWithLogo.pageTitleWithDefaultLogo {
+	transform: scale(0.8);
+	transform-origin: left;
 }
 
 /* override hide-cursor */
@@ -83,7 +151,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 	color: var(--md-sys-color-primary) !important;
 }
 
-/* Cast Placeholder Cards */
+/* Cast Placeholder Card Colors*/
 .defaultCardBackground1{background-color:var(--md-sys-color-surface-container-high);}
 .defaultCardBackground2{background-color:var(--md-sys-color-surface-container);}
 .defaultCardBackground3{background-color:var(--md-sys-color-surface-container-low);}
@@ -152,78 +220,6 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 	background: var(--md-sys-color-surface-container);
 }
 .mdl-slider::-moz-range-thumb,.mdl-slider::-ms-thumb,.mdl-slider::-webkit-slider-thumb{border-radius:var(--md-border-radius);}
-
-
-/* MainPage */
-html {
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif !important;
-  margin: 0;
-  padding: 0;
-  background-color: var(--md-sys-color-surface);
-}
-
-/* Elements with transparency and blur effects */
-.skinHeader.semiTransparent,
-.skinHeader,
-.mainDrawer,
-.actionSheet,
-select:enabled,
-option {
-  background-color: var(--bg-color);
-  backdrop-filter: var(--blur) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-}
-
-/* Border styling */
-.skinHeader,
-.actionSheet,
-.mainDrawer {
-  border: 1px solid var(--md-sys-color-outline);
-}
-
-.skinHeader {
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-}
-
-.headerTop {
-    padding: 10 !important;
-}
-
-select:enabled,
-option {
-  border: 1px solid var(--md-sys-color-outline);
-  border-radius: var(--md-border-radius);
-  background-color: var(--md-sys-color-surface-container);
-  color: var(--md-sys-color-on-surface);
-}
-
-/* Style for .skinHeader-withBackground.osdHeader */
-.skinHeader-withBackground.osdHeader {
-  border: 0;
-  -webkit-backdrop-filter: none !important;
-  backdrop-filter: none !important;
-  background: linear-gradient(180deg, rgba(28, 27, 31, 0.75), rgba(28, 27, 31, 0));
-  color: var(--md-sys-color-surface);
-  height: 7.5em;
-  pointer-events: none;
-  position: relative;
-  transition: opacity 0.3s ease-out;
-  z-index: 1;
-}
-
-#indexPage {
-  background-color: var(--md-sys-color-on-surface) !important;
-  min-height: 350vh;
-}
-
-/* Header Logo */
-.pageTitleWithLogo.pageTitleWithDefaultLogo {
-	transform: scale(0.8);
-	transform-origin: left;
-}
 
 #txtCustomCss, #txtLocalCustomCss {
   height: 400px !important;
