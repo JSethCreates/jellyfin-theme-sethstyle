@@ -1,9 +1,9 @@
-/* Seths GNAT Material design 3 style v3.5*/
+/* Seths GNAT Material design 3 style v3.7*/
 
+/* System Colors and Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
-/* System Colors and Fonts */
 :root {
   --md-sys-color-primary: #6750A4;
   --md-sys-color-on-primary: #FFFFFF;
@@ -44,6 +44,10 @@ html {
   margin: 0;
   padding: 0;
   background-color: var(--md-sys-color-surface);
+}
+
+.skinHeader {
+  position: relative !important;
 }
 
 #indexPage {
@@ -144,7 +148,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 .guide-date-tab-button.emby-tab-button-active,
 .guide-date-tab-button:focus,
 .metadataSidebarIcon,
-.layout-tv .emby-button.detailFloatingButton:focus,
+.emby-button.detailFloatingButton:focus,
 #dialogToc .bookplayerButtonIcon:hover,
 #dialogToc .toc li a:active,
 #dialogToc .toc li a:hover {
@@ -381,6 +385,28 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
   left: 5%;
   padding-left: 5%;
   z-index: 2;
+  
+  display: block !important;          /* override table */
+  position: fixed !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: content-box !important;
+  
+  left: 2vw !important;
+  width: 22vw !important;
+  /*
+  top: 40vw !important;          
+  bottom: 10vw !important;  */
+}
+
+.detailPageSecondaryContainer {
+  padding: 32vw 0.5vh 0 0 !important;
+  margin: 0 !important;
+  box-sizing: content-box !important;
+  background-color: rgba(0,0,0,0) !important;
+  position: relative;
+  top: 25vh !important;
+  left: 25vw !important;
 }
 
 /* Layout adjustments for desktop */
@@ -395,6 +421,9 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 .layout-desktop .detailPageSecondaryContainer {
   background-color: var(--transparent-bg);
   margin: 0 0 1.25em 0;
+  
+  
+  
 }
 
 .layout-desktop .itemDetailsGroup {
@@ -607,7 +636,7 @@ h5 {
 }
 
 /* Backdrop force for small screen resolutions */
-.layout-tv .itemBackdrop {
+.itemBackdrop {
     display: block !important;
     top: 0;
     left: 0;
