@@ -381,33 +381,36 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 .detailPagePrimaryContainer {
   background-color: var(--md-sys-color-surface-container-low);
   border-radius: var(--md-border-radius);
-  display: inline-table;
-  left: 5%;
-  padding-left: 5%;
-  z-index: 2;
-  
-  display: block !important;          /* override table */
-  position: fixed !important;
-  margin: 0 !important;
+
+  z-index: 2;  
+  display: block !important; 
+ 
+  margin-top: 1vh !important;
+  margin-left: -2vw !important;
   padding: 0 !important;
   box-sizing: content-box !important;
   
-  left: 2vw !important;
   width: 22vw !important;
-  /*
-  top: 40vw !important;          
-  bottom: 10vw !important;  */
 }
 
 .detailPageSecondaryContainer {
-  padding: 32vw 0.5vh 0 0 !important;
-  margin: 0 !important;
-  box-sizing: content-box !important;
-  background-color: rgba(0,0,0,0) !important;
   position: relative;
-  top: 25vh !important;
-  left: 25vw !important;
+  top: 65vh !important;
+  left: 26vw !important;
+  width: calc(100vw - 25vw) !important; /* Limits container to visible space */
+  padding: 2vh 2vw !important;          /* Breathing room inside the container */
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+  overflow-x: hidden;
 }
+
+.detailSectionContent {
+  width: 60vw !important;
+  max-width: none !important;
+  flex: 1 1 auto !important;
+}
+
 
 /* Layout adjustments for desktop */
 .layout-desktop .detailPageContent {
