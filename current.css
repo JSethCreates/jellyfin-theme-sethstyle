@@ -1,4 +1,4 @@
-/* Seths GNAT Material design 3 style v3.9.1*/
+/* Seths GNAT Material design 3 style v3.9.2*/
 
 /* System Colors and Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
@@ -286,14 +286,14 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 }
 
 /* If phone portrait mode we make some small changes but keep mostly stock jfweb */
-@media (max-width: 43em) {
+@media (max-width: 61em) {
   .featurediframe {
     margin-top: 0.0em !important;
   }
 }
 
 /* If phone or device has full width, we can apply all styles */
-@media (min-width: 44em) {
+@media (min-width: 62em) {
 
 .overflowBackdropCard, .overflowSmallBackdropCard {
     width: 18.5vw;
@@ -433,7 +433,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
   position: relative;
   top: 65vh !important;
   left: 25vw !important;
-  width: 74vw !important;
+  width: 74.3vw !important;
   padding: 0vh 0vw 0 2vw !important;
   margin: 0 !important;
 
@@ -726,9 +726,9 @@ html {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    font-size: clamp(0.5rem, 2vw, 2.6rem) !important;
+    font-size: clamp(0.5rem, 2.6vw, 2.9rem);
     max-width: 100% !important;
-    margin-bottom: 1em !important;
+    margin-bottom: 0.2em !important;
 }
 .itemName .season::after {
   content: "\A"; /* New line */
@@ -755,7 +755,8 @@ html {
   flex-wrap: wrap !important;
   gap: 0.5em;
   align-items: center;
-  font-size: clamp(0.9rem, 1vw, 1.4rem) !important;
+  font-size: clamp(0.9rem, 1.3vw, 1.6rem) !important;
+ font-weight: 600 !important;
   min-width: 0 !important;
   justify-content: left !important;
 }
