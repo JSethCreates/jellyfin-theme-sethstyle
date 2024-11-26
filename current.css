@@ -1,4 +1,4 @@
-/* Seths GNAT Material design 3 style v3.9.2*/
+/* Seths GNAT Material design 3 style v3.9.4*/
 
 /* System Colors and Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
@@ -104,10 +104,10 @@ option {
   backdrop-filter: none !important;
   background: linear-gradient(180deg, rgba(28, 27, 31, 0.75), rgba(28, 27, 31, 0));
   color: var(--md-sys-color-surface);
-  height: 7.5em;
+  height: 20em;
   pointer-events: none;
   position: relative;
-  transition: opacity 0.3s ease-out;
+  transition: opacity 5s ease-out;
   z-index: 1;
 }
 
@@ -125,31 +125,31 @@ html, body, *, *::before, *::after {
 /* Rounded Items */
 progress,progress::-webkit-progress-bar,progress::-moz-progress-bar,progress::-webkit-progress-value{border-radius:var(--md-border-radius);}
 .taskProgressOuter,.taskProgressInner,.cardOverlayContainer,.missingIndicator,.unairedIndicator,.detailTable,.primaryImageWrapper>img,.toast,.paperList,.cardContent,.sessionNowPlayingInnerContent,.listItem:hover,.cardImage,.fab,.raised,.multiSelectCheckboxOutline,.itemSelectionPanel,.cardContent-button,.cardContent-shadow,.itemDetailImage,.cardImageContainer,.cardPadder,.listItemImage,.listItemImageButton,.listItemButton,.blurhash-canvas,.dialog,.countIndicator,.playedIndicator,.listItemIcon,.listItem-border,.visualCardBox,.checkboxOutline,.emby-select-withcolor,.chapterThumbTextContainer,.chapterThumbContainer,.chapterThumb,.emby-input,.emby-textarea,.emby-select-withcolor,.nowPlayingPageImage,.upNextDialog-poster-img,.upNextContainer,.cardOverlayButtonIcon{border-radius:var(--md-border-radius)!important;}
-.formDialogHeader{border-top-left-radius:var(--md-border-radius);border-top-right-radius:var(--md-border-radius);}
-.formDialogFooter{border-bottom-left-radius:var(--md-border-radius);border-bottom-right-radius:var(--md-border-radius);}
+.formDialogHeader { border-radius: var(--md-border-radius);} .formDialogFooter{border-bottom-left-radius:var(--md-border-radius);border-bottom-right-radius:var(--md-border-radius);}
 .osdPoster img{border-radius:var(--md-border-radius);border:none;}
 .mdl-slider::-moz-range-thumb,.mdl-slider::-ms-thumb,.mdl-slider::-webkit-slider-thumb{border-radius:var(--md-border-radius);}
 div[data-role="controlgroup"] a[data-role="button"]:first-child{border-top-left-radius:var(--md-border-radius);border-bottom-left-radius:var(--md-border-radius);}
 div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-radius:var(--md-border-radius);border-bottom-right-radius:var(--md-border-radius);}
 #dashboardPage .cardContent,#dashboardPage .sessionNowPlayingInnerContent,#divVirtualFolders .cardImageContainer,#divVirtualFolders .cardContent,#userProfilesPage .cardImage,#userProfilesPage .cardContent{border-radius:var(--md-border-radius) var(--md-border-radius) 0 0!important;}
 
-
-/* Primary Color Items */
+/* Hover/active/focus states - excluding btnPause */
+.paper-icon-button-light:hover:not(.btnPause),
+.paper-icon-button-light:hover:not(:disabled):not(.btnPause),
+.paper-icon-button-light:active:not(:disabled):not(.btnPause),
+.paper-icon-button-light.show-focus:focus:not(.btnPause),
 .raised.homeLibraryButton:hover,
-.emby-tab-button:hover,
-.textareaLabelFocused,
-.buttonActive,
 .button-flat:hover,
-.paper-icon-button-light:hover,
+.playstatebutton-icon-played,
+.ratingbutton-icon-withrating,
+.emby-tab-button:hover,
+.emby-tab-button.show-focus:focus,
 .headerTabs.sectionTabs:hover .emby-button,
-.paper-icon-button-light:active:not(:disabled),
-.paper-icon-button-light.show-focus:focus,
-.inputLabelFocused,
 .selectLabelFocused,
+.inputLabelFocused,
+.textareaLabelFocused,
 .upNextDialog-countdownText,
 .button-link,
 .emby-select-withcolor:focus,
-.emby-tab-button.show-focus:focus,
 .guide-date-tab-button.emby-tab-button-active,
 .guide-date-tab-button:focus,
 .metadataSidebarIcon,
@@ -157,8 +157,18 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 #dialogToc .bookplayerButtonIcon:hover,
 #dialogToc .toc li a:active,
 #dialogToc .toc li a:hover {
-	color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
 }
+
+/* Pause/play button hover effect */
+.btnPause {
+  transition: transform 0.3s ease;
+}
+
+.btnPause:hover {
+  transform: scale(1.2);
+}
+
 
 /* Cast Placeholder Card Colors*/
 .defaultCardBackground1{background-color:var(--md-sys-color-surface-container-high);}
@@ -200,33 +210,21 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
   background: var(--md-sys-color-primary) !important;
 }
 
-/* Various hover and active button states */
-.paper-icon-button-light:hover,
-.paper-icon-button-light:hover:not(:disabled),
-.raised.homeLibraryButton:hover,
-.button-flat:hover,
-.playstatebutton-icon-played,
-.ratingbutton-icon-withrating,
-.emby-tab-button:hover,
-.selectLabelFocused,
-.inputLabelFocused,
-.textareaLabelFocused,
-.buttonActive,
-.button-link {
-  color: var(--md-sys-color-primary) !important;
-}
 
 .mdl-slider-background-lower {
   background: linear-gradient(
     90deg,
-    var(--md-sys-color-surface-container-low) 0%,
-    var(--md-sys-color-surface-container)     15%,
-    var(--md-sys-color-surface-container-high) 30%,
-    var(--md-sys-color-primary)                90%
+	var(--md-sys-color-primary)                0%,
+    var(--md-sys-color-surface-container-high) 45%,	
+    var(--md-sys-color-surface-container)     50%,	
+    var(--md-sys-color-surface-container-low) 55%,
+    var(--md-sys-color-surface-container)     65%,
+    var(--md-sys-color-surface-container-high) 75%,
+    var(--md-sys-color-primary)                85%
   );
 }
 .mdl-slider-background-upper {
-	background: var(--md-sys-color-surface-container);
+	background: var(--md-sys-color-surface-container-high);
 }
 .mdl-slider::-moz-range-thumb,.mdl-slider::-ms-thumb,.mdl-slider::-webkit-slider-thumb{border-radius:var(--md-border-radius);}
 
@@ -379,7 +377,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 }
 
 .cardText-secondary {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   line-height: 1;
   padding: 0.2em 1em;
   color: var(--md-sys-color-surface);
@@ -389,7 +387,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 /* Primary content (play ect. buttons) on media page styling */
 .detailPagePrimaryContainer {
   position: fixed !important;
-  top: calc(35% + 25vh) !important;
+  top: calc(35% + 21vh) !important;
 
   display: block !important;
   align-content: flex-start !important;
@@ -490,7 +488,7 @@ html.preload.layout-desktop {
   display: block !important;
   margin: 9vh auto 5vh auto;
   padding: 2vh auto 2vh auto;
-  transform: translateX(50%) scale(1.5);
+  transform: translateX(35%) scale(1.5);
   transform-origin: top center;
 }
 
@@ -595,19 +593,19 @@ h1 {
   color: var(--md-sys-color-surface);
   margin-bottom: 0.5em;
 }
-
+/* H2 - Used for Hompage section titles */
 h2 {
   font-size: clamp(1.05rem, 1.4vw, 1.4rem); /* Display Medium */
-  font-weight: 600;
+  font-weight: 250;
   line-height: 1.0;
   letter-spacing: -0.01em;
   color: var(--md-sys-color-surface-container);
   margin-bottom: 0.2em;
 }
-
+/* H3 - Used for OSD Title */
 h3 {
-  font-size: clamp(1.4rem, 2.1vw, 1.575rem); /* Display Small */
-  font-weight: 400;
+  font-size: clamp(1.4rem, 1.8vw, 1.575rem); /* Display Small */
+  font-weight: 300;
   line-height: 1.25;
   letter-spacing: 0;
   color: var(--md-sys-color-surface);
@@ -633,8 +631,8 @@ h5 {
 }
 
 .sectionTitle.padded-left:nth-of-type(1) {
-  visibility: hidden;
-  margin-bottom: 0.4em;
+  margin-top: 0.5em !important;
+  margin-bottom: 0.1em;
 }
 
 /* Media Query for hover effects */
@@ -699,7 +697,7 @@ html {
     top: 35% !important; /* Vertically centered slightly higher */
     left: 2% !important;
     transform: translateY(-50%) !important;
-    height: 50vh !important;
+    height: 40vh !important;
     aspect-ratio: 2 / 3 !important;
     width: auto !important;
     display: flex !important;
@@ -726,7 +724,7 @@ html {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    font-size: clamp(0.5rem, 2.6vw, 2.9rem);
+    font-size: clamp(0.5rem, 3vw, 4rem);
     max-width: 100% !important;
     margin-bottom: 0.2em !important;
 }
@@ -747,8 +745,9 @@ html {
 }
 
 .itemMiscInfo-primary {
+  margin-left: 0em;
   white-space: normal !important;
-  line-height: 1.4em !important;
+  line-height: 1em !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   display: flex !important;
@@ -756,7 +755,7 @@ html {
   gap: 0.5em;
   align-items: center;
   font-size: clamp(0.9rem, 1.3vw, 1.6rem) !important;
- font-weight: 600 !important;
+ font-weight: 150 !important;
   min-width: 0 !important;
   justify-content: left !important;
 }
@@ -931,6 +930,8 @@ a[href*="tvmaze.com"] {
   gap: 1em;
   font-size: 1.3rem;
   font-weight: 500;
+
+  background-color: transparent;
   color: var(--md-sys-color-on-primary);
   margin-bottom: 1em;
 }
@@ -1118,7 +1119,7 @@ Button Section
 .btnPlay[title="Resume"]::after {
   color: var(--md-sys-color-on-primary) !important;
   content: "Resume";
-  font-size: 0.8em;
+  font-size: 0.6em;
 }
 .btnPlay[title="Play"]::after {
   content: "";
@@ -1229,7 +1230,7 @@ a.button-link.itemAction.emby-button {
   align-items: center !important;
   justify-content: center !important;
   padding: 0.2em 0.7em !important;
-  font-size: inherit !important;
+  font-size: clamp(1rem, 2.5vw, 3rem) !important;
   font-weight: 500 !important;
   text-decoration: none !important;
   border: 1px solid var(--md-sys-color-outline) !important;
