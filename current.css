@@ -1,4 +1,4 @@
-/* Seths GNAT Material design 3 style v3.9.4*/
+/* Seths GNAT Material design 3 style v3.9.5*/
 
 /* System Colors and Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
@@ -107,7 +107,7 @@ option {
   height: 20em;
   pointer-events: none;
   position: relative;
-  transition: opacity 5s ease-out;
+  transition: opacity 3s ease-in-out;
   z-index: 1;
 }
 
@@ -131,6 +131,11 @@ progress,progress::-webkit-progress-bar,progress::-moz-progress-bar,progress::-w
 div[data-role="controlgroup"] a[data-role="button"]:first-child{border-top-left-radius:var(--md-border-radius);border-bottom-left-radius:var(--md-border-radius);}
 div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-radius:var(--md-border-radius);border-bottom-right-radius:var(--md-border-radius);}
 #dashboardPage .cardContent,#dashboardPage .sessionNowPlayingInnerContent,#divVirtualFolders .cardImageContainer,#divVirtualFolders .cardContent,#userProfilesPage .cardImage,#userProfilesPage .cardContent{border-radius:var(--md-border-radius) var(--md-border-radius) 0 0!important;}
+
+.sliderBubble {
+    border-radius: 12px !important;
+    background-color: var( --indicator-bg);
+}
 
 /* Hover/active/focus states - excluding btnPause */
 .paper-icon-button-light:hover:not(.btnPause),
@@ -157,11 +162,13 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 #dialogToc .bookplayerButtonIcon:hover,
 #dialogToc .toc li a:active,
 #dialogToc .toc li a:hover {
-  color: var(--md-sys-color-on-primary) !important;
+  color: var(--md-sys-color-primary) !important;
 }
 
 /* Pause/play button hover effect */
 .btnPause {
+  display: inline-flex; /* ensures transform scales whole button */
+  transform-origin: center center;
   transition: transform 0.3s ease;
 }
 
