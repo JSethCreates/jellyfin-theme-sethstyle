@@ -1,4 +1,4 @@
-/* Seths GNAT Material design 3 style v3.9.5*/
+/* Seths GNAT Material design 3 style v3.9.6*/
 
 /* System Colors and Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
@@ -107,7 +107,7 @@ option {
   height: 20em;
   pointer-events: none;
   position: relative;
-  transition: opacity 3s ease-in-out;
+  transition: opacity 3s ease-out;
   z-index: 1;
 }
 
@@ -122,22 +122,122 @@ html, body, *, *::before, *::after {
   cursor: default !important;
 }
 
-/* Rounded Items */
-progress,progress::-webkit-progress-bar,progress::-moz-progress-bar,progress::-webkit-progress-value{border-radius:var(--md-border-radius);}
-.taskProgressOuter,.taskProgressInner,.cardOverlayContainer,.missingIndicator,.unairedIndicator,.detailTable,.primaryImageWrapper>img,.toast,.paperList,.cardContent,.sessionNowPlayingInnerContent,.listItem:hover,.cardImage,.fab,.raised,.multiSelectCheckboxOutline,.itemSelectionPanel,.cardContent-button,.cardContent-shadow,.itemDetailImage,.cardImageContainer,.cardPadder,.listItemImage,.listItemImageButton,.listItemButton,.blurhash-canvas,.dialog,.countIndicator,.playedIndicator,.listItemIcon,.listItem-border,.visualCardBox,.checkboxOutline,.emby-select-withcolor,.chapterThumbTextContainer,.chapterThumbContainer,.chapterThumb,.emby-input,.emby-textarea,.emby-select-withcolor,.nowPlayingPageImage,.upNextDialog-poster-img,.upNextContainer,.cardOverlayButtonIcon{border-radius:var(--md-border-radius)!important;}
-.formDialogHeader { border-radius: var(--md-border-radius);} .formDialogFooter{border-bottom-left-radius:var(--md-border-radius);border-bottom-right-radius:var(--md-border-radius);}
-.osdPoster img{border-radius:var(--md-border-radius);border:none;}
-.mdl-slider::-moz-range-thumb,.mdl-slider::-ms-thumb,.mdl-slider::-webkit-slider-thumb{border-radius:var(--md-border-radius);}
-div[data-role="controlgroup"] a[data-role="button"]:first-child{border-top-left-radius:var(--md-border-radius);border-bottom-left-radius:var(--md-border-radius);}
-div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-radius:var(--md-border-radius);border-bottom-right-radius:var(--md-border-radius);}
-#dashboardPage .cardContent,#dashboardPage .sessionNowPlayingInnerContent,#divVirtualFolders .cardImageContainer,#divVirtualFolders .cardContent,#userProfilesPage .cardImage,#userProfilesPage .cardContent{border-radius:var(--md-border-radius) var(--md-border-radius) 0 0!important;}
+/* ========================================
+   
 
-.sliderBubble {
-    border-radius: 12px !important;
-    background-color: var( --indicator-bg);
+   Colors
+
+
+   Background: var(--card-bg) - Deepest background
+   ======================================== */
+.wizardStartForm,
+.ui-corner-all,
+.ui-shadow,
+.backgroundContainer,
+.dialog,
+.nowPlayingPlaylist,
+.nowPlayingContextMenu,
+html {
+    background-color: var(--card-bg);
 }
 
-/* Hover/active/focus states - excluding btnPause */
+/* ========================================
+   Background: var(--bg-color) - Main background
+   ======================================== */
+.skinHeader-withBackground,
+.collapseContent,
+.formDialogFooter:not(.formDialogFooter-clear),
+.formDialogHeader:not(.formDialogHeader-clear),
+.paperList,
+.visualCardBox,
+.appfooter,
+.playlistSectionButton {
+    background-color: var(--bg-color);
+}
+
+/* ========================================
+   Background: var(--md-sys-color-on-surface) - Medium-dark surface color
+   ======================================== */
+.fab,
+.raised,
+.toast {
+    background: var(--md-sys-color-on-surface);
+    color: rgba(255, 255, 255, 0.87);
+}
+
+/* ========================================
+   Background: var(--md-sys-color-primary) - Main Accent color
+   ======================================== */
+.button-submit,
+.alphaPickerButton-tv:focus,
+.selectionCommandsPanel,
+.navMenuOption-selected,
+.progressring-spiner,
+.emby-checkbox:checked + span + .checkboxOutline,
+.itemProgressBarForeground,
+.countIndicator,
+.fullSyncIndicator,
+.mediaSourceIndicator,
+.playedIndicator,
+.emby-button.detailFloatingButton,
+.mdl-slider::-webkit-slider-thumb,
+.mdl-slider::-moz-range-thumb,
+.mdl-slider::-ms-thumb,
+.iconOsdProgressInner {
+    background-color: var(--md-sys-color-primary) !important;
+}
+
+/* ========================================
+   Background: var(--md-sys-color-primary) on hover (transparent tint)
+   ======================================== */
+.paper-icon-button-light:hover:not(:disabled) {
+    background-color: rgba(0, 164, 220, 0.2);
+}
+
+/* ========================================
+   Background: var(--md-sys-color-surface) - Light foreground surface
+   ======================================== */
+.emby-button.detailFloatingButton.layout-tv:focus {
+    background-color: #f2f2f2;
+    color: var(--md-sys-color-primary);
+}
+
+/* ========================================
+   Background: var(--transparent-bg) - Overlay container
+   ======================================== */
+.cardOverlayContainer {
+    background-color: var(--transparent-bg);
+}
+
+/* ========================================
+   Background: var(--md-hover-primary) - Hover highlight
+   ======================================== */
+.listItem:hover {
+    background-color: var(--md-hover-primary);
+}
+
+/* ========================================
+   Background: var(--md-sys-color-surface-container-high) - Watched indicator
+   ======================================== */
+.sliderMarker.watched {
+    background-color: var(--md-sys-color-surface-container-high) !important;
+}
+
+/* ========================================
+   Border Color: var(--md-sys-color-primary)
+   ======================================== */
+.emby-input:focus,
+.emby-textarea:focus,
+.emby-checkbox:focus + span + .checkboxOutline,
+.emby-checkbox:checked + span + .checkboxOutline,
+.emby-select-withcolor:focus,
+.emby-select-tv-withcolor:focus {
+    border-color: var(--md-sys-color-primary) !important;
+}
+
+/* ========================================
+   Text Color: var(--md-sys-color-primary)
+   ======================================== */
 .paper-icon-button-light:hover:not(.btnPause),
 .paper-icon-button-light:hover:not(:disabled):not(.btnPause),
 .paper-icon-button-light:active:not(:disabled):not(.btnPause),
@@ -161,8 +261,61 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 .emby-button.detailFloatingButton:focus,
 #dialogToc .bookplayerButtonIcon:hover,
 #dialogToc .toc li a:active,
-#dialogToc .toc li a:hover {
-  color: var(--md-sys-color-primary) !important;
+#dialogToc .toc li a:hover,
+.mdl-slider {
+    color: var(--md-sys-color-primary) !important;
+}
+
+/* ========================================
+   Text Color: var(--md-sys-color-surface)  - Off white
+   ======================================== */
+.button-submit,
+.alphaPickerButton-tv:focus,
+.selectionCommandsPanel,
+.navMenuOption-selected,
+.emby-button.detailFloatingButton {
+    color: var(--md-sys-color-surface);
+}
+.emby-select-withcolor:focus,
+.emby-select-tv-withcolor:focus {
+    color: var(--md-sys-color-surface) !important;
+}
+
+/* ========================================
+   Text Color: var(--md-sys-color-surface-variant) - Secondary Text / off off white
+   ======================================== */
+.cardText-secondary,
+.fieldDescription,
+.guide-programNameCaret,
+.listItem .secondary,
+.nowPlayingBarSecondaryText,
+.programSecondaryTitle,
+.secondaryText,
+.alphaPickerButton,
+.emby-tab-button,
+.emby-tab-button:focus,
+.emby-tab-button:hover,
+.checkboxListLabel,
+.inputLabel,
+.inputLabelUnfocused,
+.paperListLabel,
+.textareaLabelUnfocused {
+    color: var(--md-sys-color-surface-variant);
+}
+
+/* Rounded Items */
+progress,progress::-webkit-progress-bar,progress::-moz-progress-bar,progress::-webkit-progress-value{border-radius:var(--md-border-radius);}
+.taskProgressOuter,.taskProgressInner,.cardOverlayContainer,.missingIndicator,.unairedIndicator,.detailTable,.primaryImageWrapper>img,.toast,.paperList,.cardContent,.sessionNowPlayingInnerContent,.listItem:hover,.cardImage,.fab,.raised,.multiSelectCheckboxOutline,.itemSelectionPanel,.cardContent-button,.cardContent-shadow,.itemDetailImage,.cardImageContainer,.cardPadder,.listItemImage,.listItemImageButton,.listItemButton,.blurhash-canvas,.dialog,.countIndicator,.playedIndicator,.listItemIcon,.listItem-border,.visualCardBox,.checkboxOutline,.emby-select-withcolor,.chapterThumbTextContainer,.chapterThumbContainer,.chapterThumb,.emby-input,.emby-textarea,.emby-select-withcolor,.nowPlayingPageImage,.upNextDialog-poster-img,.upNextContainer,.cardOverlayButtonIcon{border-radius:var(--md-border-radius)!important;}
+.formDialogHeader { border-radius: var(--md-border-radius);} .formDialogFooter{border-bottom-left-radius:var(--md-border-radius);border-bottom-right-radius:var(--md-border-radius);}
+.osdPoster img{border-radius:var(--md-border-radius);border:none;}
+.mdl-slider::-moz-range-thumb,.mdl-slider::-ms-thumb,.mdl-slider::-webkit-slider-thumb{border-radius:var(--md-border-radius);}
+div[data-role="controlgroup"] a[data-role="button"]:first-child{border-top-left-radius:var(--md-border-radius);border-bottom-left-radius:var(--md-border-radius);}
+div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-radius:var(--md-border-radius);border-bottom-right-radius:var(--md-border-radius);}
+#dashboardPage .cardContent,#dashboardPage .sessionNowPlayingInnerContent,#divVirtualFolders .cardImageContainer,#divVirtualFolders .cardContent,#userProfilesPage .cardImage,#userProfilesPage .cardContent{border-radius:var(--md-border-radius) var(--md-border-radius) 0 0!important;}
+
+.sliderBubble {
+    border-radius: 12px !important;
+    background-color: var( --indicator-bg);
 }
 
 /* Pause/play button hover effect */
@@ -176,7 +329,6 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
   transform: scale(1.2);
 }
 
-
 /* Cast Placeholder Card Colors*/
 .defaultCardBackground1{background-color:var(--md-sys-color-surface-container-high);}
 .defaultCardBackground2{background-color:var(--md-sys-color-surface-container);}
@@ -189,34 +341,6 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 .mdl-spinner__layer-2{border-color:var(--md-sys-color-surface-container);}
 .mdl-spinner__layer-3{border-color:var(--md-sys-color-surface-container-high);}
 .mdl-spinner__layer-4{border-color:var(--md-sys-color-primary);}
-
-/* Video Page */
-
-/* Volume & Progress Bar*/
-
-
-.mdl-slider {
-  color: var(--md-sys-color-primary) !important;
-}
-
-.mdl-slider::-webkit-slider-thumb {
-    background: var(--md-sys-color-primary) !important;
-}
-
-.mdl-slider::-moz-range-thumb,
-.mdl-slider::-ms-thumb,
-.mdl-slider::-webkit-slider-thumb {
-  background: var(--md-sys-color-primary) !important;
-}
-
-.sliderMarker.watched {
-    background-color: var(--md-sys-color-surface-container-high) !important;
-}
-
-.iconOsdProgressInner {
-  background: var(--md-sys-color-primary) !important;
-}
-
 
 .mdl-slider-background-lower {
   background: linear-gradient(
@@ -337,18 +461,12 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
   overlay: none;
 }
 
-.cardOverlayContainer {
-  background-color: var(--transparent-bg);
-}
 
 /* List and transition effects */
 .listItem {
   transition: 0.3s all ease-in-out;
 }
 
-.listItem:hover {
-  background-color: var(--md-hover-primary);
-}
 
 /* Md3 Card styles */
 .cardBox {
@@ -494,9 +612,10 @@ html.preload.layout-desktop {
   position: static;
   display: block !important;
   margin: 9vh auto 5vh auto;
-  padding: 2vh auto 2vh auto;
+  padding: 2em auto 2em auto !important;
   transform: translateX(35%) scale(1.5);
   transform-origin: top center;
+  width: 30vw !important;
 }
 
 .itemBackdrop {
@@ -795,7 +914,8 @@ h3.itemName.infoText.subtitle.focuscontainer-x a.button-link::after {
 
 /* Reorganise the tagline/plot then director/tags/streams section sent to the bottom */
 .tagline {
-  font-size: 1.4em;
+  padding-top: 1em;
+  font-size: clamp(1.2rem, 1.3vw, 2rem);
   line-height: 1.3;
   font-family: 'Special Elite', monospace;
   text-align: center !important;
