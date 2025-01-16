@@ -1,4 +1,4 @@
-/* Seths GNAT Material design 3 style v3.9.6*/
+/* Seths GNAT Material design 3 style v3.9.7*/
 
 /* System Colors and Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
@@ -301,6 +301,23 @@ html {
 .paperListLabel,
 .textareaLabelUnfocused {
     color: var(--md-sys-color-surface-variant);
+}
+.mdl-slider {
+  color: var(--md-sys-color-primary) !important;
+}
+.mdl-slider::-webkit-slider-thumb {
+    background: var(--md-sys-color-primary) !important;
+}
+.mdl-slider::-moz-range-thumb,
+.mdl-slider::-ms-thumb,
+.mdl-slider::-webkit-slider-thumb {
+  background: var(--md-sys-color-primary) !important;
+}
+.sliderMarker.watched {
+    background-color: var(--md-sys-color-surface-container-high) !important;
+}
+.iconOsdProgressInner {
+  background: var(--md-sys-color-primary) !important;
 }
 
 /* Rounded Items */
