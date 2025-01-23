@@ -1,4 +1,4 @@
-/* Seths GNAT Material design 3 style v3.9.6*/
+/* Seths GNAT Material design 3 style v3.9.8*/
 
 /* System Colors and Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
@@ -161,7 +161,7 @@ html {
 .fab,
 .raised,
 .toast {
-    background: var(--md-sys-color-on-surface);
+    background: var(--md-sys-color-primary);
     color: rgba(255, 255, 255, 0.87);
 }
 
@@ -269,7 +269,6 @@ html {
 /* ========================================
    Text Color: var(--md-sys-color-surface)  - Off white
    ======================================== */
-.button-submit,
 .alphaPickerButton-tv:focus,
 .selectionCommandsPanel,
 .navMenuOption-selected,
@@ -301,6 +300,23 @@ html {
 .paperListLabel,
 .textareaLabelUnfocused {
     color: var(--md-sys-color-surface-variant);
+}
+.mdl-slider {
+  color: var(--md-sys-color-primary) !important;
+}
+.mdl-slider::-webkit-slider-thumb {
+    background: var(--md-sys-color-primary) !important;
+}
+.mdl-slider::-moz-range-thumb,
+.mdl-slider::-ms-thumb,
+.mdl-slider::-webkit-slider-thumb {
+  background: var(--md-sys-color-primary) !important;
+}
+.sliderMarker.watched {
+    background-color: var(--md-sys-color-surface-container-high) !important;
+}
+.iconOsdProgressInner {
+  background: var(--md-sys-color-primary) !important;
 }
 
 /* Rounded Items */
@@ -1138,7 +1154,7 @@ a[href*="tvmaze.com"] {
 }
 .formDialogFooterItem.button-submit {
   background-color: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-primary);
+  
   border-radius: var(--md-border-radius);
   padding: 0.6em 1.5em;
   font-size: 1rem;
@@ -1147,7 +1163,7 @@ a[href*="tvmaze.com"] {
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 .formDialogFooterItem.button-submit:hover {
-  background-color: #5f429a;
+  background-color: var(--md-sys-color-on-primary);
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
 }
 
