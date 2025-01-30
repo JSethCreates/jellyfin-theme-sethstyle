@@ -1,4 +1,4 @@
-/* Seths GNAT Material design 3 style v3.9.8*/
+/* Seths GNAT Material design 3 style v3.9.99*/
 
 /* System Colors and Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
@@ -17,27 +17,21 @@
   --md-sys-color-on-surface: #1C1B1F;
   --md-sys-color-surface-variant: #E7E0EC;
 
-  --md-border-radius: 12px;
+
   --md-card-elevation: var(--md-sys-color-surface-container);
   --md-dialog-elevation: var(--md-sys-color-surface-container-high);
 
-  --md-hover-primary: rgba(103, 80, 164, 0.12);
-  --md-hover-on-surface: rgba(28, 27, 31, 0.08);
 
   --accent: var(--md-sys-color-primary);
   --bg-color: #18181849;
   --indicator-bg: #10101094;
   --transparent-bg: #10101000;
 
+  /* Round stuff like */
+  --md-border-radius: 10px;
 
-  /* Blur and visual effect support */
+  /* Blur stuff like */
   --blur: blur(16px) saturate(180%);
-
-  /* Legacy fallback and blend variables */
-  
-
-
-  --border-color: linear-gradient(45deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 41%, rgba(255, 255, 255, 0.1) 57%, rgba(255, 255, 255, 0.3) 100%);
 }
 
 html {
@@ -191,14 +185,14 @@ html {
    Background: var(--md-sys-color-primary) on hover (transparent tint)
    ======================================== */
 .paper-icon-button-light:hover:not(:disabled) {
-    background-color: rgba(0, 164, 220, 0.2);
+    background-color: var(--md-sys-color-surface);
 }
 
 /* ========================================
    Background: var(--md-sys-color-surface) - Light foreground surface
    ======================================== */
 .emby-button.detailFloatingButton.layout-tv:focus {
-    background-color: #f2f2f2;
+    background-color: var(--md-sys-color-surface);
     color: var(--md-sys-color-primary);
 }
 
@@ -213,7 +207,7 @@ html {
    Background: var(--md-hover-primary) - Hover highlight
    ======================================== */
 .listItem:hover {
-    background-color: var(--md-hover-primary);
+    background-color: color-mix(in srgb, var(--md-sys-color-primary) 50%, transparent);
 }
 
 /* ========================================
@@ -346,11 +340,11 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 }
 
 /* Cast Placeholder Card Colors*/
-.defaultCardBackground1{background-color:var(--md-sys-color-surface-container-high);}
-.defaultCardBackground2{background-color:var(--md-sys-color-surface-container);}
-.defaultCardBackground3{background-color:var(--md-sys-color-surface-container-low);}
-.defaultCardBackground4{background-color:var(--md-sys-color-surface-variant);}
-.defaultCardBackground5{background-color:var(--md-sys-color-secondary);}
+.defaultCardBackground1{background-color: color-mix(in srgb, var(--md-sys-color-primary) 70%, transparent);}
+.defaultCardBackground2{background-color: color-mix(in srgb, var(--md-sys-color-surface-container) 70%, transparent);}
+.defaultCardBackground3{background-color: color-mix(in srgb, var(--md-sys-color-surface-container-high) 70%, transparent);}
+.defaultCardBackground4{background-color: color-mix(in srgb, var(--md-sys-color-surface-variant) 70%, transparent);}
+.defaultCardBackground5{background-color: color-mix(in srgb, var(--md-sys-color-secondary) 70%, transparent);}
 
 /*Spinner*/
 .mdl-spinner__layer-1{border-color:var(--md-sys-color-surface-container-low);}
@@ -418,22 +412,36 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 	order: 2 !important;
 }
 
-#similarCollapsible {
-	order: 3 !important;
+#specialsCollapsible {
+  order: 3 !important;
 }
 
-.nextUpSection {
+#similarCollapsible {
 	order: 4 !important;
 }
 
-.moreFromSeasonSection {
+.nextUpSection {
 	order: 5 !important;
 }
+
+.moreFromSeasonSection {
+	order: 6 !important;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* If phone portrait mode we make some small changes but keep mostly stock jfweb */
 @media (max-width: 61em) {
   .featurediframe {
-    margin-top: 0.0em !important;
+    margin-top: -2em !important;
   }
 }
 
@@ -486,9 +494,9 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 
 /* Md3 Card styles */
 .cardBox {
-  background-color: var(--md-sys-color-secondary);
+  background-color: color-mix(in srgb, var(--md-sys-color-secondary) 50%, transparent);
   border-radius: var(--md-border-radius); /* 12px */
-  padding: 1.5em;
+  padding: 2em;
   transition: transform 0.3s ease-in-out;
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
   overflow: visible;
@@ -501,6 +509,14 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 }
 .card:not(.show-animation) {
     contain: none !important;
+}
+
+.button-submit:focus {
+    background: var(--md-sys-color-secondary) !important;
+    color: #fff;
+}
+.css-17c09up.Mui-selected {
+    background-color: var(--md-sys-color-secondary) !important;
 }
 
 .itemsContainer > .card > .cardBox:hover {
@@ -677,22 +693,22 @@ html.preload.layout-desktop {
 /* Hover effects for menu options */
 .actionSheetMenuItem:hover,
 .navMenuOption:hover {
-  background-color: var(--md-hover-primary);
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) 50%, transparent);
 }
 
 /* Floating action button (FAB) for cards */
 .cardOverlayFab-primary {
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
   background: linear-gradient(rgba(32, 32, 32, 0.1), rgba(32, 32, 32, 0.1)) padding-box,
-              var(--border-color) border-box;
-  background-color: rgba(0, 164, 220, 0.4);
+              var(--md-sys-color-outline) border-box;
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) 50%, transparent);
   backdrop-filter: var(--blur);
   border: 2px solid transparent;
 }
 
 .cardOverlayFab-primary:hover {
   background: linear-gradient(rgba(0, 164, 220, 0.1), rgba(0, 164, 220, 0.1)) padding-box,
-              var(--border-color) border-box;
+              var(--md-sys-color-outline) border-box;
 }
 
 /* Progress Bar Shenanigans */
@@ -703,23 +719,23 @@ html.preload.layout-desktop {
 }
 .itemProgressBar {
   position: absolute !important;
-  bottom: 0 !important; /* anchors to the actual card bottom */
+  bottom: -1 !important;
   left: 0;
   width: 100%;
-  height: 6px !important;
+  height: 22px !important;
   background: none !important;
   box-shadow: none !important;
   padding: 0 !important;
   margin: 0 !important;
-  overflow: visible !important;
+  overflow: visible !important; /* allow the blurred foreground to extend beyond */
   z-index: 3;
 }
 
 .itemProgressBarForeground {
-  background-color: color-mix(in srgb,var(--md-sys-color-primary)40%,transparent)!important;
-  height: 6px !important;
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) 80%, transparent) !important;
+  filter: blur(4px) !important; /* apply the blur to the moving bar itself */
+  height: 12px !important;
   border-radius: 999px !important;
-  box-shadow: 0 -6px 50px 18px rgba(255, 235, 122, 0.6) !important;
   position: absolute !important;
   left: 0;
   top: 0;
@@ -780,8 +796,8 @@ h5 {
 /* Media Query for hover effects */
 @media (hover: hover) and (pointer: fine) {
   .paper-icon-button-light:hover:not(:disabled) {
-    background-color: #00a5dc11;
-    color: #00a5dcec;
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-primary);
   }
 }
 
@@ -956,6 +972,7 @@ p {
 }
 .detailSection .itemDetailsGroup {
     order: 4;
+	margin-bottom: 5em;
 }
 .detailPageContent {
   /* position: relative !important; */
@@ -1092,7 +1109,7 @@ a[href*="tvmaze.com"] {
   transition: background-color 0.2s ease;
 }
 .formDialogHeader .btnCancel:hover {
-  background-color: var(--md-hover-primary);
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) 50%, transparent);
 }
 
 /* Dialog content */
@@ -1202,7 +1219,7 @@ a[href*="tvmaze.com"] {
 
 /* Hover state for menu items */
 .actionSheetMenuItem:hover {
-  background-color: var(--md-hover-primary);
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) 50%, transparent);
   color: var(--md-sys-color-on-primary);
 }
 
@@ -1271,7 +1288,6 @@ Button Section
 .btnPlay.detailButton:hover {
   background-color: var(--md-sys-color-primary) !important;
   transform: translateY(-0.7em) scale(1.2) !important;
-
 }
 
 /* Segmented Button Group (Secondary Actions)*/
@@ -1310,11 +1326,11 @@ Button Section
   box-sizing: border-box !important;
 }
 
-/* Left and right caps */
+/* Left and right caps  (ive uncapped the left edge here just cause, uncomment this for symmetry)
 .mainDetailButtons > .btnReplay.detailButton:not(.hide) {
   border-top-left-radius: 999px !important;
   border-bottom-left-radius: 999px !important;
-}
+}  */
 
 .mainDetailButtons > .btnMoreCommands.detailButton:not(.hide) {
   border-top-right-radius: 999px !important;
