@@ -1,4 +1,4 @@
-/* Seths GNAT Material design 3 style v3.9.99*/
+/* Seths GNAT Material design 3 style v3.9.999*/
 
 /* System Colors and Fonts */
 
@@ -12,23 +12,23 @@
 /* All colors in this CSS are one of the 16 below, replace these to retheme */
 
 :root {
---md-sys-color-primary: #663597;
---md-sys-color-secondary: #665676;
---md-sys-color-tertiary: #7e4e66;
+--md-sys-color-primary: #4e3597;
+--md-sys-color-secondary: #5e5676;
+--md-sys-color-tertiary: #7e4e72;
 
 --md-sys-color-on-primary: #FFFFFF;
 
---md-sys-color-surface: #e8e0ef;
---md-sys-color-surface-container-low: #d1c2df;
---md-sys-color-surface-container: #baa4d0;
---md-sys-color-surface-variant: #baa4d0;
---md-sys-color-surface-container-high: #a385c0;
+--md-sys-color-surface: #e4e0ef;
+--md-sys-color-surface-container-low: #c9c2df;
+--md-sys-color-surface-container: #afa4d0;
+--md-sys-color-tertiary-container: #c4afbf;
+--md-sys-color-surface-container-high: #9485c0;
 
---md-sys-color-neutral: #66626a;
---md-sys-color-outline: #66626a;
+--md-sys-color-neutral: #64626a;
+--md-sys-color-outline: #64626a;
 
---md-sys-color-on-surface: #262329;
---md-sys-color-neutral-variant: #665e6e;
+--md-sys-color-on-surface: #252329;
+--md-sys-color-neutral-variant: #625e6e;
 
 --bg-color: #18181849;
 --indicator-bg: #10101094;
@@ -142,7 +142,7 @@ html {
 .raised,
 .toast {
     background: var(--md-sys-color-surface-container);
-    color: var(--md-sys-color-on-primary);
+    color: var(--md-sys-color-on-surface);
 }
 
 /* ========================================
@@ -262,7 +262,7 @@ html {
 }
 
 /* ========================================
-   Text Color: var(--md-sys-color-surface-variant) - Secondary Text / off off white
+   Text Color: var(--md-sys-color-tertiary) - Other Text / colored
    ======================================== */
 .cardText-secondary,
 .fieldDescription,
@@ -300,14 +300,88 @@ html {
 }
 
 /* Rounded Items */
-progress,progress::-webkit-progress-bar,progress::-moz-progress-bar,progress::-webkit-progress-value{border-radius:var(--md-border-radius);}
-.taskProgressOuter,.taskProgressInner,.cardOverlayContainer,.missingIndicator,.unairedIndicator,.detailTable,.primaryImageWrapper>img,.toast,.paperList,.cardContent,.sessionNowPlayingInnerContent,.listItem:hover,.cardImage,.fab,.raised,.multiSelectCheckboxOutline,.itemSelectionPanel,.cardContent-button,.cardContent-shadow,.itemDetailImage,.cardImageContainer,.cardPadder,.listItemImage,.listItemImageButton,.listItemButton,.blurhash-canvas,.dialog,.countIndicator,.playedIndicator,.listItemIcon,.listItem-border,.visualCardBox,.checkboxOutline,.emby-select-withcolor,.chapterThumbTextContainer,.chapterThumbContainer,.chapterThumb,.emby-input,.emby-textarea,.emby-select-withcolor,.nowPlayingPageImage,.upNextDialog-poster-img,.upNextContainer,.cardOverlayButtonIcon{border-radius:var(--md-border-radius)!important;}
-.formDialogHeader { border-radius: var(--md-border-radius);} .formDialogFooter{border-bottom-left-radius:var(--md-border-radius);border-bottom-right-radius:var(--md-border-radius);}
-.osdPoster img{border-radius:var(--md-border-radius);border:none;}
-.mdl-slider::-moz-range-thumb,.mdl-slider::-ms-thumb,.mdl-slider::-webkit-slider-thumb{border-radius:var(--md-border-radius);}
-div[data-role="controlgroup"] a[data-role="button"]:first-child{border-top-left-radius:var(--md-border-radius);border-bottom-left-radius:var(--md-border-radius);}
-div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-radius:var(--md-border-radius);border-bottom-right-radius:var(--md-border-radius);}
-#dashboardPage .cardContent,#dashboardPage .sessionNowPlayingInnerContent,#divVirtualFolders .cardImageContainer,#divVirtualFolders .cardContent,#userProfilesPage .cardImage,#userProfilesPage .cardContent{border-radius:var(--md-border-radius) var(--md-border-radius) 0 0!important;}
+progress,
+progress::-webkit-progress-bar,
+progress::-moz-progress-bar,
+progress::-webkit-progress-value,
+.taskProgressOuter,
+.taskProgressInner,
+.cardOverlayContainer,
+.missingIndicator,
+.unairedIndicator,
+.detailTable,
+.primaryImageWrapper > img,
+.toast,
+.paperList,
+.cardContent,
+.sessionNowPlayingInnerContent,
+.listItem:hover,
+.cardImage,
+.fab,
+.raised,
+.multiSelectCheckboxOutline,
+.itemSelectionPanel,
+.cardContent-button,
+.cardContent-shadow,
+.itemDetailImage,
+.cardImageContainer,
+.cardPadder,
+.listItemImage,
+.listItemImageButton,
+.listItemButton,
+.blurhash-canvas,
+.dialog,
+.countIndicator,
+.playedIndicator,
+.listItemIcon,
+.listItem-border,
+.visualCardBox,
+.checkboxOutline,
+.emby-select-withcolor,
+.chapterThumbTextContainer,
+.chapterThumbContainer,
+.chapterThumb,
+.emby-input,
+.emby-textarea,
+.nowPlayingPageImage,
+.upNextDialog-poster-img,
+.upNextContainer,
+.cardOverlayButtonIcon,
+.formDialogHeader,
+.osdPoster img,
+.button.btnPause.osdExtrasMode,
+.mdl-slider::-moz-range-thumb,
+.mdl-slider::-ms-thumb,
+.mdl-slider::-webkit-slider-thumb {
+  border-radius: var(--md-border-radius) !important;
+}
+
+/* ——— Form dialog footer: bottom corners only ——— */
+.formDialogFooter {
+  border-bottom-left-radius:  var(--md-border-radius) !important;
+  border-bottom-right-radius: var(--md-border-radius) !important;
+}
+
+/* ——— Controlgroup buttons: left/right endcaps ——— */
+div[data-role="controlgroup"] a[data-role="button"]:first-child {
+  border-top-left-radius:     var(--md-border-radius) !important;
+  border-bottom-left-radius:  var(--md-border-radius) !important;
+}
+
+div[data-role="controlgroup"] a[data-role="button"]:last-child {
+  border-top-right-radius:    var(--md-border-radius) !important;
+  border-bottom-right-radius: var(--md-border-radius) !important;
+}
+
+/* ——— Dashboard, Virtual Folders & User Profiles: top corners only ——— */
+#dashboardPage .cardContent,
+#dashboardPage .sessionNowPlayingInnerContent,
+#divVirtualFolders .cardContent,
+#divVirtualFolders .cardImageContainer,
+#userProfilesPage .cardContent,
+#userProfilesPage .cardImage {
+  border-radius: var(--md-border-radius) var(--md-border-radius) 0 0 !important;
+}
 
 .sliderBubble {
     border-radius: 12px !important;
@@ -329,7 +403,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
 .defaultCardBackground1{background-color: color-mix(in srgb, var(--md-sys-color-primary) 70%, transparent);}
 .defaultCardBackground2{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 70%, transparent);}
 .defaultCardBackground3{background-color: color-mix(in srgb, var(--md-sys-color-surface-container-high) 70%, transparent);}
-.defaultCardBackground4{background-color: color-mix(in srgb, var(--md-sys-color-surface-variant) 70%, transparent);}
+.defaultCardBackground4{background-color: color-mix(in srgb, var(--md-sys-color-tertiary-container) 70%, transparent);}
 .defaultCardBackground5{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 40%, transparent);}
 
 /*Spinner*/
@@ -379,6 +453,9 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
   display: none !important;
   pointer-events: none !important;
   visibility: hidden !important;
+}
+.cardOverlayButton {
+    color: var(--md-sys-color-primary);
 }
 
 .sectionTitle.sectionTitle-cards {
@@ -451,9 +528,14 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
   height: 20em;
   pointer-events: none;
   position: relative;
-  transition: opacity 3s ease-out;
+  transition: opacity 5s cubic-bezier(1, 0.02, 0.86, 0.99) !important;
   z-index: 1;
 }
+.videoOsdBottom {
+    transition: 5s cubic-bezier(1, 0.02, 0.86, 0.99) !important;
+}
+
+
 
 /* Header Logo */
 .pageTitleWithLogo.pageTitleWithDefaultLogo {
@@ -553,8 +635,9 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child{border-top-right-
     font-family: inherit !important;
 }
 .headerTabs .emby-tab-button[data-index="3"]::before {
-    content: "☘️" !important;
-    filter: brightness(0) saturate(100%) invert(100%) !important;
+  content: "☘️" !important;
+  filter: brightness(0) saturate(100%) invert(1) !important;
+
 }
 
 
