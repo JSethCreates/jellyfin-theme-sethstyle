@@ -1,7 +1,9 @@
-/* Seths GNAT Material design 3 style v3.9.999*/
+/* 
 
+Seth's GNAT (God, not another theme..) Material design 3 edition v4.0.1
+
+*/
 /* System Colors and Fonts */
-
 /* Inter Font for everything, Elite for Tagline Text only, Material Icons for header swap */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
@@ -9,34 +11,28 @@
 
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-/* All colors in this CSS are one of the 16 below, replace these to retheme */
+/* All colors in this CSS are below, replace these to change colors*/
 
 :root {
---md-sys-color-primary: #4e3597;
---md-sys-color-secondary: #5e5676;
---md-sys-color-tertiary: #7e4e72;
 
---md-sys-color-on-primary: #FFFFFF;
+--md-sys-color-primary: #cfbdff;
+--md-sys-color-on-primary: #ffffff;
 
---md-sys-color-surface: #e4e0ef;
---md-sys-color-surface-container-low: #c9c2df;
---md-sys-color-surface-container: #afa4d0;
---md-sys-color-tertiary-container: #c4afbf;
---md-sys-color-surface-container-high: #9485c0;
+--md-sys-color-secondary: #cbc2db;
 
---md-sys-color-neutral: #64626a;
---md-sys-color-outline: #64626a;
+--md-sys-color-tertiary: #efb8c8;
 
---md-sys-color-on-surface: #252329;
---md-sys-color-neutral-variant: #625e6e;
+--md-sys-color-primary-container: #4e378a;
+--md-sys-color-on-primary-container: #e9ddff;
 
---bg-color: #18181849;
---indicator-bg: #10101094;
---transparent-bg: #10101000;
+--md-sys-color-surface: #1c1b1e;
+--md-sys-color-on-surface: #e6e1e6;
 
-  --md-card-elevation: var(--md-sys-color-surface-container);
-  --md-dialog-elevation: var(--md-sys-color-surface-container-high);
-  --accent: var(--md-sys-color-primary);
+--md-sys-color-outline: #948f99;
+
+  /* Light themes may try to force a light bg care */
+  --bg-color: #181818;
+  --transparent-bg: #00000000;
 
   /* Round stuff like */
   --md-border-radius: 10px;
@@ -45,16 +41,12 @@
   --blur: blur(16px) saturate(180%);
 }
 
-
-
-
 html {
   box-sizing: border-box;
   font-family: "Inter", sans-serif !important;
   font-weight: 450;
   margin: 0;
   padding: 0;
-  background-color: var(--md-sys-color-surface);
 }
 
 .skinHeader {
@@ -62,10 +54,10 @@ html {
 }
 
 #indexPage {
-  background-color: var(--md-sys-color-on-surface) !important;
+  background-color: var(--bg-color) !important;
   min-height: 350vh;
 
-/* BG Pattern if you want one */
+/* BG Pattern */
   background-image:
     repeating-linear-gradient(
       45deg,
@@ -74,10 +66,9 @@ html {
       transparent 1px,
       transparent 5px
     );
-
 }
 
-/* Elements with transparency and blur effects */
+/* Elements with transparency and blur effects.. Aero/Liquid glass retro cool :p */
 .skinHeader.semiTransparent,
 .skinHeader,
 .mainDrawer,
@@ -88,14 +79,15 @@ option {
   backdrop-filter: var(--blur) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
 }
-
+/* vestige?*/
 select:enabled,
 option {
-  border: 1px solid var(--md-sys-color-outline);
+  border: 1px solid blue;
   border-radius: var(--md-border-radius);
-  background-color: var(--md-sys-color-surface-container);
-  color: var(--md-sys-color-on-surface);
+  background-color: red;
+  color: green;
 }
+
 
 /* override hide-cursor */
 html, body, *, *::before, *::after {
@@ -107,8 +99,7 @@ html, body, *, *::before, *::after {
 
    ========= Colors Section ================
 
-
-   Background: var(--card-bg) - Deepest background
+ 
    ======================================== */
 .wizardStartForm,
 .ui-corner-all,
@@ -118,7 +109,7 @@ html, body, *, *::before, *::after {
 .nowPlayingPlaylist,
 .nowPlayingContextMenu,
 html {
-    background-color: var(--card-bg);
+    background-color: var(--bg-color);
 }
 
 /* ========================================
@@ -132,17 +123,14 @@ html {
 .visualCardBox,
 .appfooter,
 .playlistSectionButton {
-    background-color: var(--bg-color);
+    background-color: color-mix(in srgb, var(--bg-color) 50%, transparent);
 }
 
-/* ========================================
-   Background: var(--md-sys-color-on-surface) - Medium-dark surface color
-   ======================================== */
 .fab,
 .raised,
 .toast {
-    background: var(--md-sys-color-surface-container);
-    color: var(--md-sys-color-on-surface);
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
 }
 
 /* ========================================
@@ -198,10 +186,10 @@ html {
 }
 
 /* ========================================
-   Background: var(--md-sys-color-surface-container-high) - Watched indicator
+   Background: var(--md-sys-color-on-primary-container) - Watched indicator
    ======================================== */
 .sliderMarker.watched {
-    background-color: var(--md-sys-color-surface-container-high) !important;
+    background-color: var(--md-sys-color-on-primary-container) !important;
 }
 
 /* ========================================
@@ -247,24 +235,21 @@ html {
 }
 
 /* ========================================
-   Text Color: var(--md-sys-color-surface)  - Off white
+   Text Color: var(--md-sys-color-on-primary)  - Off white
    ======================================== */
 .alphaPickerButton-tv:focus,
 .selectionCommandsPanel,
 .listItem .secondary,
 .navMenuOption-selected,
-.emby-button.detailFloatingButton {
-    color: var(--md-sys-color-surface);
-}
+.emby-button.detailFloatingButton,
 .emby-select-withcolor:focus,
 .emby-select-tv-withcolor:focus {
-    color: var(--md-sys-color-surface) !important;
+    color: var(--md-sys-color-on-primary) !important;
 }
 
 /* ========================================
-   Text Color: var(--md-sys-color-tertiary) - Other Text / colored
+   Text Color: var(--md-sys-color-secondary) - Other Text / colored
    ======================================== */
-.cardText-secondary,
 .fieldDescription,
 .guide-programNameCaret,
 .nowPlayingBarSecondaryText,
@@ -279,7 +264,7 @@ html {
 .inputLabelUnfocused,
 .paperListLabel,
 .textareaLabelUnfocused {
-    color: var(--md-sys-color-tertiary);
+    color: var(--md-sys-color-secondary);
 }
 .mdl-slider {
   color: var(--md-sys-color-primary) !important;
@@ -293,7 +278,7 @@ html {
   background: var(--md-sys-color-primary) !important;
 }
 .sliderMarker.watched {
-    background-color: var(--md-sys-color-surface-container-high) !important;
+    background-color: var(--md-sys-color-on-primary-container) !important;
 }
 .iconOsdProgressInner {
   background: var(--md-sys-color-primary) !important;
@@ -385,7 +370,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 
 .sliderBubble {
     border-radius: 12px !important;
-    background-color: var( --indicator-bg);
+    background-color: var(--md-sys-color-on-surface);
 }
 
 /* Pause/play button hover effect */
@@ -401,32 +386,32 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 
 /* Cast Placeholder Card Colors*/
 .defaultCardBackground1{background-color: color-mix(in srgb, var(--md-sys-color-primary) 70%, transparent);}
-.defaultCardBackground2{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 70%, transparent);}
-.defaultCardBackground3{background-color: color-mix(in srgb, var(--md-sys-color-surface-container-high) 70%, transparent);}
-.defaultCardBackground4{background-color: color-mix(in srgb, var(--md-sys-color-tertiary-container) 70%, transparent);}
-.defaultCardBackground5{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 40%, transparent);}
+.defaultCardBackground2{background-color: color-mix(in srgb, var(--md-sys-color-secondary) 70%, transparent);}
+.defaultCardBackground3{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 70%, transparent);}
+.defaultCardBackground4{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 30%, transparent);}
+.defaultCardBackground5{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 50%, transparent);}
 
 /*Spinner*/
-.mdl-spinner__layer-1{border-color:var(--md-sys-color-surface-container-low);}
-.mdl-spinner__layer-2{border-color:var(--md-sys-color-surface-container);}
-.mdl-spinner__layer-3{border-color:var(--md-sys-color-surface-container-high);}
-.mdl-spinner__layer-4{border-color:var(--md-sys-color-primary);}
+.mdl-spinner__layer-1{border-color:var(--md-sys-color-primary-container) 25%;}
+.mdl-spinner__layer-2{border-color:var(--md-sys-color-primary-container) 50%;}
+.mdl-spinner__layer-3{border-color:var(--md-sys-color-primary-container) 75%;}
+.mdl-spinner__layer-4{border-color:var(--md-sys-color-primary-container);}
 
 /* Progress bar gradient */
 .mdl-slider-background-lower {
   background: linear-gradient(
     90deg,
 	var(--md-sys-color-primary)                0%,
-    var(--md-sys-color-surface-container-high) 45%,	
-    var(--md-sys-color-surface-container)     50%,	
-    var(--md-sys-color-surface-container-low) 55%,
-    var(--md-sys-color-surface-container)     65%,
-    var(--md-sys-color-surface-container-high) 75%,
+    var(--md-sys-color-on-primary-container)  45%,	
+    var(--md-sys-color-primary-container)     50%,	
+    var(--md-sys-color-primary-container)     55%,
+    var(--md-sys-color-primary-container)     65%,
+    var(--md-sys-color-on-primary-container)  75%,
     var(--md-sys-color-primary)                85%
   );
 }
 .mdl-slider-background-upper {
-	background: var(--md-sys-color-surface-container-high);
+	background: var(--md-sys-color-on-primary-container);
 }
 .mdl-slider::-moz-range-thumb,.mdl-slider::-ms-thumb,.mdl-slider::-webkit-slider-thumb{border-radius:var(--md-border-radius);}
 
@@ -436,7 +421,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   overflow-y: scroll !important;
   resize: vertical !important;
 
-  background-color: var(--md-sys-color-surface-container);
+  background-color: var(--md-sys-color-primary-container);
   color: var(--md-sys-color-on-surface);
   border: 1px solid var(--md-sys-color-outline);
   border-radius: var(--md-border-radius);
@@ -704,7 +689,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 
 /* Md3 Card styles */
 .cardBox {
-  background-color: color-mix(in srgb, var(--md-sys-color-surface-container) 40%, transparent);
+  background-color: color-mix(in srgb, var(--md-sys-color-primary-container) 40%, transparent);
   border-radius: var(--md-border-radius); /* 12px */
   padding: 2em;
   transition: transform 0.3s ease-in-out;
@@ -740,16 +725,22 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   font-size: clamp(0.25rem, 1vw, 1.8rem);
   line-height: 1.3;
   padding: 0.2em 1em;
-  color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-primary-container);
 }
 
 .cardText-secondary {
   font-size: 0.9rem;
   line-height: 1;
   padding: 0.2em 1em;
-  color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-primary-container);
   opacity: 0.72;
 }
+
+.itemsContainer > .card > .cardBox:hover .cardText,
+.itemsContainer > .card > .cardBox:hover .cardText-secondary {
+  color: var(--md-sys-color-on-primary) !important;
+}
+
 
 /* Primary content (play ect. buttons) on media page styling */
 .detailPagePrimaryContainer {
@@ -895,7 +886,7 @@ html.preload.layout-desktop {
 .playedIndicator {
   backdrop-filter: var(--blur) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-  background-color: var(--indicator-bg) !important;
+  background-color: var(--md-sys-color-on-surface) !important;
   box-shadow: none;
 }
 
@@ -916,6 +907,9 @@ html.preload.layout-desktop {
 
 .cardOverlayFab-primary:hover {
   background-color: var(--md-sys-color-tertiary);
+}
+.material-icons.chevron_right {
+  color: var(--md-sys-color-tertiary) !important;
 }
 
 /* Progress Bar Shenanigans */
@@ -955,7 +949,7 @@ h1 {
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-primary);
   margin-bottom: 0.5em;
 }
 /* H2 - Used for Hompage section titles */
@@ -964,7 +958,7 @@ h2 {
   font-weight: 250;
   line-height: 1.0;
   letter-spacing: -0.01em;
-  color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-tertiary);
   margin-bottom: 0.2em;
 }
 /* H3 - Used for OSD Title */
@@ -973,7 +967,7 @@ h3 {
   font-weight: 300;
   line-height: 1.25;
   letter-spacing: 0;
-  color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-primary);
   margin-bottom: 0.5em;
 }
 
@@ -982,7 +976,7 @@ h4 {
   font-weight: 400;
   line-height: 1.3;
   letter-spacing: 0;
-  color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-primary);
   margin-bottom: 0.4em;
 }
 
@@ -991,7 +985,7 @@ h5 {
   font-weight: 400;
   line-height: 1.35;
   letter-spacing: 0.01em;
-  color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-primary);
   margin-bottom: 0.4em;
 }
 
@@ -1003,8 +997,8 @@ h5 {
 /* Media Query for hover effects */
 @media (hover: hover) and (pointer: fine) {
   .paper-icon-button-light:hover:not(:disabled) {
-    background-color: var(--md-sys-color-surface);
-    color: var(--md-sys-color-primary);
+    background-color: var(--md-sys-color-primary) !important;
+    color: var(--md-sys-color-on-primary) !important;
   }
 }
 
@@ -1208,7 +1202,7 @@ p {
   position: fixed !important;
   top: 95vh !important;
   left: 0 !important;
-  width: 32vw !important;
+  width: 28vw !important;
   display: flex !important;
   justify-content: center !important;
   transform: translateX(-1%) !important;
@@ -1279,7 +1273,7 @@ a[href*="tvmaze.com"] {
 
 /* MD3 Dialog Box Styling — Dark Container with Light Text */
 .dialog.dialog-fixedSize.dialog-small.formDialog {
-  background-color: var(--md-dialog-elevation);
+  background-color: var(--md-sys-color-on-primary-container);
   border-radius: var(--md-border-radius);
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
   color: var(--md-sys-color-on-primary); /* LIGHT TEXT FOR DARK BG */
@@ -1336,7 +1330,7 @@ a[href*="tvmaze.com"] {
 .emby-checkbox {
   border: 1px solid var(--md-sys-color-outline);
   border-radius: var(--md-border-radius);
-  background-color: var(--md-sys-color-surface-container);
+  background-color: var(--md-sys-color-primary-container);
   color: var(--md-sys-color-primary) !important; 
   padding: 0.6em;
   font-size: 1rem;
@@ -1367,19 +1361,19 @@ a[href*="tvmaze.com"] {
 .checkboxOutline {
   border-radius: var(--md-border-radius);
   border: 1px solid var(--md-sys-color-outline);
-  background-color: var(--md-sys-color-surface-container);
+  background-color: var(--md-sys-color-primary-container);
 }
 .emby-checkbox:checked + span + .checkboxOutline, .itemProgressBarForeground {
-    background-color: var(--md-sys-color-surface-container);
+    background-color: var(--md-sys-color-primary-container);
 }
 
 .checkboxIcon {
   font-size: 1.2rem;
   color: var(--md-sys-color-primary) !important;
-  background-color: var(--md-sys-color-surface-container);
+  background-color: var(--md-sys-color-primary-container);
 }
 .itemProgressBarForeground {
-    background-color: var(--md-sys-color-surface-container);
+    background-color: var(--md-sys-color-primary-container);
 }
 
 /* Dialog footer & buttons */
@@ -1406,7 +1400,7 @@ a[href*="tvmaze.com"] {
 
 /* MD3 Action Sheet Container */
 .dialog.actionSheet {
-  background-color: var(--md-dialog-elevation);
+  background-color: var(--md-sys-color-on-primary-container);
   border-radius: var(--md-border-radius);
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
   color: var(--md-sys-color-on-primary); /* Light text for dark container */
@@ -1536,7 +1530,7 @@ Button Section
   padding: clamp(0.3em, 1vw, 0.6em) clamp(0.6em, 2vw, 1em);
   font-size: clamp(0.7rem, 2vw, 0.95rem);
   flex-grow: 1 !important;
-  color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-primary);
   background-color: transparent;
   border: 1px solid var(--md-sys-color-outline);
   border-top: 1px solid var(--md-sys-color-outline);
@@ -1573,7 +1567,7 @@ Button Section
 .mainDetailButtons > .btnPlaystate.detailButton:not(.hide):hover,
 .mainDetailButtons > .btnUserRating.detailButton:not(.hide):hover,
 .mainDetailButtons > .btnMoreCommands.detailButton:not(.hide):hover {
-  background-color: var(--md-sys-color-surface-container) !important;
+  background-color: var(--md-sys-color-primary-container) !important;
   color: var(--md-sys-color-on-surface) !important;
   border-radius: 0 !important;
 }
@@ -1615,15 +1609,15 @@ a.button-link.itemAction.emby-button {
   border: 1px solid var(--md-sys-color-outline) !important;
   border-radius: 999px !important; /* Full pill shape */
   background-color: transparent !important;
-  color: var(--md-sys-color-surface) !important; /* Light text by default */
+  color: var(--md-sys-color-on-primary) !important; /* Light text by default */
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
   cursor: pointer !important;
   line-height: 1.2 !important;
 }
 
 a.button-link.itemAction.emby-button:hover {
-  background-color: var(--md-sys-color-surface-container) !important; /* Light surface hover */
-  color: var(--md-sys-color-primary) !important;
+  background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
   border-color: var(--md-sys-color-outline) !important;
 }
 
@@ -1642,14 +1636,14 @@ a.overview-expand.emby-button {
   border: 1px solid var(--md-sys-color-outline) !important;
   border-radius: 999px !important;
   background-color: transparent !important;
-  color: var(--md-sys-color-surface) !important;
+  color: var(--md-sys-color-on-primary) !important;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
   cursor: pointer !important;
   line-height: 1.2 !important;
 }
 
 a.overview-expand.emby-button:hover {
-  background-color: var(--md-sys-color-surface-container) !important;
+  background-color: var(--md-sys-color-primary-container) !important;
   color: var(--md-sys-color-on-surface) !important;
 }
 
@@ -1664,7 +1658,7 @@ button.raised.more.raised-mini.noIcon.emby-button {
   border: 1px solid var(--md-sys-color-outline) !important;
   border-radius: 999px !important;
   background-color: transparent !important;
-  color: var(--md-sys-color-surface) !important;
+  color: var(--md-sys-color-on-primary) !important;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
   cursor: pointer !important;
   line-height: 1.2 !important;
