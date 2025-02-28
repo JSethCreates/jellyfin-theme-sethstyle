@@ -1,6 +1,6 @@
 /* 
 
-Seth's GNAT (God, not another theme..) Material design 3 edition v4.0.1
+Seth's GNAT (God, not another theme..) Material design 3 edition v4.0.2
 
 */
 /* System Colors and Fonts */
@@ -16,7 +16,7 @@ Seth's GNAT (God, not another theme..) Material design 3 edition v4.0.1
 :root {
 
 --md-sys-color-primary: #cfbdff;
---md-sys-color-on-primary: #ffffff;
+--md-sys-color-on-primary: #371e72;
 
 --md-sys-color-secondary: #cbc2db;
 
@@ -30,7 +30,7 @@ Seth's GNAT (God, not another theme..) Material design 3 edition v4.0.1
 
 --md-sys-color-outline: #948f99;
 
-  /* Light themes may try to force a light bg care */
+  --text-fallback-color: #ffffffcc;
   --bg-color: #181818;
   --transparent-bg: #00000000;
 
@@ -82,10 +82,9 @@ option {
 /* vestige?*/
 select:enabled,
 option {
-  border: 1px solid blue;
   border-radius: var(--md-border-radius);
-  background-color: red;
-  color: green;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
 }
 
 
@@ -123,7 +122,7 @@ html {
 .visualCardBox,
 .appfooter,
 .playlistSectionButton {
-    background-color: color-mix(in srgb, var(--bg-color) 50%, transparent);
+    background-color: color-mix(in srgb, var(--bg-color) 30%, transparent);
 }
 
 .fab,
@@ -143,7 +142,6 @@ html {
 .progressring-spiner,
 .emby-checkbox:checked + span + .checkboxOutline,
 .itemProgressBarForeground,
-.countIndicator,
 .fullSyncIndicator,
 .mediaSourceIndicator,
 .playedIndicator,
@@ -160,7 +158,8 @@ html {
    Background: var(--md-sys-color-primary) on hover (transparent tint)
    ======================================== */
 .paper-icon-button-light:hover:not(:disabled) {
-    background-color: var(--md-sys-color-surface);
+    background-color: var(--md-sys-color-primary) !important;
+    color: var(--md-sys-color-on-primary) !important;
 }
 
 /* ========================================
@@ -205,7 +204,7 @@ html {
 }
 
 /* ========================================
-   Text Color: var(--md-sys-color-primary)
+   Text Color: var(--md-sys-color-on-primary)
    ======================================== */
 .paper-icon-button-light:hover:not(.btnPause),
 .paper-icon-button-light:hover:not(:disabled):not(.btnPause),
@@ -213,7 +212,6 @@ html {
 .paper-icon-button-light.show-focus:focus:not(.btnPause),
 .raised.homeLibraryButton:hover,
 .button-flat:hover,
-.playstatebutton-icon-played,
 .ratingbutton-icon-withrating,
 .emby-tab-button:hover,
 .emby-tab-button.show-focus:focus,
@@ -231,7 +229,7 @@ html {
 #dialogToc .toc li a:active,
 #dialogToc .toc li a:hover,
 .mdl-slider {
-    color: var(--md-sys-color-primary) !important;
+    color: var(--md-sys-color-on-primary) !important;
 }
 
 /* ========================================
@@ -264,7 +262,7 @@ html {
 .inputLabelUnfocused,
 .paperListLabel,
 .textareaLabelUnfocused {
-    color: var(--md-sys-color-secondary);
+    color: var(--text-fallback-color);
 }
 .mdl-slider {
   color: var(--md-sys-color-primary) !important;
@@ -370,7 +368,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 
 .sliderBubble {
     border-radius: 12px !important;
-    background-color: var(--md-sys-color-on-surface);
+    background-color: color-mix(in srgb, var(--bg-color) 50%, transparent);
 }
 
 /* Pause/play button hover effect */
@@ -566,7 +564,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
     pointer-events: none !important;
-    color: var(--md-sys-color-on-primary) !important;
+    color: var(--text-fallback-color) !important;
     visibility: visible !important;
     text-indent: 0 !important;
     white-space: normal !important;
@@ -627,8 +625,6 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 
 
 
-
-
 /* ========================================
 		SCREEN DEPENDENT STYLING
    ======================================== */
@@ -652,7 +648,8 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 #castContent .personCard {
     width: 11vw;
     font-size: 0.3em !important;
-    padding-right: 2em !important;
+    padding-right: 1em !important;
+	padding-left: 1em !important;
 }
 [dir=ltr] .no-padding {
     padding-top: 0.3em !important;
@@ -666,7 +663,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   border-radius: var(--md-border-radius);
 }
 .cardImageContainer {
-  border-radius: inherit; /* Match the .cardScalable radius */
+  border-radius: inherit;
 }
 
 .customCssContainer textarea {
@@ -680,18 +677,16 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   overlay: none;
 }
 
-
 /* List and transition effects */
 .listItem {
   transition: 0.3s all ease-in-out;
 }
 
-
-/* Md3 Card styles */
+/* Card styles */
 .cardBox {
   background-color: color-mix(in srgb, var(--md-sys-color-primary-container) 40%, transparent);
   border-radius: var(--md-border-radius); /* 12px */
-  padding: 2em;
+  padding: 2.5em;
   transition: transform 0.3s ease-in-out;
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
   overflow: visible;
@@ -710,9 +705,12 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
     background: var(--md-sys-color-secondary) !important;
     color: #fff;
 }
+
+
 .css-17c09up.Mui-selected {
     background-color: var(--md-sys-color-secondary) !important;
 }
+
 
 .itemsContainer > .card > .cardBox:hover {
   box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5);
@@ -808,6 +806,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 }
 
 .detailSectionContent {
+  margin: 1vh !important;
   width: 60vw !important;
   max-width: none !important;
   flex: 1 1 auto !important;
@@ -886,7 +885,8 @@ html.preload.layout-desktop {
 .playedIndicator {
   backdrop-filter: var(--blur) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-  background-color: var(--md-sys-color-on-surface) !important;
+  background-color: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
   box-shadow: none;
 }
 
@@ -905,22 +905,27 @@ html.preload.layout-desktop {
   border: 2px solid transparent;
 }
 
+.selectionCommandsPanel,
 .cardOverlayFab-primary:hover {
-  background-color: var(--md-sys-color-tertiary);
+  background-color: var(--md-sys-color-tertiary) !important;
 }
+.itemSelectionPanel {
+  border-color: var(--md-sys-color-tertiary) !important;
+}
+.playstatebutton-icon-played,
 .material-icons.chevron_right {
   color: var(--md-sys-color-tertiary) !important;
 }
 
 /* Progress Bar Shenanigans */
 .innerCardFooter {
-  height: 0 !important; /* shrink container to remove the 20px vertical space */
+  height: 0 !important;
   overflow: visible !important;
   z-index: 2;
 }
 .itemProgressBar {
   position: absolute !important;
-  bottom: 0 !important; /* anchors to the actual card bottom */
+  bottom: 0 !important;
   left: 0;
   width: 100%;
   height: 8px !important;
@@ -933,10 +938,10 @@ html.preload.layout-desktop {
 }
 
 .itemProgressBarForeground {
-  background-color: color-mix(in srgb,var(--md-sys-color-tertiary)85%,transparent) !important;
+  background-color: color-mix(in srgb,var(--md-sys-color-tertiary)60%,transparent) !important;
   height: 8px !important;
   border-radius: 999px !important;
-  box-shadow: 0 0px 35px 8px var(--md-sys-color-primary) !important;
+  box-shadow: 0 0px 30px 18px color-mix(in srgb,var(--md-sys-color-tertiary)70%,transparent) !important;
   position: absolute !important;
   left: 0;
   top: 0;
@@ -949,7 +954,7 @@ h1 {
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: var(--md-sys-color-on-primary);
+  color: var(--text-fallback-color);
   margin-bottom: 0.5em;
 }
 /* H2 - Used for Hompage section titles */
@@ -967,7 +972,7 @@ h3 {
   font-weight: 300;
   line-height: 1.25;
   letter-spacing: 0;
-  color: var(--md-sys-color-on-primary);
+  color: var(--text-fallback-color);
   margin-bottom: 0.5em;
 }
 
@@ -976,7 +981,7 @@ h4 {
   font-weight: 400;
   line-height: 1.3;
   letter-spacing: 0;
-  color: var(--md-sys-color-on-primary);
+  color: var(--text-fallback-color);
   margin-bottom: 0.4em;
 }
 
@@ -985,7 +990,7 @@ h5 {
   font-weight: 400;
   line-height: 1.35;
   letter-spacing: 0.01em;
-  color: var(--md-sys-color-on-primary);
+  color: var(--text-fallback-color);
   margin-bottom: 0.4em;
 }
 
@@ -1153,9 +1158,7 @@ h3.itemName.infoText.subtitle.focuscontainer-x a.button-link::after {
   font-family: 'Special Elite', monospace;
   text-align: center !important;
 } 
-p {
-  margin: 1vh !important;
-}
+
 .detailSection {
     display: flex !important;
     flex-direction: column !important;
@@ -1293,7 +1296,7 @@ a[href*="tvmaze.com"] {
   font-weight: 500;
 
   background-color: transparent;
-  color: var(--md-sys-color-on-primary);
+  color: var(--md-sys-color-primary);
   margin-bottom: 1em;
 }
 .formDialogHeaderTitle {
@@ -1342,19 +1345,12 @@ a[href*="tvmaze.com"] {
 .fieldDescription,
 .formDialogContent label,
 .formDialogContent span {
-  color: var(--md-sys-color-on-primary); 
+  color: var(--text-fallback-color);
 }
 
 .checkboxLabel,
 .selectArrowContainer {
   color: var(--md-sys-color-primary) !important; 
-}
-
-/* Help text style */
-.fieldDescription {
-  opacity: 0.85;
-  font-size: 0.95rem;
-  line-height: 1.4;
 }
 
 /* Checkbox visuals */
@@ -1441,12 +1437,12 @@ a[href*="tvmaze.com"] {
 .actionsheetMenuItemIcon {
   font-size: 1.5rem;
   margin-right: 1em;
-  color: var(--md-sys-color-on-primary);
+  color: var(--md-sys-color-primary);
 }
 
 /* Text inside the item */
 .actionSheetItemText {
-  color: var(--md-sys-color-on-primary);
+  color: var(--text-fallback-color);
   font-size: 1rem;
   line-height: 1.4;
 }
@@ -1466,8 +1462,8 @@ Button Section
 
 --------------------------------------------------------------------------------------------- */
 .btnPlay.detailButton {
-  background-color: var(--md-sys-color-secondary) !important;
-  color: var(--md-sys-color-on-primary) !important;
+  background-color: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
   border: none !important;
   border-radius: var(--md-border-radius) !important;
   width: 4.4em !important;
@@ -1491,9 +1487,12 @@ Button Section
   font-size: 0.6em;
 }
 .btnPlay[title="Resume"]::after {
-  color: var(--md-sys-color-on-primary) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
   content: "Resume";
   font-size: 0.6em;
+}
+.btnPlay[title="Resume"].detailButton:hover::after {
+  color: var(--md-sys-color-on-primary) !important;
 }
 .btnPlay[title="Play"]::after {
   content: "";
@@ -1501,6 +1500,7 @@ Button Section
 
 .btnPlay.detailButton:hover {
   background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
   transform: translateY(-0.7em) scale(1.2) !important;
 }
 
@@ -1530,7 +1530,7 @@ Button Section
   padding: clamp(0.3em, 1vw, 0.6em) clamp(0.6em, 2vw, 1em);
   font-size: clamp(0.7rem, 2vw, 0.95rem);
   flex-grow: 1 !important;
-  color: var(--md-sys-color-on-primary);
+  color: var(--md-sys-color-primary);
   background-color: transparent;
   border: 1px solid var(--md-sys-color-outline);
   border-top: 1px solid var(--md-sys-color-outline);
@@ -1567,8 +1567,8 @@ Button Section
 .mainDetailButtons > .btnPlaystate.detailButton:not(.hide):hover,
 .mainDetailButtons > .btnUserRating.detailButton:not(.hide):hover,
 .mainDetailButtons > .btnMoreCommands.detailButton:not(.hide):hover {
-  background-color: var(--md-sys-color-primary-container) !important;
-  color: var(--md-sys-color-on-surface) !important;
+  background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
   border-radius: 0 !important;
 }
 
@@ -1609,7 +1609,7 @@ a.button-link.itemAction.emby-button {
   border: 1px solid var(--md-sys-color-outline) !important;
   border-radius: 999px !important; /* Full pill shape */
   background-color: transparent !important;
-  color: var(--md-sys-color-on-primary) !important; /* Light text by default */
+  color: var(--text-fallback-color) !important; /* Light text by default */
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
   cursor: pointer !important;
   line-height: 1.2 !important;
