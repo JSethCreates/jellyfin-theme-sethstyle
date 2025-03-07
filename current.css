@@ -1,44 +1,47 @@
-/* 
+/* ============================================
+   Seth's GNAT Jellyfin Material Design 3 Style (v4.0.4)
 
-Seth's GNAT (God, not another theme..) Material design 3 edition v4.0.2
 
-*/
-/* System Colors and Fonts */
-/* Inter Font for everything, Elite for Tagline Text only, Material Icons for header swap */
+============================================ */
 
+/* ─── System Fonts ──────────────────────────
+   - Inter: Base UI font
+   - Special Elite: For tagline/branding text
+   - Material Icons: Used in header
+──────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
-
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-/* All colors in this CSS are below, replace these to change colors*/
+/* ─── Color System – Editable Root Tokens ──
+   Replace these variables to restyle theme
+──────────────────────────────────────────── */
 
 :root {
+  /* Material Color Palette */
 
---md-sys-color-primary: #cfbdff;
---md-sys-color-on-primary: #371e72;
 
---md-sys-color-secondary: #cbc2db;
+  --md-sys-color-primary:            #cfbdff;
+  --md-sys-color-secondary:          #cbc2db;
+  --md-sys-color-tertiary:           #efb8c8;
 
---md-sys-color-tertiary: #efb8c8;
+  --md-sys-color-on-primary:         #371e72;
+  --md-sys-color-primary-container:  #4e378a;
+  --md-sys-color-on-primary-container: #e9ddff;
 
---md-sys-color-primary-container: #4e378a;
---md-sys-color-on-primary-container: #e9ddff;
+  --md-sys-color-surface:            #1c1b1e;
+  --md-sys-color-on-surface:         #e6e1e6;
+  --md-sys-color-outline:            #948f99;
 
---md-sys-color-surface: #1c1b1e;
---md-sys-color-on-surface: #e6e1e6;
 
---md-sys-color-outline: #948f99;
+  /* Light and Dark */  
+  --text-fallback-color:             #ffffffcc;   /* semi-transparent white */
+  --bg-color:                        #181818;     /* dark base background ^ Keep these opposites for visibility*/
+  --transparent-bg:                  #00000000;   /* fully transparent */
 
-  --text-fallback-color: #ffffffcc;
-  --bg-color: #181818;
-  --transparent-bg: #00000000;
-
-  /* Round stuff like */
-  --md-border-radius: 10px;
-
-  /* Blur stuff like */
-  --blur: blur(16px) saturate(180%);
+  /* Design details */
+  --md-border-radius:                10px;
+  --blur:                            blur(10px) saturate(180%);
 }
 
 html {
@@ -100,6 +103,7 @@ html, body, *, *::before, *::after {
 
  
    ======================================== */
+/* --- Background        --bg-color -------------------------------- */
 .wizardStartForm,
 .ui-corner-all,
 .ui-shadow,
@@ -108,12 +112,10 @@ html, body, *, *::before, *::after {
 .nowPlayingPlaylist,
 .nowPlayingContextMenu,
 html {
-    background-color: var(--bg-color);
+  background-color: var(--bg-color);
 }
 
-/* ========================================
-   Background: var(--bg-color) - Main background
-   ======================================== */
+/* --- Translucent BG    --bg-color mix ---------------------------- */
 .skinHeader-withBackground,
 .collapseContent,
 .formDialogFooter:not(.formDialogFooter-clear),
@@ -122,19 +124,23 @@ html {
 .visualCardBox,
 .appfooter,
 .playlistSectionButton {
-    background-color: color-mix(in srgb, var(--bg-color) 30%, transparent);
+  background-color: color-mix(in srgb, var(--bg-color) 30%, transparent);
 }
 
+/* --- Transparent BG     --transparent-bg ------------------------- */
+.cardOverlayContainer {
+  background-color: var(--transparent-bg);
+}
+
+/* --- Primary Container  --md-sys-color-primary-container --------- */
 .fab,
 .raised,
 .toast {
-    background: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
+  background: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
 }
 
-/* ========================================
-   Background: var(--md-sys-color-primary) - Main Accent color
-   ======================================== */
+/* --- Primary            --md-sys-color-primary ------------------- */
 .button-submit,
 .alphaPickerButton-tv:focus,
 .selectionCommandsPanel,
@@ -150,104 +156,61 @@ html {
 .mdl-slider::-moz-range-thumb,
 .mdl-slider::-ms-thumb,
 .iconOsdProgressInner,
-.selectArrowContainer {
-    background-color: var(--md-sys-color-primary) !important;
+.selectArrowContainer,
+.mdl-slider::-webkit-slider-thumb {
+  background: var(--md-sys-color-primary) !important;
+  background-color: var(--md-sys-color-primary) !important;
 }
 
-/* ========================================
-   Background: var(--md-sys-color-primary) on hover (transparent tint)
-   ======================================== */
+/* --- Primary Hover Tint --md-sys-color-primary (hover) ----------- */
 .paper-icon-button-light:hover:not(:disabled) {
-    background-color: var(--md-sys-color-primary) !important;
-    color: var(--md-sys-color-on-primary) !important;
+  background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
 }
 
-/* ========================================
-   Background: var(--md-sys-color-surface) - Light foreground surface
-   ======================================== */
+/* --- Primary Surface    --md-sys-color-surface ------------------- */
 .emby-button.detailFloatingButton.layout-tv:focus {
-    background-color: var(--md-sys-color-surface);
-    color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-primary);
 }
 
-/* ========================================
-   Background: var(--transparent-bg) - Overlay container
-   ======================================== */
-.cardOverlayContainer {
-    background-color: var(--transparent-bg);
-}
-
-/* ========================================
-   Background: var(--md-hover-primary) - Hover highlight
-   ======================================== */
+/* --- Primary Hover Mix  --md-sys-color-primary (hover mix) ------- */
 .listItem:hover {
-    background-color: color-mix(in srgb, var(--md-sys-color-primary) 50%, transparent);
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) 50%, transparent);
 }
 
-/* ========================================
-   Background: var(--md-sys-color-on-primary-container) - Watched indicator
-   ======================================== */
+/* --- On-Primary-Container --md-sys-color-on-primary-container --- */
 .sliderMarker.watched {
-    background-color: var(--md-sys-color-on-primary-container) !important;
+  background-color: var(--md-sys-color-on-primary-container) !important;
 }
 
-/* ========================================
-   Border Color: var(--md-sys-color-primary)
-   ======================================== */
+/* --- Tertiary           --md-sys-color-tertiary ------------------ */
+.selectionCommandsPanel,
+.cardOverlayFab-primary:hover {
+  background-color: var(--md-sys-color-tertiary) !important;
+}
+
+.itemSelectionPanel {
+  border-color: var(--md-sys-color-tertiary) !important;
+}
+
+.playstatebutton-icon-played,
+.selectLabelFocused,
+.material-icons.chevron_right {
+  color: var(--md-sys-color-tertiary) !important;
+}
+
+/* --- Primary Border     --md-sys-color-primary ------------------- */
 .emby-input:focus,
 .emby-textarea:focus,
 .emby-checkbox:focus + span + .checkboxOutline,
 .emby-checkbox:checked + span + .checkboxOutline,
 .emby-select-withcolor:focus,
 .emby-select-tv-withcolor:focus {
-    border-color: var(--md-sys-color-primary) !important;
+  border-color: var(--md-sys-color-primary) !important;
 }
 
-/* ========================================
-   Text Color: var(--md-sys-color-on-primary)
-   ======================================== */
-.paper-icon-button-light:hover:not(.btnPause),
-.paper-icon-button-light:hover:not(:disabled):not(.btnPause),
-.paper-icon-button-light:active:not(:disabled):not(.btnPause),
-.paper-icon-button-light.show-focus:focus:not(.btnPause),
-.raised.homeLibraryButton:hover,
-.button-flat:hover,
-.ratingbutton-icon-withrating,
-.emby-tab-button:hover,
-.emby-tab-button.show-focus:focus,
-.selectLabelFocused,
-.inputLabelFocused,
-.textareaLabelFocused,
-.upNextDialog-countdownText,
-.button-link,
-.emby-select-withcolor:focus,
-.guide-date-tab-button.emby-tab-button-active,
-.guide-date-tab-button:focus,
-.metadataSidebarIcon,
-.emby-button.detailFloatingButton:focus,
-#dialogToc .bookplayerButtonIcon:hover,
-#dialogToc .toc li a:active,
-#dialogToc .toc li a:hover,
-.mdl-slider {
-    color: var(--md-sys-color-on-primary) !important;
-}
-
-/* ========================================
-   Text Color: var(--md-sys-color-on-primary)  - Off white
-   ======================================== */
-.alphaPickerButton-tv:focus,
-.selectionCommandsPanel,
-.listItem .secondary,
-.navMenuOption-selected,
-.emby-button.detailFloatingButton,
-.emby-select-withcolor:focus,
-.emby-select-tv-withcolor:focus {
-    color: var(--md-sys-color-on-primary) !important;
-}
-
-/* ========================================
-   Text Color: var(--md-sys-color-secondary) - Other Text / colored
-   ======================================== */
+/* --- Main Text      --text-fallback-color ------------------- */
 .fieldDescription,
 .guide-programNameCaret,
 .nowPlayingBarSecondaryText,
@@ -260,26 +223,41 @@ html {
 .checkboxListLabel,
 .inputLabel,
 .inputLabelUnfocused,
+.button-link,
 .paperListLabel,
 .textareaLabelUnfocused {
-    color: var(--text-fallback-color);
+  color: var(--text-fallback-color);
 }
-.mdl-slider {
-  color: var(--md-sys-color-primary) !important;
-}
-.mdl-slider::-webkit-slider-thumb {
-    background: var(--md-sys-color-primary) !important;
-}
-.mdl-slider::-moz-range-thumb,
-.mdl-slider::-ms-thumb,
-.mdl-slider::-webkit-slider-thumb {
-  background: var(--md-sys-color-primary) !important;
-}
-.sliderMarker.watched {
-    background-color: var(--md-sys-color-on-primary-container) !important;
-}
-.iconOsdProgressInner {
-  background: var(--md-sys-color-primary) !important;
+
+/* --- Secondary Text       --md-sys-color-on-primary --------------- */
+.paper-icon-button-light:hover:not(.btnPause),
+.paper-icon-button-light:hover:not(:disabled):not(.btnPause),
+.paper-icon-button-light:active:not(:disabled):not(.btnPause),
+.paper-icon-button-light.show-focus:focus:not(.btnPause),
+.raised.homeLibraryButton:hover,
+.button-flat:hover,
+.ratingbutton-icon-withrating,
+.emby-tab-button:hover,
+.emby-tab-button.show-focus:focus,
+.inputLabelFocused,
+.textareaLabelFocused,
+.upNextDialog-countdownText,
+.guide-date-tab-button.emby-tab-button-active,
+.guide-date-tab-button:focus,
+.metadataSidebarIcon,
+.emby-button.detailFloatingButton:focus,
+#dialogToc .bookplayerButtonIcon:hover,
+#dialogToc .toc li a:active,
+#dialogToc .toc li a:hover,
+.mdl-slider,
+.alphaPickerButton-tv:focus,
+.selectionCommandsPanel,
+.listItem .secondary,
+.navMenuOption-selected,
+.emby-button.detailFloatingButton,
+.emby-select-withcolor:focus,
+.emby-select-tv-withcolor:focus {
+  color: var(--md-sys-color-on-primary) !important;
 }
 
 /* Rounded Items */
@@ -905,18 +883,6 @@ html.preload.layout-desktop {
   border: 2px solid transparent;
 }
 
-.selectionCommandsPanel,
-.cardOverlayFab-primary:hover {
-  background-color: var(--md-sys-color-tertiary) !important;
-}
-.itemSelectionPanel {
-  border-color: var(--md-sys-color-tertiary) !important;
-}
-.playstatebutton-icon-played,
-.material-icons.chevron_right {
-  color: var(--md-sys-color-tertiary) !important;
-}
-
 /* Progress Bar Shenanigans */
 .innerCardFooter {
   height: 0 !important;
@@ -1344,8 +1310,10 @@ a[href*="tvmaze.com"] {
 
 .fieldDescription,
 .formDialogContent label,
+.emby-input, 
+.emby-textarea,
 .formDialogContent span {
-  color: var(--text-fallback-color);
+  color: var(--text-fallback-color) !important;
 }
 
 .checkboxLabel,
