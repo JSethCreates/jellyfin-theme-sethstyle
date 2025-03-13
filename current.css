@@ -1,5 +1,5 @@
 /* ============================================
-   Seth's GNAT Jellyfin Material Design 3 Style (v4.0.4)
+   Seth's GNAT Jellyfin Material Design 3 Style (v4.0.6)
 
 
 ============================================ */
@@ -152,11 +152,7 @@ html {
 .mediaSourceIndicator,
 .playedIndicator,
 .emby-button.detailFloatingButton,
-.mdl-slider::-webkit-slider-thumb,
-.mdl-slider::-moz-range-thumb,
-.mdl-slider::-ms-thumb,
 .iconOsdProgressInner,
-.selectArrowContainer,
 .mdl-slider::-webkit-slider-thumb {
   background: var(--md-sys-color-primary) !important;
   background-color: var(--md-sys-color-primary) !important;
@@ -349,6 +345,32 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
     background-color: color-mix(in srgb, var(--bg-color) 50%, transparent);
 }
 
+/* This slider thumb needs discrete styling on  Firefox */
+.mdl-slider::-moz-range-thumb {
+  background-color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-on-primary-container);
+  box-shadow:
+    0 0 0 2px var(--md-sys-color-primary-container),
+    inset 0 0 0 2px var(--md-sys-color-on-primary),
+    0 0 4px rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+}
+/* WebKit browsers (Chrome, Edge, Safari) */
+.mdl-slider::-webkit-slider-thumb {
+  background-color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-on-primary-container);
+  box-shadow:
+    0 0 0 2px var(--md-sys-color-primary-container),  /* outer ring */
+    inset 0 0 0 2px var(--md-sys-color-on-primary),    /* inner ring for texture */
+    0 0 4px rgba(0, 0, 0, 0.5);                         /* subtle glow */
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  appearance: none;
+}
+
 /* Pause/play button hover effect */
 .btnPause {
   display: inline-flex; /* ensures transform scales whole button */
@@ -377,17 +399,17 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 .mdl-slider-background-lower {
   background: linear-gradient(
     90deg,
-	var(--md-sys-color-primary)                0%,
-    var(--md-sys-color-on-primary-container)  45%,	
-    var(--md-sys-color-primary-container)     50%,	
-    var(--md-sys-color-primary-container)     55%,
-    var(--md-sys-color-primary-container)     65%,
-    var(--md-sys-color-on-primary-container)  75%,
-    var(--md-sys-color-primary)                85%
+    var(--md-sys-color-primary-container)          0%,
+    var(--md-sys-color-primary-container)        45%,	
+    var(--md-sys-color-primary-container)        50%,	
+    var(--md-sys-color-primary-container)        55%,
+    var(--md-sys-color-primary)                          65%,
+    var(--md-sys-color-primary)                          75%,
+    var(--md-sys-color-primary-container)        90%
   );
 }
 .mdl-slider-background-upper {
-	background: var(--md-sys-color-on-primary-container);
+	background: var(--md-sys-color-on-primary);
 }
 .mdl-slider::-moz-range-thumb,.mdl-slider::-ms-thumb,.mdl-slider::-webkit-slider-thumb{border-radius:var(--md-border-radius);}
 
@@ -1328,7 +1350,7 @@ a[href*="tvmaze.com"] {
   background-color: var(--md-sys-color-primary-container);
 }
 .emby-checkbox:checked + span + .checkboxOutline, .itemProgressBarForeground {
-    background-color: var(--md-sys-color-primary-container);
+    background-color: var(--md-sys-color-primary-container) !important;
 }
 
 .checkboxIcon {
