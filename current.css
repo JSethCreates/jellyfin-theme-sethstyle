@@ -1,53 +1,48 @@
-/* Seths GNAT Material design 3 style v4.0*/
+/* ============================================
+   Seth's GNAT Jellyfin Material Design 3 Style (v4.1.0)
 
-/* System Colors and Fonts */
 
-/* Inter Font for everything, Elite for Tagline Text only, Material Icons for header swap */
+============================================ */
 
+/* ─── System Fonts ──────────────────────────
+   - Inter: Base UI font
+   - Special Elite: For tagline/branding text
+   - Material Icons: Used in header
+──────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
-
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-/* All colors in this CSS are one of the 16 below, replace these to retheme */
+/* ─── Color System – Editable Root Tokens ──
+   Replace these variables to restyle theme
+──────────────────────────────────────────── */
 
 :root {
+  /* Material Color Palette */
 
 
---md-sys-color-primary: #973580;
---md-sys-color-secondary: #76566f;
---md-sys-color-tertiary: #7e594e;
+--md-sys-color-primary: #cfbcff;
+--md-sys-color-secondary: #cbc2db;
+--md-sys-color-tertiary: #efb8c8;
 
---md-sys-color-primary-container: #d0a4c5;
---md-sys-color-secondary-container: #dfc2d8;
---md-sys-color-tertiary-container: #c4b4af;
+--md-sys-color-on-primary: #381e72;
+--md-sys-color-primary-container: #4f378a;
+--md-sys-color-on-primary-container: #e9ddff;
 
---md-sys-color-on-primary: #FFFFFF;
---md-sys-color-on-primary-container: #c085b2;
---md-sys-color-on-surface: #292328;
+--md-sys-color-surface: #1c1b1e;
+--md-sys-color-on-surface: #e6e1e6;
+--md-sys-color-outline: #948f99;
 
---md-sys-color-surface: #efe0eb;
---md-sys-color-neutral: #6a6268;
---md-sys-color-outline: #6a6268;
---md-sys-color-neutral-variant: #6e5e6a;
 
---bg-color: #181818;
---indicator-bg: #10101094;
---transparent-bg: #10101000;
+  /* Light and Dark */  
+  --text-fallback-color:             #ffffffcc;   /* semi-transparent white */
+  --bg-color:                        #181818;     /* dark base background ^ Keep these opposites for visibility*/
+  --transparent-bg:                  #00000000;   /* fully transparent */
 
-  --md-card-elevation: var(--md-sys-color-primary-container);
-  --md-dialog-elevation: var(--md-sys-color-on-primary-container);
-  --accent: var(--md-sys-color-primary);
-
-  /* Round stuff like */
-  --md-border-radius: 10px;
-
-  /* Blur stuff like */
-  --blur: blur(16px) saturate(180%);
+  /* Design details */
+  --md-border-radius:                10px;
+  --blur:                            blur(10px) saturate(180%);
 }
-
-
-
 
 html {
   box-sizing: border-box;
@@ -65,7 +60,7 @@ html {
   background-color: var(--bg-color) !important;
   min-height: 350vh;
 
-/* BG Pattern if you want one */
+/* BG Pattern */
   background-image:
     repeating-linear-gradient(
       45deg,
@@ -74,28 +69,27 @@ html {
       transparent 1px,
       transparent 5px
     );
-
 }
 
-/* Elements with transparency and blur effects */
+/* Elements with transparency and blur effects.. Aero/Liquid glass retro cool :p */
 .skinHeader.semiTransparent,
 .skinHeader,
 .mainDrawer,
 .actionSheet,
 select:enabled,
 option {
-  background-color: color-mix(in srgb, var(--bg-color) 50%, transparent);
+  background-color: var(--bg-color);
   backdrop-filter: var(--blur) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
 }
-
+/* vestige?*/
 select:enabled,
 option {
-  border: 1px solid var(--md-sys-color-outline);
   border-radius: var(--md-border-radius);
   background-color: var(--md-sys-color-primary-container);
-  color: var(--md-sys-color-on-surface);
+  color: var(--md-sys-color-on-primary-container);
 }
+
 
 /* override hide-cursor */
 html, body, *, *::before, *::after {
@@ -107,9 +101,9 @@ html, body, *, *::before, *::after {
 
    ========= Colors Section ================
 
-
-   Background: var(--card-bg) - Deepest background
+ 
    ======================================== */
+/* --- Background        --bg-color -------------------------------- */
 .wizardStartForm,
 .ui-corner-all,
 .ui-shadow,
@@ -118,12 +112,10 @@ html, body, *, *::before, *::after {
 .nowPlayingPlaylist,
 .nowPlayingContextMenu,
 html {
-    background-color: var(--card-bg);
+  background-color: var(--bg-color);
 }
 
-/* ========================================
-   Background: var(--bg-color) - Main background
-   ======================================== */
+/* --- Translucent BG    --bg-color mix ---------------------------- */
 .skinHeader-withBackground,
 .collapseContent,
 .formDialogFooter:not(.formDialogFooter-clear),
@@ -132,137 +124,88 @@ html {
 .visualCardBox,
 .appfooter,
 .playlistSectionButton {
-    background-color: color-mix(in srgb, var(--bg-color) 50%, transparent);
+  background-color: color-mix(in srgb, var(--bg-color) 30%, transparent);
 }
 
-/* ========================================
-   Background: var(--md-sys-color-on-surface) - Medium-dark surface color
-   ======================================== */
+/* --- Transparent BG     --transparent-bg ------------------------- */
+.cardOverlayContainer {
+  background-color: var(--transparent-bg);
+}
+
+/* --- Primary Container  --md-sys-color-primary-container --------- */
 .fab,
 .raised,
 .toast {
-    background: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-surface);
+  background: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
 }
 
-/* ========================================
-   Background: var(--md-sys-color-primary) - Main Accent color
-   ======================================== */
+/* --- Primary            --md-sys-color-primary ------------------- */
 .button-submit,
 .alphaPickerButton-tv:focus,
 .selectionCommandsPanel,
 .navMenuOption-selected,
 .progressring-spiner,
 .emby-checkbox:checked + span + .checkboxOutline,
-.itemProgressBarForeground,
-.countIndicator,
 .fullSyncIndicator,
 .mediaSourceIndicator,
 .playedIndicator,
 .emby-button.detailFloatingButton,
-.mdl-slider::-webkit-slider-thumb,
-.mdl-slider::-moz-range-thumb,
-.mdl-slider::-ms-thumb,
 .iconOsdProgressInner,
-.selectArrowContainer {
-    background-color: var(--md-sys-color-primary) !important;
+.mdl-slider::-webkit-slider-thumb {
+  background: var(--md-sys-color-primary) !important;
+  background-color: var(--md-sys-color-primary) !important;
 }
 
-/* ========================================
-   Background: var(--md-sys-color-primary) on hover (transparent tint)
-   ======================================== */
+/* --- Primary Hover Tint --md-sys-color-primary (hover) ----------- */
 .paper-icon-button-light:hover:not(:disabled) {
-    background-color: var(--md-sys-color-surface);
+  background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
 }
 
-/* ========================================
-   Background: var(--md-sys-color-surface) - Light foreground surface
-   ======================================== */
+/* --- Primary Surface    --md-sys-color-surface ------------------- */
 .emby-button.detailFloatingButton.layout-tv:focus {
-    background-color: var(--md-sys-color-surface);
-    color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-primary);
 }
 
-/* ========================================
-   Background: var(--transparent-bg) - Overlay container
-   ======================================== */
-.cardOverlayContainer {
-    background-color: var(--transparent-bg);
-}
-
-/* ========================================
-   Background: var(--md-hover-primary) - Hover highlight
-   ======================================== */
+/* --- Primary Hover Mix  --md-sys-color-primary (hover mix) ------- */
 .listItem:hover {
-    background-color: color-mix(in srgb, var(--md-sys-color-primary) 50%, transparent);
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) 50%, transparent);
 }
 
-/* ========================================
-   Background: var(--md-sys-color-on-primary-container) - Watched indicator
-   ======================================== */
+/* --- On-Primary-Container --md-sys-color-on-primary-container --- */
 .sliderMarker.watched {
-    background-color: var(--md-sys-color-on-primary-container) !important;
+  background-color: var(--md-sys-color-on-primary-container) !important;
 }
 
-/* ========================================
-   Border Color: var(--md-sys-color-primary)
-   ======================================== */
+/* --- Tertiary           --md-sys-color-tertiary ------------------ */
+.selectionCommandsPanel,
+.cardOverlayFab-primary:hover {
+  background-color: var(--md-sys-color-tertiary) !important;
+}
+
+.itemSelectionPanel {
+  border-color: var(--md-sys-color-tertiary) !important;
+}
+
+.playstatebutton-icon-played,
+.selectLabelFocused,
+.material-icons.chevron_right {
+  color: var(--md-sys-color-tertiary) !important;
+}
+
+/* --- Primary Border     --md-sys-color-primary ------------------- */
 .emby-input:focus,
 .emby-textarea:focus,
 .emby-checkbox:focus + span + .checkboxOutline,
 .emby-checkbox:checked + span + .checkboxOutline,
 .emby-select-withcolor:focus,
 .emby-select-tv-withcolor:focus {
-    border-color: var(--md-sys-color-primary) !important;
+  border-color: var(--md-sys-color-primary) !important;
 }
 
-/* ========================================
-   Text Color: var(--md-sys-color-primary)
-   ======================================== */
-.paper-icon-button-light:hover:not(.btnPause),
-.paper-icon-button-light:hover:not(:disabled):not(.btnPause),
-.paper-icon-button-light:active:not(:disabled):not(.btnPause),
-.paper-icon-button-light.show-focus:focus:not(.btnPause),
-.raised.homeLibraryButton:hover,
-.button-flat:hover,
-.playstatebutton-icon-played,
-.ratingbutton-icon-withrating,
-.emby-tab-button:hover,
-.emby-tab-button.show-focus:focus,
-.selectLabelFocused,
-.inputLabelFocused,
-.textareaLabelFocused,
-.upNextDialog-countdownText,
-.button-link,
-.emby-select-withcolor:focus,
-.guide-date-tab-button.emby-tab-button-active,
-.guide-date-tab-button:focus,
-.metadataSidebarIcon,
-.emby-button.detailFloatingButton:focus,
-#dialogToc .bookplayerButtonIcon:hover,
-#dialogToc .toc li a:active,
-#dialogToc .toc li a:hover,
-.mdl-slider {
-    color: var(--md-sys-color-primary) !important;
-}
-
-/* ========================================
-   Text Color: var(--md-sys-color-on-primary)  - Off white
-   ======================================== */
-.alphaPickerButton-tv:focus,
-.selectionCommandsPanel,
-.listItem .secondary,
-.navMenuOption-selected,
-.emby-button.detailFloatingButton,
-.emby-select-withcolor:focus,
-.emby-select-tv-withcolor:focus {
-    color: var(--md-sys-color-on-primary) !important;
-}
-
-/* ========================================
-   Text Color: var(--md-sys-color-tertiary) - Other Text / colored
-   ======================================== */
-.cardText-secondary,
+/* --- Main Text      --text-fallback-color ------------------- */
 .fieldDescription,
 .guide-programNameCaret,
 .nowPlayingBarSecondaryText,
@@ -275,26 +218,41 @@ html {
 .checkboxListLabel,
 .inputLabel,
 .inputLabelUnfocused,
+.button-link,
 .paperListLabel,
 .textareaLabelUnfocused {
-    color: var(--md-sys-color-tertiary);
+  color: var(--text-fallback-color);
 }
-.mdl-slider {
-  color: var(--md-sys-color-primary) !important;
-}
-.mdl-slider::-webkit-slider-thumb {
-    background: var(--md-sys-color-primary) !important;
-}
-.mdl-slider::-moz-range-thumb,
-.mdl-slider::-ms-thumb,
-.mdl-slider::-webkit-slider-thumb {
-  background: var(--md-sys-color-primary) !important;
-}
-.sliderMarker.watched {
-    background-color: var(--md-sys-color-on-primary-container) !important;
-}
-.iconOsdProgressInner {
-  background: var(--md-sys-color-primary) !important;
+
+/* --- Secondary Text       --md-sys-color-on-primary --------------- */
+.paper-icon-button-light:hover:not(.btnPause),
+.paper-icon-button-light:hover:not(:disabled):not(.btnPause),
+.paper-icon-button-light:active:not(:disabled):not(.btnPause),
+.paper-icon-button-light.show-focus:focus:not(.btnPause),
+.raised.homeLibraryButton:hover,
+.button-flat:hover,
+.ratingbutton-icon-withrating,
+.emby-tab-button:hover,
+.emby-tab-button.show-focus:focus,
+.inputLabelFocused,
+.textareaLabelFocused,
+.upNextDialog-countdownText,
+.guide-date-tab-button.emby-tab-button-active,
+.guide-date-tab-button:focus,
+.metadataSidebarIcon,
+.emby-button.detailFloatingButton:focus,
+#dialogToc .bookplayerButtonIcon:hover,
+#dialogToc .toc li a:active,
+#dialogToc .toc li a:hover,
+.mdl-slider,
+.alphaPickerButton-tv:focus,
+.selectionCommandsPanel,
+.listItem .secondary,
+.navMenuOption-selected,
+.emby-button.detailFloatingButton,
+.emby-select-withcolor:focus,
+.emby-select-tv-withcolor:focus {
+  color: var(--md-sys-color-on-primary) !important;
 }
 
 /* Rounded Items */
@@ -383,7 +341,33 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 
 .sliderBubble {
     border-radius: 12px !important;
-    background-color: var( --indicator-bg);
+    background-color: color-mix(in srgb, var(--bg-color) 50%, transparent);
+}
+
+/* This slider thumb needs discrete styling on  Firefox */
+.mdl-slider::-moz-range-thumb {
+  background-color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-on-primary-container);
+  box-shadow:
+    0 0 0 2px var(--md-sys-color-primary-container),
+    inset 0 0 0 2px var(--md-sys-color-on-primary),
+    0 0 4px rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+}
+/* WebKit browsers (Chrome, Edge, Safari) */
+.mdl-slider::-webkit-slider-thumb {
+  background-color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-on-primary-container);
+  box-shadow:
+    0 0 0 2px var(--md-sys-color-primary-container),  /* outer ring */
+    inset 0 0 0 2px var(--md-sys-color-on-primary),    /* inner ring for texture */
+    0 0 4px rgba(0, 0, 0, 0.5);                         /* subtle glow */
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  appearance: none;
 }
 
 /* Pause/play button hover effect */
@@ -399,32 +383,32 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 
 /* Cast Placeholder Card Colors*/
 .defaultCardBackground1{background-color: color-mix(in srgb, var(--md-sys-color-primary) 70%, transparent);}
-.defaultCardBackground2{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 70%, transparent);}
-.defaultCardBackground3{background-color: color-mix(in srgb, var(--md-sys-color-on-primary-container) 70%, transparent);}
-.defaultCardBackground4{background-color: color-mix(in srgb, var(--md-sys-color-tertiary-container) 70%, transparent);}
-.defaultCardBackground5{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 40%, transparent);}
+.defaultCardBackground2{background-color: color-mix(in srgb, var(--md-sys-color-secondary) 70%, transparent);}
+.defaultCardBackground3{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 70%, transparent);}
+.defaultCardBackground4{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 30%, transparent);}
+.defaultCardBackground5{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 50%, transparent);}
 
 /*Spinner*/
-.mdl-spinner__layer-1{border-color:var(--md-sys-color-secondary-container);}
-.mdl-spinner__layer-2{border-color:var(--md-sys-color-primary-container);}
-.mdl-spinner__layer-3{border-color:var(--md-sys-color-on-primary-container);}
-.mdl-spinner__layer-4{border-color:var(--md-sys-color-primary);}
+.mdl-spinner__layer-1{border-color:var(--md-sys-color-primary-container) 25%;}
+.mdl-spinner__layer-2{border-color:var(--md-sys-color-primary-container) 50%;}
+.mdl-spinner__layer-3{border-color:var(--md-sys-color-primary-container) 75%;}
+.mdl-spinner__layer-4{border-color:var(--md-sys-color-primary-container);}
 
 /* Progress bar gradient */
 .mdl-slider-background-lower {
   background: linear-gradient(
     90deg,
-	var(--md-sys-color-primary)                0%,
-    var(--md-sys-color-on-primary-container) 45%,	
-    var(--md-sys-color-primary-container)     50%,	
-    var(--md-sys-color-secondary-container) 55%,
-    var(--md-sys-color-primary-container)     65%,
-    var(--md-sys-color-on-primary-container) 75%,
-    var(--md-sys-color-primary)                85%
+    var(--md-sys-color-primary-container)          0%,
+    var(--md-sys-color-primary-container)        45%,	
+    var(--md-sys-color-primary-container)        50%,	
+    var(--md-sys-color-primary-container)        55%,
+    var(--md-sys-color-primary)                          65%,
+    var(--md-sys-color-primary)                          75%,
+    var(--md-sys-color-primary-container)        90%
   );
 }
 .mdl-slider-background-upper {
-	background: var(--md-sys-color-on-primary-container);
+	background: var(--md-sys-color-on-primary);
 }
 .mdl-slider::-moz-range-thumb,.mdl-slider::-ms-thumb,.mdl-slider::-webkit-slider-thumb{border-radius:var(--md-border-radius);}
 
@@ -579,7 +563,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
     pointer-events: none !important;
-    color: var(--md-sys-color-on-primary) !important;
+    color: var(--text-fallback-color) !important;
     visibility: visible !important;
     text-indent: 0 !important;
     white-space: normal !important;
@@ -640,8 +624,6 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 
 
 
-
-
 /* ========================================
 		SCREEN DEPENDENT STYLING
    ======================================== */
@@ -665,7 +647,8 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 #castContent .personCard {
     width: 11vw;
     font-size: 0.3em !important;
-    padding-right: 2em !important;
+    padding-right: 1em !important;
+	padding-left: 1em !important;
 }
 [dir=ltr] .no-padding {
     padding-top: 0.3em !important;
@@ -679,7 +662,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   border-radius: var(--md-border-radius);
 }
 .cardImageContainer {
-  border-radius: inherit; /* Match the .cardScalable radius */
+  border-radius: inherit;
 }
 
 .customCssContainer textarea {
@@ -693,18 +676,16 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   overlay: none;
 }
 
-
 /* List and transition effects */
 .listItem {
   transition: 0.3s all ease-in-out;
 }
 
-
-/* Md3 Card styles */
+/* Card styles */
 .cardBox {
   background-color: color-mix(in srgb, var(--md-sys-color-primary-container) 40%, transparent);
   border-radius: var(--md-border-radius); /* 12px */
-  padding: 2em;
+  padding: 2.5em;
   transition: transform 0.3s ease-in-out;
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
   overflow: visible;
@@ -723,9 +704,12 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
     background: var(--md-sys-color-secondary) !important;
     color: #fff;
 }
+
+
 .css-17c09up.Mui-selected {
     background-color: var(--md-sys-color-secondary) !important;
 }
+
 
 .itemsContainer > .card > .cardBox:hover {
   box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5);
@@ -738,16 +722,22 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   font-size: clamp(0.25rem, 1vw, 1.8rem);
   line-height: 1.3;
   padding: 0.2em 1em;
-  color: var(--md-sys-color-on-primary);
+  color: var(--md-sys-color-on-primary-container);
 }
 
 .cardText-secondary {
   font-size: 0.9rem;
   line-height: 1;
   padding: 0.2em 1em;
-  color: var(--md-sys-color-on-primary);
+  color: var(--md-sys-color-on-primary-container);
   opacity: 0.72;
 }
+
+.itemsContainer > .card > .cardBox:hover .cardText,
+.itemsContainer > .card > .cardBox:hover .cardText-secondary {
+  color: var(--md-sys-color-on-primary) !important;
+}
+
 
 /* Primary content (play ect. buttons) on media page styling */
 .detailPagePrimaryContainer {
@@ -815,6 +805,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 }
 
 .detailSectionContent {
+  margin: 1vh !important;
   width: 60vw !important;
   max-width: none !important;
   flex: 1 1 auto !important;
@@ -893,7 +884,8 @@ html.preload.layout-desktop {
 .playedIndicator {
   backdrop-filter: var(--blur) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-  background-color: var(--indicator-bg) !important;
+  background-color: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
   box-shadow: none;
 }
 
@@ -912,19 +904,15 @@ html.preload.layout-desktop {
   border: 2px solid transparent;
 }
 
-.cardOverlayFab-primary:hover {
-  background-color: var(--md-sys-color-tertiary);
-}
-
 /* Progress Bar Shenanigans */
 .innerCardFooter {
-  height: 0 !important; /* shrink container to remove the 20px vertical space */
+  height: 0 !important;
   overflow: visible !important;
   z-index: 2;
 }
 .itemProgressBar {
   position: absolute !important;
-  bottom: 0 !important; /* anchors to the actual card bottom */
+  bottom: 0 !important;
   left: 0;
   width: 100%;
   height: 8px !important;
@@ -937,10 +925,10 @@ html.preload.layout-desktop {
 }
 
 .itemProgressBarForeground {
-  background-color: color-mix(in srgb,var(--md-sys-color-tertiary)85%,transparent) !important;
+  background-color: color-mix(in srgb,var(--md-sys-color-tertiary)65%,transparent) !important;
   height: 8px !important;
   border-radius: 999px !important;
-  box-shadow: 0 0px 35px 8px var(--md-sys-color-primary) !important;
+  box-shadow: 0 0px 30px 18px color-mix(in srgb,var(--md-sys-color-tertiary)70%,transparent) !important;
   position: absolute !important;
   left: 0;
   top: 0;
@@ -953,7 +941,7 @@ h1 {
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: var(--md-sys-color-on-primary);
+  color: var(--text-fallback-color);
   margin-bottom: 0.5em;
 }
 /* H2 - Used for Hompage section titles */
@@ -962,7 +950,7 @@ h2 {
   font-weight: 250;
   line-height: 1.0;
   letter-spacing: -0.01em;
-  color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-tertiary);
   margin-bottom: 0.2em;
 }
 /* H3 - Used for OSD Title */
@@ -971,7 +959,7 @@ h3 {
   font-weight: 300;
   line-height: 1.25;
   letter-spacing: 0;
-  color: var(--md-sys-color-on-primary);
+  color: var(--text-fallback-color);
   margin-bottom: 0.5em;
 }
 
@@ -980,7 +968,7 @@ h4 {
   font-weight: 400;
   line-height: 1.3;
   letter-spacing: 0;
-  color: var(--md-sys-color-on-primary);
+  color: var(--text-fallback-color);
   margin-bottom: 0.4em;
 }
 
@@ -989,20 +977,33 @@ h5 {
   font-weight: 400;
   line-height: 1.35;
   letter-spacing: 0.01em;
-  color: var(--md-sys-color-on-primary);
+  color: var(--text-fallback-color);
   margin-bottom: 0.4em;
 }
 
 .sectionTitle.padded-left:nth-of-type(1) {
-  margin-top: 0.5em !important;
+  margin-top: 1em !important;
   margin-bottom: 0.1em;
 }
+
+.sectionTitleContainer-cards {
+    padding-top: .25em !important;
+}
+.sectionTitleTextButton>.sectionTitle {
+    margin-bottom: 0em !important;
+}
+.sectionTitleTextButton>.material-icons {
+    font-size: 1em !important;
+    margin-bottom: 0.35em !important;
+    margin-top: .4em !important;
+}
+
 
 /* Media Query for hover effects */
 @media (hover: hover) and (pointer: fine) {
   .paper-icon-button-light:hover:not(:disabled) {
-    background-color: var(--md-sys-color-on-primary);
-    color: var(--md-sys-color-primary);
+    background-color: var(--md-sys-color-primary) !important;
+    color: var(--md-sys-color-on-primary) !important;
   }
 }
 
@@ -1157,9 +1158,7 @@ h3.itemName.infoText.subtitle.focuscontainer-x a.button-link::after {
   font-family: 'Special Elite', monospace;
   text-align: center !important;
 } 
-p {
-  margin: 1vh !important;
-}
+
 .detailSection {
     display: flex !important;
     flex-direction: column !important;
@@ -1206,7 +1205,7 @@ p {
   position: fixed !important;
   top: 95vh !important;
   left: 0 !important;
-  width: 32vw !important;
+  width: 28vw !important;
   display: flex !important;
   justify-content: center !important;
   transform: translateX(-1%) !important;
@@ -1277,7 +1276,7 @@ a[href*="tvmaze.com"] {
 
 /* MD3 Dialog Box Styling — Dark Container with Light Text */
 .dialog.dialog-fixedSize.dialog-small.formDialog {
-  background-color: var(--md-dialog-elevation);
+  background-color: var(--md-sys-color-on-primary-container);
   border-radius: var(--md-border-radius);
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
   color: var(--md-sys-color-on-primary); /* LIGHT TEXT FOR DARK BG */
@@ -1297,7 +1296,7 @@ a[href*="tvmaze.com"] {
   font-weight: 500;
 
   background-color: transparent;
-  color: var(--md-sys-color-on-primary);
+  color: var(--md-sys-color-primary);
   margin-bottom: 1em;
 }
 .formDialogHeaderTitle {
@@ -1345,20 +1344,15 @@ a[href*="tvmaze.com"] {
 
 .fieldDescription,
 .formDialogContent label,
+.emby-input, 
+.emby-textarea,
 .formDialogContent span {
-  color: var(--md-sys-color-on-primary); 
+  color: var(--text-fallback-color) !important;
 }
 
 .checkboxLabel,
 .selectArrowContainer {
   color: var(--md-sys-color-primary) !important; 
-}
-
-/* Help text style */
-.fieldDescription {
-  opacity: 0.85;
-  font-size: 0.95rem;
-  line-height: 1.4;
 }
 
 /* Checkbox visuals */
@@ -1367,17 +1361,14 @@ a[href*="tvmaze.com"] {
   border: 1px solid var(--md-sys-color-outline);
   background-color: var(--md-sys-color-primary-container);
 }
-.emby-checkbox:checked + span + .checkboxOutline, .itemProgressBarForeground {
-    background-color: var(--md-sys-color-primary-container);
+.emby-checkbox:checked + span + .checkboxOutline {
+    background-color: var(--md-sys-color-primary-container) !important;
 }
 
 .checkboxIcon {
   font-size: 1.2rem;
   color: var(--md-sys-color-primary) !important;
   background-color: var(--md-sys-color-primary-container);
-}
-.itemProgressBarForeground {
-    background-color: var(--md-sys-color-primary-container);
 }
 
 /* Dialog footer & buttons */
@@ -1404,7 +1395,7 @@ a[href*="tvmaze.com"] {
 
 /* MD3 Action Sheet Container */
 .dialog.actionSheet {
-  background-color: var(--md-dialog-elevation);
+  background-color: var(--md-sys-color-on-primary-container);
   border-radius: var(--md-border-radius);
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
   color: var(--md-sys-color-on-primary); /* Light text for dark container */
@@ -1445,12 +1436,12 @@ a[href*="tvmaze.com"] {
 .actionsheetMenuItemIcon {
   font-size: 1.5rem;
   margin-right: 1em;
-  color: var(--md-sys-color-on-primary);
+  color: var(--md-sys-color-primary);
 }
 
 /* Text inside the item */
 .actionSheetItemText {
-  color: var(--md-sys-color-on-primary);
+  color: var(--text-fallback-color);
   font-size: 1rem;
   line-height: 1.4;
 }
@@ -1470,8 +1461,8 @@ Button Section
 
 --------------------------------------------------------------------------------------------- */
 .btnPlay.detailButton {
-  background-color: var(--md-sys-color-secondary) !important;
-  color: var(--md-sys-color-on-primary) !important;
+  background-color: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
   border: none !important;
   border-radius: var(--md-border-radius) !important;
   width: 4.4em !important;
@@ -1495,9 +1486,12 @@ Button Section
   font-size: 0.6em;
 }
 .btnPlay[title="Resume"]::after {
-  color: var(--md-sys-color-on-primary) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
   content: "Resume";
   font-size: 0.6em;
+}
+.btnPlay[title="Resume"].detailButton:hover::after {
+  color: var(--md-sys-color-on-primary) !important;
 }
 .btnPlay[title="Play"]::after {
   content: "";
@@ -1505,6 +1499,7 @@ Button Section
 
 .btnPlay.detailButton:hover {
   background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
   transform: translateY(-0.7em) scale(1.2) !important;
 }
 
@@ -1534,7 +1529,7 @@ Button Section
   padding: clamp(0.3em, 1vw, 0.6em) clamp(0.6em, 2vw, 1em);
   font-size: clamp(0.7rem, 2vw, 0.95rem);
   flex-grow: 1 !important;
-  color: var(--md-sys-color-on-primary);
+  color: var(--md-sys-color-primary);
   background-color: transparent;
   border: 1px solid var(--md-sys-color-outline);
   border-top: 1px solid var(--md-sys-color-outline);
@@ -1571,8 +1566,8 @@ Button Section
 .mainDetailButtons > .btnPlaystate.detailButton:not(.hide):hover,
 .mainDetailButtons > .btnUserRating.detailButton:not(.hide):hover,
 .mainDetailButtons > .btnMoreCommands.detailButton:not(.hide):hover {
-  background-color: var(--md-sys-color-primary-container) !important;
-  color: var(--md-sys-color-on-surface) !important;
+  background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
   border-radius: 0 !important;
 }
 
@@ -1613,15 +1608,15 @@ a.button-link.itemAction.emby-button {
   border: 1px solid var(--md-sys-color-outline) !important;
   border-radius: 999px !important; /* Full pill shape */
   background-color: transparent !important;
-  color: var(--md-sys-color-on-primary) !important; /* Light text by default */
+  color: var(--text-fallback-color) !important; /* Light text by default */
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
   cursor: pointer !important;
   line-height: 1.2 !important;
 }
 
 a.button-link.itemAction.emby-button:hover {
-  background-color: var(--md-sys-color-primary-container) !important; /* Light surface hover */
-  color: var(--md-sys-color-primary) !important;
+  background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
   border-color: var(--md-sys-color-outline) !important;
 }
 
