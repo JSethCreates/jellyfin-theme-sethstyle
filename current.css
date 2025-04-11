@@ -1,11 +1,11 @@
 /* ============================================
-   Seth's GNAT Jellyfin Material Design 3 Style (v4.1.1)
+   Seth's GNAT Jellyfin Material Design 3 Style (v4.1.2)
 
 
 ============================================ */
 
 /* ─── System Fonts ──────────────────────────
-   - Inter: Base UI font
+   - Inter: Base UI font for almost everything
    - Special Elite: For tagline/branding text
    - Material Icons: Used in header
 ──────────────────────────────────────────── */
@@ -20,27 +20,27 @@
   /* Material Color Palette */
 
 
---md-sys-color-primary: #cfbcff;
---md-sys-color-secondary: #cbc2db;
---md-sys-color-tertiary: #03a3dc;
+--md-sys-color-primary: 				#cfbcff;
+--md-sys-color-secondary: 				#cbc2db;
+--md-sys-color-tertiary: 				#03a3dc;
 
---md-sys-color-on-primary: #381e72;
---md-sys-color-primary-container: #4f378a;
---md-sys-color-on-primary-container: #e9ddff;
+--md-sys-color-on-primary: 				#381e72;
+--md-sys-color-primary-container: 		#4f378a;
+--md-sys-color-on-primary-container: 	#e9ddff;
 
---md-sys-color-surface: #1c1b1e;
---md-sys-color-on-surface: #e6e1e6;
---md-sys-color-outline: #948f99;
+--md-sys-color-surface: 				#1c1b1e;
+--md-sys-color-on-surface: 				#e6e1e6;
+--md-sys-color-outline: 				#948f99;
 
 
   /* Light and Dark */  
-  --color-text-body:       #ffffffcc;   /* semi-transparent white */
-  --bg-color:                        #181818;     /* dark base background ^ Keep these opposites for visibility*/
-  --transparent-bg:             #00000000;   /* fully transparent */
+  --color-text-body:       				#ffffffcc; /* semi-transparent white */
+  --bg-color:                      		#181818;   /* dark base background ^ Keep these opposites for visibility*/
+  --transparent-bg:           			#00000000; /* fully transparent */
 
   /* Design details */
-  --md-border-radius:                10px;
-  --blur:                            blur(10px) saturate(180%);
+  --md-border-radius:                	10px;
+  --blur:                           	blur(10px) saturate(180%);
 }
 
 html {
@@ -132,6 +132,7 @@ html {
 }
 
 /* --- Primary Container  --md-sys-color-primary-container --------- */
+
 .fab,
 .raised,
 .toast {
@@ -140,7 +141,7 @@ html {
 }
 
 /* --- Primary            --md-sys-color-primary ------------------- */
-.button-submit,
+
 .alphaPickerButton-tv:focus,
 .selectionCommandsPanel,
 .navMenuOption-selected,
@@ -368,6 +369,17 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   height: 1.2em;
   appearance: none;
 }
+
+/* Submit / Save buttons */
+.button-submit {
+    background: var(--md-sys-color-primary) !important;
+    color: var(--md-sys-color-on-primary) !important;
+}
+.button-submit:hover {
+  background: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;  
+}
+
 
 /* Pause/play button hover effect */
 .btnPause {
@@ -654,7 +666,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 }
 
 .card {
-  padding-left: 0.6em;
+  padding-left: 0.8em;
 
 }
 .cardScalable {
@@ -924,10 +936,10 @@ html.preload.layout-desktop {
 }
 
 .itemProgressBarForeground {
-  background-color: color-mix(in srgb,var(--md-sys-color-tertiary)65%,transparent) !important;
+  background-color: color-mix(in srgb,var(--md-sys-color-tertiary)75%,transparent) !important;
   height: 8px !important;
   border-radius: 999px !important;
-  box-shadow: 0 0px 30px 18px color-mix(in srgb,var(--md-sys-color-tertiary)70%,transparent) !important;
+  box-shadow: 0 0px 30px 18px color-mix(in srgb,var(--md-sys-color-tertiary)78%,transparent) !important;
   position: absolute !important;
   left: 0;
   top: 0;
