@@ -1,5 +1,5 @@
 /* ============================================
-   Seth's GNAT Jellyfin Material Design 3 Style (v4.1.2)
+   Seth's GNAT Jellyfin Material Design 3 Style (v4.1.4)
 
 
 ============================================ */
@@ -21,26 +21,26 @@
 
 
 --md-sys-color-primary: 				#cfbcff;
---md-sys-color-secondary: 				#cbc2db;
+--md-sys-color-secondary: 			#cbc2db;
 --md-sys-color-tertiary: 				#03a3dc;
 
---md-sys-color-on-primary: 				#381e72;
+--md-sys-color-on-primary: 			#381e72;
 --md-sys-color-primary-container: 		#4f378a;
 --md-sys-color-on-primary-container: 	#e9ddff;
 
 --md-sys-color-surface: 				#1c1b1e;
---md-sys-color-on-surface: 				#e6e1e6;
+--md-sys-color-on-surface: 			#e6e1e6;
 --md-sys-color-outline: 				#948f99;
 
 
   /* Light and Dark */  
   --color-text-body:       				#ffffffcc; /* semi-transparent white */
-  --bg-color:                      		#181818;   /* dark base background ^ Keep these opposites for visibility*/
-  --transparent-bg:           			#00000000; /* fully transparent */
+  --bg-color:                      		                #181818cc;   /* dark base background ^ Keep these opposites */
+  --transparent-bg:           			        #00000000; /* fully transparent */
 
   /* Design details */
   --md-border-radius:                	10px;
-  --blur:                           	blur(10px) saturate(180%);
+  --blur:                           	        blur(10px) saturate(180%);
 }
 
 html {
@@ -191,6 +191,7 @@ html {
 
 .playstatebutton-icon-played,
 .selectLabelFocused,
+.upNextDialog-countdownText,
 .material-icons.chevron_right {
   color: var(--md-sys-color-tertiary) !important;
 }
@@ -211,6 +212,8 @@ html {
 .nowPlayingBarSecondaryText,
 .programSecondaryTitle,
 .secondaryText,
+.listItemBody,
+.listItem .secondary,
 .alphaPickerButton,
 .emby-tab-button,
 .emby-tab-button:focus,
@@ -221,7 +224,7 @@ html {
 .button-link,
 .paperListLabel,
 .textareaLabelUnfocused {
-  color: var(--color-text-body);
+  color: var(--color-text-body) !important;
 }
 
 /* --- Secondary Text       --md-sys-color-on-primary --------------- */
@@ -236,7 +239,6 @@ html {
 .emby-tab-button.show-focus:focus,
 .inputLabelFocused,
 .textareaLabelFocused,
-.upNextDialog-countdownText,
 .guide-date-tab-button.emby-tab-button-active,
 .guide-date-tab-button:focus,
 .metadataSidebarIcon,
@@ -247,7 +249,6 @@ html {
 .mdl-slider,
 .alphaPickerButton-tv:focus,
 .selectionCommandsPanel,
-.listItem .secondary,
 .navMenuOption-selected,
 .emby-button.detailFloatingButton,
 .emby-select-withcolor:focus,
@@ -355,6 +356,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   border-radius: 50%;
   width: 1.2em;
   height: 1.2em;
+  z-index: 1 !important;
 }
 /* WebKit browsers (Chrome, Edge, Safari) */
 .mdl-slider::-webkit-slider-thumb {
@@ -367,17 +369,8 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   border-radius: 50%;
   width: 1.2em;
   height: 1.2em;
+  z-index: 1 !important;
   appearance: none;
-}
-
-/* Submit / Save buttons */
-.button-submit {
-    background: var(--md-sys-color-primary) !important;
-    color: var(--md-sys-color-on-primary) !important;
-}
-.button-submit:hover {
-  background: var(--md-sys-color-primary-container) !important;
-  color: var(--md-sys-color-on-primary-container) !important;  
 }
 
 
@@ -386,10 +379,15 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   display: inline-flex; /* ensures transform scales whole button */
   transform-origin: center center;
   transition: transform 0.3s ease;
+  z-index: 10 !important;
 }
 
 .btnPause:hover {
   transform: scale(1.2);
+}
+
+.upNextDialog-title {
+    width: 18.5em !important;
 }
 
 /* Cast Placeholder Card Colors*/
@@ -508,8 +506,6 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   border-right: 0;
   border-top: 0;
 }
-
-
 
 /* Style for .skinHeader-withBackground.osdHeader */
 .skinHeader-withBackground.osdHeader {
@@ -641,9 +637,13 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 
 /* If phone portrait mode we make some small changes but keep mostly stock jfweb */
 @media (max-width: 61em) {
-  .featurediframe {
+ 
+ /* 
+ .featurediframe {
     margin-top: -2em !important;
   }
+  */
+
 }
 
 /* If phone or device has full width, we can apply all styles */
@@ -1010,9 +1010,17 @@ h5 {
 }
 
 
-/* Media Query for hover effects */
+/* Other hover effects */
 @media (hover: hover) and (pointer: fine) {
   .paper-icon-button-light:hover:not(:disabled) {
+    background-color: var(--md-sys-color-primary) !important;
+    color: var(--md-sys-color-on-primary) !important;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .raised:hover:not(:disabled),
+  .raised-mini:hover:not(:disabled) {
     background-color: var(--md-sys-color-primary) !important;
     color: var(--md-sys-color-on-primary) !important;
   }
@@ -1646,18 +1654,18 @@ a.overview-expand.emby-button {
   border: 1px solid var(--md-sys-color-outline) !important;
   border-radius: 999px !important;
   background-color: transparent !important;
-  color: var(--md-sys-color-on-primary) !important;
+  color: var(--md-sys-color-primary) !important;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
   cursor: pointer !important;
   line-height: 1.2 !important;
 }
 
 a.overview-expand.emby-button:hover {
-  background-color: var(--md-sys-color-primary-container) !important;
-  color: var(--md-sys-color-on-surface) !important;
+  background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
 }
 
-/* "More" Button — MD3 Raised Mini Tonal Button */
+/* "More" Button — Raised Mini Tonal Button */
 button.raised.more.raised-mini.noIcon.emby-button {
   align-items: center !important;
   justify-content: center !important;
@@ -1668,15 +1676,15 @@ button.raised.more.raised-mini.noIcon.emby-button {
   border: 1px solid var(--md-sys-color-outline) !important;
   border-radius: 999px !important;
   background-color: transparent !important;
-  color: var(--md-sys-color-on-primary) !important;
+  color: var(--md-sys-color-primary) !important;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
   cursor: pointer !important;
   line-height: 1.2 !important;
 }
 
 button.raised.more.raised-mini.noIcon.emby-button:hover {
-  background-color: var(--md-sys-color-surface) !important;
-  color: var(--md-sys-color-on-surface) !important;
+  background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.25) !important;
 }
 
