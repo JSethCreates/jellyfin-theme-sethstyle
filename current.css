@@ -1,5 +1,5 @@
 /* ============================================
-   Seth's GNAT Jellyfin Material Design 3 Style (v4.1.4)
+   Seth's GNAT Jellyfin Material Design 3 Style (v4.1.3)
 
 
 ============================================ */
@@ -356,7 +356,6 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   border-radius: 50%;
   width: 1.2em;
   height: 1.2em;
-  z-index: 1 !important;
 }
 /* WebKit browsers (Chrome, Edge, Safari) */
 .mdl-slider::-webkit-slider-thumb {
@@ -369,17 +368,14 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   border-radius: 50%;
   width: 1.2em;
   height: 1.2em;
-  z-index: 1 !important;
   appearance: none;
 }
-
 
 /* Pause/play button hover effect */
 .btnPause {
   display: inline-flex; /* ensures transform scales whole button */
   transform-origin: center center;
   transition: transform 0.3s ease;
-  z-index: 10 !important;
 }
 
 .btnPause:hover {
