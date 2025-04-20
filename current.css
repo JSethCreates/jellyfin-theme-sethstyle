@@ -1,5 +1,5 @@
 /* ============================================
-   Seth's GNAT Jellyfin Material Design 3 Style (v4.1.3)
+   Seth's GNAT Jellyfin Material Design 3 Style (v4.1.4)
 
 
 ============================================ */
@@ -20,22 +20,22 @@
   /* Material Color Palette */
 
 
---md-sys-color-primary: 				#cfbcff;
---md-sys-color-secondary: 			#cbc2db;
---md-sys-color-tertiary: 				#03a3dc;
+--md-sys-color-primary: #4cdada;
+--md-sys-color-secondary: #b0cccb;
+--md-sys-color-tertiary: #b3c8e9;
 
---md-sys-color-on-primary: 			#381e72;
---md-sys-color-primary-container: 		#4f378a;
---md-sys-color-on-primary-container: 	#e9ddff;
+--md-sys-color-on-primary: #003737;
+--md-sys-color-primary-container: #004f50;
+--md-sys-color-on-primary-container: #6ff7f7;
 
---md-sys-color-surface: 				#1c1b1e;
---md-sys-color-on-surface: 			#e6e1e6;
---md-sys-color-outline: 				#948f99;
+--md-sys-color-surface: #191c1c;
+--md-sys-color-on-surface: #e0e3e2;
 
+--md-sys-color-outline: #889392;
 
   /* Light and Dark */  
   --color-text-body:       				#ffffffcc; /* semi-transparent white */
-  --bg-color:                      		                #181818cc;   /* dark base background ^ Keep these opposites */
+  --bg-color:                      		                #181818;   /* dark base background ^ Keep these opposites */
   --transparent-bg:           			        #00000000; /* fully transparent */
 
   /* Design details */
@@ -107,7 +107,6 @@ html, body, *, *::before, *::after {
 .ui-corner-all,
 .ui-shadow,
 .backgroundContainer,
-.dialog,
 .nowPlayingPlaylist,
 .nowPlayingContextMenu,
 html {
@@ -120,10 +119,18 @@ html {
 .formDialogFooter:not(.formDialogFooter-clear),
 .formDialogHeader:not(.formDialogHeader-clear),
 .paperList,
+.mainDrawer,
+.dialog,
 .visualCardBox,
 .appfooter,
 .playlistSectionButton {
-  background-color: color-mix(in srgb, var(--bg-color) 30%, transparent);
+  background-color: color-mix(in srgb, var(--bg-color) 30%, transparent) !important;
+}
+
+.backgroundContainer,
+.nowPlayingPlaylist,
+.nowPlayingContextMenu {
+  background-color: color-mix(in srgb, black 60%, transparent) !important;
 }
 
 /* --- Transparent BG     --transparent-bg ------------------------- */
@@ -179,7 +186,15 @@ html {
   background-color: var(--md-sys-color-on-primary-container) !important;
 }
 
-/* --- Tertiary           --md-sys-color-tertiary ------------------ */
+/* --- Emotional Color    --md-sys-color-tertiary ------------------- */
+.playstatebutton-icon-played,
+.selectLabelFocused,
+.ratingbutton-icon-withrating,
+.upNextDialog-countdownText,
+.material-icons.chevron_right {
+  color: var(--md-sys-color-tertiary) !important;
+}
+
 .selectionCommandsPanel,
 .cardOverlayFab-primary:hover {
   background-color: var(--md-sys-color-tertiary) !important;
@@ -189,12 +204,6 @@ html {
   border-color: var(--md-sys-color-tertiary) !important;
 }
 
-.playstatebutton-icon-played,
-.selectLabelFocused,
-.upNextDialog-countdownText,
-.material-icons.chevron_right {
-  color: var(--md-sys-color-tertiary) !important;
-}
 
 /* --- Primary Border     --md-sys-color-primary ------------------- */
 .emby-input:focus,
@@ -223,6 +232,7 @@ html {
 .inputLabelUnfocused,
 .button-link,
 .paperListLabel,
+.formDialogHeaderTitle,
 .textareaLabelUnfocused {
   color: var(--color-text-body) !important;
 }
@@ -234,7 +244,6 @@ html {
 .paper-icon-button-light.show-focus:focus:not(.btnPause),
 .raised.homeLibraryButton:hover,
 .button-flat:hover,
-.ratingbutton-icon-withrating,
 .emby-tab-button:hover,
 .emby-tab-button.show-focus:focus,
 .inputLabelFocused,
@@ -356,6 +365,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   border-radius: 50%;
   width: 1.2em;
   height: 1.2em;
+  z-index: 1 !important;
 }
 /* WebKit browsers (Chrome, Edge, Safari) */
 .mdl-slider::-webkit-slider-thumb {
@@ -368,18 +378,21 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   border-radius: 50%;
   width: 1.2em;
   height: 1.2em;
+  z-index: 1 !important;
   appearance: none;
 }
+
 
 /* Pause/play button hover effect */
 .btnPause {
   display: inline-flex; /* ensures transform scales whole button */
   transform-origin: center center;
   transition: transform 0.3s ease;
+  z-index: 10 !important;
 }
 
 .btnPause:hover {
-  transform: scale(1.2);
+  transform: scale(1.9)  !important;
 }
 
 .upNextDialog-title {
@@ -394,10 +407,10 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 .defaultCardBackground5{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 50%, transparent);}
 
 /*Spinner*/
-.mdl-spinner__layer-1{border-color:var(--md-sys-color-primary-container) 25%;}
-.mdl-spinner__layer-2{border-color:var(--md-sys-color-primary-container) 50%;}
-.mdl-spinner__layer-3{border-color:var(--md-sys-color-primary-container) 75%;}
-.mdl-spinner__layer-4{border-color:var(--md-sys-color-primary-container);}
+.mdl-spinner__layer-1{border-color:var(--md-sys-color-primary);}
+.mdl-spinner__layer-2{border-color:var(--md-sys-color-primary-container);}
+.mdl-spinner__layer-3{border-color:var(--md-sys-color-tertiary);}
+.mdl-spinner__layer-4{border-color:var(--md-sys-color-surface);}
 
 /* Progress bar gradient */
 .mdl-slider-background-lower {
@@ -508,13 +521,13 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   border: 0;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  background: linear-gradient(180deg, rgba(28, 27, 31, 0.75), rgba(28, 27, 31, 0));
-  color: var(--md-sys-color-surface);
-  height: 20em;
-  pointer-events: none;
-  position: relative;
+  background: linear-gradient(180deg, rgba(28, 27, 31, 0.75), rgba(28, 27, 31, 0)) !important;
+  color: var(--md-sys-color-surface) !important;
+  height: 20em !important;
+  pointer-events: none !important;
+  position: relative !important;
   transition: opacity 5s cubic-bezier(1, 0.02, 0.86, 0.99) !important;
-  z-index: 1;
+  z-index: 1 !important;
 }
 .videoOsdBottom {
     transition: 5s cubic-bezier(1, 0.02, 0.86, 0.99) !important;
@@ -1057,14 +1070,6 @@ h5 {
     z-index: -1;
 }
 
-.backgroundContainer,
-.dialog,
-.nowPlayingPlaylist,
-.nowPlayingContextMenu,
-html {
-    background-color: rgba(16, 16, 16, 0.8) !important;
-}
-
 /* Media Page Adjustments */
 .listItemImage-large {
     height: 10vw !important;
@@ -1313,9 +1318,6 @@ a[href*="tvmaze.com"] {
   background-color: transparent;
   color: var(--md-sys-color-primary);
   margin-bottom: 1em;
-}
-.formDialogHeaderTitle {
-  color: var(--md-sys-color-on-primary);
 }
 
 /* Back icon */
