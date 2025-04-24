@@ -1,5 +1,5 @@
 /* ============================================
-   Seth's GNAT Jellyfin Material Design 3 Style (v4.1.4)
+   Seth's GNAT Jellyfin Material Design 3 Style (v4.1.5)
 
 
 ============================================ */
@@ -13,24 +13,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-/* ─── COLORS HERE ── \/  \/  \/  – Editable Root Tokens ──
+/* ─── COLORS HERE – Editable Root Tokens ──
    Replace these variables to restyle theme
 ──────────────────────────────────────────── */
 :root {
   /* Material Color Palette */
 
+--md-sys-color-primary: #4edad5;
+--md-sys-color-secondary: #b0ccca;
+--md-sys-color-tertiary: #b1c8e8;
 
---md-sys-color-primary: #4cdada;
---md-sys-color-secondary: #b0cccb;
---md-sys-color-tertiary: #b3c8e9;
-
---md-sys-color-on-primary: #003737;
---md-sys-color-primary-container: #004f50;
---md-sys-color-on-primary-container: #6ff7f7;
+--md-sys-color-on-primary: #003735;
+--md-sys-color-primary-container: #00504d;
+--md-sys-color-on-primary-container: #70f7f1;
 
 --md-sys-color-surface: #191c1c;
 --md-sys-color-on-surface: #e0e3e2;
-
 --md-sys-color-outline: #889392;
 
   /* Light and Dark */  
@@ -444,6 +442,18 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   font-size: 1rem;
   padding: 1em;
 }
+
+/* Stop the progress bar bouncing with time */
+.flex-grow.mdl-slider-container {
+    position: fixed !important;
+    left: 5.8em !important;
+    width: 85vw !important;
+}
+.osdTextContainer.endTimeText.osdDurationText {
+    position: fixed !important;
+    right: 4.5vw !important;
+}
+
 
 .emby-scrollbuttons.padded-right {
   display: none !important;
@@ -945,7 +955,7 @@ html.preload.layout-desktop {
 }
 
 .itemProgressBarForeground {
-  background-color: color-mix(in srgb,var(--md-sys-color-tertiary)75%,transparent) !important;
+  background-color: color-mix(in srgb,var(--md-sys-color-tertiary)70%,transparent) !important;
   height: 8px !important;
   border-radius: 999px !important;
   box-shadow: 0 0px 30px 18px color-mix(in srgb,var(--md-sys-color-tertiary)78%,transparent) !important;
@@ -1324,13 +1334,15 @@ a[href*="tvmaze.com"] {
 .formDialogHeader .btnCancel {
   background-color: transparent;
   border: none;
-  color: var(--md-sys-color-on-primary);
+  background-color: var(--md-sys-color-on-primary);
+  color: var(--md-sys-color-primary);
   padding: 0.3em;
   border-radius: 50%;
   transition: background-color 0.2s ease;
 }
 .formDialogHeader .btnCancel:hover {
-  background-color: color-mix(in srgb, var(--md-sys-color-primary) 50%, transparent);
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
 }
 
 /* Dialog content */
