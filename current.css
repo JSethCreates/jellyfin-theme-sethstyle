@@ -1,5 +1,5 @@
 /* ============================================
-   Seth's GNAT Jellyfin Material Design 3 Style (v4.1.5)
+   Seth's GNAT Jellyfin Material Design 3 Style (v4.1.6)
 
 
 ============================================ */
@@ -263,6 +263,52 @@ html {
   color: var(--md-sys-color-on-primary) !important;
 }
 
+/* Headings (30% smaller than md std) */
+h1 {
+  font-size: clamp(2.1rem, 3.5vw, 2.49375rem); /* Display Large */
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text-body);
+  margin-bottom: 0.5em;
+}
+/* H2 - Used for Hompage section titles */
+h2 {
+  font-size: clamp(1.05rem, 1.4vw, 1.4rem); /* Display Medium */
+  font-weight: 250;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--md-sys-color-tertiary);
+  margin-bottom: 0.2em;
+}
+/* H3 - Used for OSD Title */
+h3 {
+  font-size: clamp(1.4rem, 1.8vw, 1.575rem); /* Display Small */
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: var(--color-text-body);
+  margin-bottom: 0.5em;
+}
+
+h4 {
+  font-size: clamp(1.225rem, 1.75vw, 1.4rem); /* Headline Large */
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: var(--color-text-body);
+  margin-bottom: 0.4em;
+}
+
+h5 {
+  font-size: clamp(1.05rem, 1.4vw, 1.225rem); /* Headline Medium */
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--color-text-body);
+  margin-bottom: 0.4em;
+}
+
 /* Rounded Items */
 progress,
 progress::-webkit-progress-bar,
@@ -446,14 +492,21 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 /* Stop the progress bar bouncing with time */
 .flex-grow.mdl-slider-container {
     position: fixed !important;
-    left: 5.8em !important;
-    width: 85vw !important;
+    left: 6.7em !important;
+    width: 83vw !important;
+}
+
+/* Time font */
+.osdTextContainer.startTimeText.osdPositionText,
+.osdTextContainer.endTimeText.osdDurationText {
+  font-family: "Inter", sans-serif !important;
+  font-size: 1.4rem !important;
+  font-weight: 300 !important;
 }
 .osdTextContainer.endTimeText.osdDurationText {
     position: fixed !important;
     right: 4.5vw !important;
 }
-
 
 .emby-scrollbuttons.padded-right {
   display: none !important;
@@ -965,52 +1018,7 @@ html.preload.layout-desktop {
   z-index: 4;
 }
 
-/* Headings (30% smaller than md std) */
-h1 {
-  font-size: clamp(2.1rem, 3.5vw, 2.49375rem); /* Display Large */
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--color-text-body);
-  margin-bottom: 0.5em;
-}
-/* H2 - Used for Hompage section titles */
-h2 {
-  font-size: clamp(1.05rem, 1.4vw, 1.4rem); /* Display Medium */
-  font-weight: 250;
-  line-height: 1.0;
-  letter-spacing: -0.01em;
-  color: var(--md-sys-color-tertiary);
-  margin-bottom: 0.2em;
-}
-/* H3 - Used for OSD Title */
-h3 {
-  font-size: clamp(1.4rem, 1.8vw, 1.575rem); /* Display Small */
-  font-weight: 300;
-  line-height: 1.25;
-  letter-spacing: 0;
-  color: var(--color-text-body);
-  margin-bottom: 0.5em;
-}
-
-h4 {
-  font-size: clamp(1.225rem, 1.75vw, 1.4rem); /* Headline Large */
-  font-weight: 400;
-  line-height: 1.3;
-  letter-spacing: 0;
-  color: var(--color-text-body);
-  margin-bottom: 0.4em;
-}
-
-h5 {
-  font-size: clamp(1.05rem, 1.4vw, 1.225rem); /* Headline Medium */
-  font-weight: 400;
-  line-height: 1.35;
-  letter-spacing: 0.01em;
-  color: var(--color-text-body);
-  margin-bottom: 0.4em;
-}
-
+/* Pad just the first section on the homepage */
 .sectionTitle.padded-left:nth-of-type(1) {
   margin-top: 1em !important;
   margin-bottom: 0.1em;
