@@ -1,5 +1,5 @@
 /* ============================================
-   Seth's GNAT Jellyfin Material Design 3 Style (v4.1.6)
+   Seth's GNAT Jellyfin Material Design 3 Style (v5.0.0)
 
 
 ============================================ */
@@ -710,11 +710,9 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 /* If phone portrait mode we make some small changes but keep mostly stock jfweb */
 @media (max-width: 61em) {
  
- /* 
- .featurediframe {
-    margin-top: -2em !important;
-  }
-  */
+.pageTitle {
+	color: var(--color-text-body) !important;
+}
 
 }
 
@@ -784,8 +782,8 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 }
 
 .button-submit:focus {
-    background: var(--md-sys-color-secondary) !important;
-    color: #fff;
+    background: var(--md-sys-color-surface) !important;
+    color: var(--md-sys-color-on-surface) !important;
 }
 
 
@@ -1189,6 +1187,62 @@ h3.itemName.infoText.subtitle.focuscontainer-x a.button-link::after {
 }
 
 /* Reorganise the tagline/plot then director/tags/streams section sent to the bottom */
+/* ——— Full One-Column Grid ——— */
+.detailPageContent {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-auto-rows: auto;
+  row-gap: 1em;
+}
+
+/* Default everything to the bottom */
+.detailPageContent > * {
+  grid-row: 99 !important;
+}
+
+/* Flatten just the primary wrappers (but not the form) */
+.detailPageContent > .detailPagePrimaryContent,
+.detailPageContent > .detailPagePrimaryContent > .detailSection,
+.detailPageContent > .detailPagePrimaryContent > .detailSection > .detailSectionContent {
+  display: contents !important;
+}
+
+/* 1) Logo */
+.detailPageContent > .detailLogo {
+  grid-row: 1 !important;
+}
+/* 2) Tagline */
+.detailPageContent > h3.tagline {
+  grid-row: 2 !important;
+}
+/* 3) Plot paragraph */
+.detailPageContent > bdi > p {
+  grid-row: 3 !important;
+}
+
+/* 4–9) Carousels & Sections */
+.detailPageContent > #childrenCollapsible   { grid-row: 4 !important; }
+.detailPageContent > #castCollapsible       { grid-row: 5 !important; }
+.detailPageContent > #specialsCollapsible   { grid-row: 6 !important; }
+.detailPageContent > #similarCollapsible    { grid-row: 7 !important; }
+.detailPageContent > .nextUpSection         { grid-row: 8 !important; }
+.detailPageContent > .moreFromSeasonSection { grid-row: 9 !important; }
+
+/* 10) Track-selection form (nested, so use descendant) */
+.detailPageContent form.trackSelections {
+  grid-row: 10 !important;
+}
+
+/* 11) Director / Writers / Studios box (nested → descendant) */
+.detailPageContent .itemDetailsGroup {
+  grid-row: 11 !important;
+}
+
+/* 12) Tags (nested → descendant) */
+.detailPageContent .itemTags {
+  grid-row: 12 !important;
+}
+
 .tagline {
   padding-top: 1em;
   font-size: clamp(1.2rem, 1.3vw, 2rem);
@@ -1197,46 +1251,7 @@ h3.itemName.infoText.subtitle.focuscontainer-x a.button-link::after {
   text-align: center !important;
 } 
 
-.detailSection {
-    display: flex !important;
-    flex-direction: column !important;
-}
-.detailSection .detailSectionContent {
-    order: 1;
-    font-size: 1.3em !important;
-    line-height: 1.3em !important;
-}
-.detailSection .recordingFields {
-    order: 2;
-}
-.detailSection .trackSelections {
-    order: 3;
-}
-.detailSection .itemDetailsGroup {
-    order: 4;
-	margin-bottom: 5em;
-}
-.detailPageContent {
-  /* position: relative !important; */
-  padding-bottom: 550px; /* make space for the stacked items */
-}
-.trackSelections {
-  position: absolute;
-  bottom: -155vh;
-}
-.itemTags {
-  position: absolute;
-  top: 118vh;
-  font-size: 1.2em;
-  max-width: 52ch; 
-  white-space: normal;       /* Allow wrapping */
-  overflow-wrap: break-word; /* Break long words if needed */
-}
-.itemDetailsGroup {
-  position: absolute;
-  bottom: -145vh;
-  font-size: 1.4em;
-}
+
 
 /*---External Links Styling (IMDb, Trakt, etc.) ---*/
 .itemExternalLinks {
