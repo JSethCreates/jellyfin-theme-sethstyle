@@ -1,5 +1,5 @@
 /* ============================================
-   Seth's GNAT Jellyfin Material Design 3 Style (v5.1.1)
+   Seth's GNAT Jellyfin Material Design 3 Style (v5.1.2)
 
 
 ============================================ */
@@ -726,10 +726,10 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
     width: 18.5vw;
 }
 .overflowPortraitCard, .overflowSmallPortraitCard {
-    width: 13vw;
+    width: 12vw;
 }
 #castContent .personCard {
-    width: 11vw;
+    width: 10vw;
     font-size: 0.3em !important;
     padding-right: 1em !important;
 	padding-left: 1em !important;
@@ -767,7 +767,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 
 /* Card styles */
 .cardBox {
-  background-color: color-mix(in srgb, var(--md-sys-color-primary-container) 20%, transparent);
+  background-color: color-mix(in srgb, var(--md-sys-color-primary-container) 50%, transparent);
   border-radius: var(--md-border-radius);
   padding: 2.5em;
   transition: transform 0.2s ease-in-out;
@@ -1233,7 +1233,7 @@ h3.itemName.infoText.subtitle.focuscontainer-x a.button-link::after {
 .detailLogo {
   position: static;
   display: block !important;
-  margin: 8vh auto 5vh auto;
+  margin: 8vh auto 2em auto;
   padding: 2em auto 2em auto !important;
   transform: translateX(43%) scale(1.5);
   transform-origin: top center;
