@@ -22,17 +22,17 @@
   /* Material Color Palette */
 
 
---md-sys-color-primary: #72d5dd;
---md-sys-color-secondary: #f2b7c0;
---md-sys-color-tertiary: #e0c644;
+--md-sys-color-primary: 				#cfbcff;
+--md-sys-color-secondary: 				#cbc2db;
+--md-sys-color-tertiary: 				#03a3dc;
 
---md-sys-color-on-primary: #00363a;
---md-sys-color-primary-container: #004f54;
---md-sys-color-on-primary-container: #90f2fa;
+--md-sys-color-on-primary: 				#381e72;
+--md-sys-color-primary-container: 		#4f378a;
+--md-sys-color-on-primary-container: 	#e9ddff;
 
---md-sys-color-surface: #191117;
---md-sys-color-on-surface: #eedee6;
---md-sys-color-outline: #9f8b97;
+--md-sys-color-surface: 				#1c1b1e;
+--md-sys-color-on-surface: 				#e6e1e6;
+--md-sys-color-outline: 				#948f99;
 
 
   /* Light and Dark */  
