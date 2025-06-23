@@ -1,6 +1,13 @@
-/* ============================================
-Jellyfin GNAT MD3 Seth Style (v5.1.9)
-============================================ */
+/* =============================================================== */
+/*             Jellyfin GNAT MD3 Seth Style (v5.2.3)               */
+/*                                                                 */
+/* With props to github.com/tedhinklater & github.com/alexyle      */
+/* Whos finimalism / glassmorphism soul is probably still in here  */
+/*                                                                 */
+/*                    God, Not Another Theme!                      */
+/* Built with Md3 principles and root color definitions in 2023    */
+/* Redesign/Release with Material 3 Expressive considerations 2025 */
+/* =============================================================== */
 
 /* ─── System Fonts ──────────────────────────
    - Inter: Base UI font for almost everything
@@ -92,13 +99,12 @@ html, body, *, *::before, *::after {
   cursor: default !important;
 }
 
-/* ========================================
-   
 
-   ========= Colors Section ================
+/* ============================================================= */
+/*                         COLOR SECTION                         */
+/* ============================================================= */
 
- 
-   ======================================== */
+
 /* --- Background        --bg-color -------------------------------- */
 .wizardStartForm,
 .ui-corner-all,
@@ -572,10 +578,11 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 }
 
 
+/* ============================================================= */
+/*                        HEADER SECTION                         */
+/* ============================================================= */
 
-/* ========================================
-		HEADER STYLING
-   ======================================== */
+
 .skinHeader,
 .actionSheet,
 .mainDrawer {
@@ -715,12 +722,14 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 }
 
 
+/* ============================================================= */
+/*                SCREEN WIDTH DEPENDENT STYLING                 */
+/* ============================================================= */
 
-/* ========================================
-		SCREEN DEPENDENT STYLING
-   ======================================== */
 
-/* If phone portrait mode we dont change the structure of media pages */
+/* If phone portrait mode we dont change the structure of media pages */ 
+/* ie. Nothing beyond this point is executed for screens <1000px width */
+
 @media (max-width: 61em) {
  
 .pageTitle {
@@ -804,8 +813,6 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
     contain: none !important;
 }
 
-
-
 .itemsContainer > .card > .cardBox:hover {
   box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5) !important;
   background-color: var(--md-sys-color-primary) !important;
@@ -865,7 +872,6 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 .listItemBody {
     max-width: 39vw !important;
 }
-
 
 .layout-mobile .detailPageSecondaryContainer {
     top: 0 !important;
@@ -988,7 +994,6 @@ html.preload.layout-desktop {
     margin-top: .4em !important;
 }
 
-
 /* Other hover effects */
 @media (hover: hover) and (pointer: fine) {
   .paper-icon-button-light:hover:not(:disabled) {
@@ -1076,7 +1081,6 @@ html.preload.layout-desktop {
     padding-bottom: 0.2em;
 }
 
-
 .itemName {
     display: block !important;
     white-space: nowrap !important;
@@ -1144,7 +1148,12 @@ h3.itemName.infoText.subtitle.focuscontainer-x a.button-link::after {
   margin-bottom: 0.2rem;
 }
 
-/* ——— Right Side Media Page - Reordered Column Grid ——— */
+
+/* ============================================================= */
+/*      Right Side Media Page - Reordered Column Grid            */
+/* ============================================================= */
+
+
 .detailPageContent {
   display: grid !important;
   grid-template-columns: 1fr !important;
@@ -1247,7 +1256,7 @@ h3.itemName.infoText.subtitle.focuscontainer-x a.button-link::after {
     display: flex !important;
     flex-wrap: wrap !important;
     align-items: flex-start !important;
-    gap: 1rem !important;            optional spacing between items */
+    gap: 1rem !important;
 
     overflow-x: hidden !important;
     overflow-y: auto !important;
@@ -1566,11 +1575,12 @@ a[href*="tvmaze.com"] {
   border-radius: 1px;
 }
 
-/* -----------------------------------------------------------------------------------------
 
-Button Section 
+/* ============================================================= */
+/*                      BUTTON SECTION                           */
+/* ============================================================= */
 
---------------------------------------------------------------------------------------------- */
+
 .btnPlay.detailButton {
   background-color: var(--md-sys-color-primary-container) !important;
   color: var(--md-sys-color-on-primary-container) !important;
@@ -1584,6 +1594,7 @@ Button Section
   align-items: center !important;
   justify-content: center !important;
   text-transform: none !important;
+  padding: 1.5em !important;
   transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease !important;
   transform: translateY(-0.7em) !important;
   z-index: 2 !important;
@@ -1634,7 +1645,7 @@ Button Section
 .mainDetailButtons > .btnUserRating.detailButton:not(.hide),
 .mainDetailButtons > .btnMoreCommands.detailButton:not(.hide) {
   display: inline-flex !important;
-  width: 100% !important
+  width: 100% !important;
   align-items: center !important;
   justify-content: center !important;
   padding: clamp(0.3em, 1vw, 0.6em) clamp(0.6em, 2vw, 1em);
@@ -1650,7 +1661,7 @@ Button Section
   box-sizing: border-box !important;
 }
 
-/* Left and right caps  (ive uncapped the left edge here just cause, uncomment this for symmetry)
+/* Left and right caps  (ive uncapped the left edge here, just cause, uncomment this for symmetry)
 .mainDetailButtons > .btnReplay.detailButton:not(.hide) {
   border-top-left-radius: 999px !important;
   border-bottom-left-radius: 999px !important;
