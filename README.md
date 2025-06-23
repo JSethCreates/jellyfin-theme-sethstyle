@@ -1,13 +1,11 @@
 ## GNAT (MD3) — Seth's Style for Jellyfin
-![Homepage with Seth's Spotlight](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/1homepage.png)  
-![Media Page – Film](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/2movie.png)  
+![Homepage with Seth's Spotlight](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/1homepage.png)
+[![Watch the demo](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/2movie.png)](https://vimeo.com/1095523100)
+
 ---
 **God, Not Another Theme!**  
 Originally built with Material Design 3 principles and root color definitions in 2023.  
 Redesigned and released with Material 3 Expressive considerations in May 2025.
-
-▶️ [Demo](https://vimeo.com/1095523100)
-
  
 GNAT features a number of quality-of-life changes, with a focus on **media item pages**: prioritizing the **tagline and plot** while de-emphasizing technical data like codecs and stream selections, which are now moved toward the bottom of the page.
 
