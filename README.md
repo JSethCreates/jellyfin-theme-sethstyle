@@ -27,7 +27,7 @@ Paste the following into your Jellyfin dashboard:
 
 ---
 ![Basic OSD](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/3osd.png)
----
+![Color Variant - Movie](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/4movie.png)  
 
 ## Alternate Color Schemes
 
@@ -58,7 +58,6 @@ Material 3 Expressive allows you to build **vibrant, accessible, contrast-safe c
 
 ---
 
-![Color Variant - Movie](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/4movie.png)  
 ![Series Page](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/5series.png)  
 ![Season View](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/6season.png)  
 ![Episode Detail](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/7episode.png)
