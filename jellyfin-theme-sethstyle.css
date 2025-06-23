@@ -1,5 +1,5 @@
 /* ============================================
-Jellyfin GNAT MD3 Seth Style (v5.1.8)
+Jellyfin GNAT MD3 Seth Style (v5.1.9)
 ============================================ */
 
 /* ─── System Fonts ──────────────────────────
@@ -17,7 +17,7 @@ Jellyfin GNAT MD3 Seth Style (v5.1.8)
   /* Editable Material Color Palette */
 
 
---md-sys-color-primary: 				#cfbcff;
+--md-sys-color-primary: 				#b19ee0;
 --md-sys-color-secondary: 			#cbc2db;
 --md-sys-color-tertiary: 				#03a3dc;
 
@@ -1377,6 +1377,12 @@ a[href*="themoviedb.org"],
 a[href*="thetvdb.com"],
 a[href*="tvmaze.com"] {
 	font-size: 0;
+}
+
+.trackSelections .selectContainer .selectLabel,
+.detailsGroupItem .label {
+  font-size: 1.2em !important;
+  font-weight: 300 !important;
 }
 
 /* MD3 Dialog Box Styling — Dark Container with Light Text */
