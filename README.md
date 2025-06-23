@@ -60,7 +60,7 @@ Use the code block below and modify the hex values to create your own colorschem
 ```
 > “Yo dog, Google heard you like themes, so they put a scheme on your theme on your style on your media player..”
 
-Material 3 Expressive promotes more vibrant palettes and you can test, request, adjust, copy and paste MD3 schemes with this tool here:
+Material 3 Expressive (May 2025) promotes more vibrant palettes and you can test, request, adjust, copy and paste MD3 schemes with this tool here:
 
 🎨 [**Launch Seth's MD3 Palette Generator Tool**](https://jsethcreates.github.io/web-tool-md3-palette-lab/)
 
