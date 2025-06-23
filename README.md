@@ -1,5 +1,7 @@
 ## GNAT (MD3) — Seth's Style for Jellyfin
-
+![Homepage with Seth's Spotlight](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/1homepage.png)  
+![Media Page – Film](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/2movie.png)  
+---
 **God, Not Another Theme!**  
 Originally built with Material Design 3 principles and root color definitions in 2023.  
 Redesigned and released with Material 3 Expressive considerations in May 2025.
@@ -24,13 +26,7 @@ Paste the following into your Jellyfin dashboard:
 ```
 
 ---
-
-## Screenshots
-
-![Homepage with Seth's Spotlight](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/1homepage.png)  
-![Media Page – Film](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/2movie.png)  
 ![Basic OSD](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/3osd.png)
-
 ---
 
 ## Alternate Color Schemes
