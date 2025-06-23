@@ -11,6 +11,7 @@ GNAT features a number of quality-of-life changes, with a focus on **media item 
 
 GNAT follows MD3 guidelines — primary action buttons are **visually distinct**, the **color system is fully swappable**, and **semantic styling** makes the entire layout more cohesive.  
 The code is well commented, making it a solid starting point for anyone creating a new theme. All color targets are already mapped and unified.
+🎓 [Learn more about MD3](https://material-foundation.github.io/material-theme-builder/)
 
 ---
 
@@ -56,7 +57,7 @@ Use the code block below and modify the hex values to create your own colorschem
 
 Material 3 Expressive promotes more vibrant palettes and you can test, request, adjust, copy and paste MD3 schemes with this tool here:
 
-🎨 [**Launch the MD3 Palette Generator Tool**](https://jsethcreates.github.io/web-tool-md3-palette-lab/)
+🎨 [**Launch Seth's MD3 Palette Generator Tool**](https://jsethcreates.github.io/web-tool-md3-palette-lab/)
 
 ---
 
