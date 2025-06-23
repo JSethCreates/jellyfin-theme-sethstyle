@@ -25,7 +25,7 @@ Paste the following into your Jellyfin dashboard:
 @import url("https://cdn.jsdelivr.net/gh/JSethCreates/jellyfin-theme-sethstyle@v1.0.0/sethstyle.css");
 ```
 This theme was designed for use as a lean-back interface for JFWeb on a TV or Android-box, with remote control, at 1080p +.
-**At resolutions < 1000 pixels wide, this theme will revert to standard JFWeb, with nominal color changes.**
+At resolutions < 1000 pixels wide, this theme will revert to standard JFWeb, with nominal color changes.
 ---
 ![Basic OSD](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/3osd.png)
 ![Color Variant - Movie](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/4movie.png)  
@@ -53,7 +53,7 @@ Use the code block below and modify the hex values to create your own colorschem
 ```
 > “Yo dog, Google heard you like themes, so they put a scheme on your theme on your style on your media player..”
 
-Material 3 Expressive allows you to build **vibrant, accessible, contrast-safe color systems** Use Google’s seed system and export the tokens directly into Jellyfin.
+Material 3 Expressive promotes more vibrant palettes and you can test, request, adjust, copy and paste MD3 schemes with this tool here:
 
 🎨 [**Launch the MD3 Palette Generator Tool**](https://jsethcreates.github.io/web-tool-md3-palette-lab/)
 
