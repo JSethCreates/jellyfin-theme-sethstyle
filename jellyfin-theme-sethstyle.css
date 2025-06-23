@@ -1,13 +1,13 @@
-/* =============================================================== */
-/*             Jellyfin GNAT MD3 Seth Style (v5.2.3)               */
-/*                                                                 */
-/* With props to github.com/tedhinklater & github.com/alexyle      */
-/* Whos finimalism / glassmorphism soul is probably still in here  */
-/*                                                                 */
-/*                    God, Not Another Theme!                      */
-/* Built with Md3 principles and root color definitions in 2023    */
-/* Redesign/Release with Material 3 Expressive considerations 2025 */
-/* =============================================================== */
+/* ===============================================================*/
+/*                                        Jellyfin GNAT-MD3 (Seths-Style v5.2.5)                                             */
+/*                                                                                                                                                          */
+/*                      With props to github.com/tedhinklater & github.com/alexyle                             */
+/*                    Whos souls of finimalism / glassmorphism are probably still in here                            */
+/*                                                                                                                                                          */
+/*                                                   God, Not Another Theme!                                                           */
+/*                         Built with Md3 principles and root color definitions in 2023                            */
+/*               Redesign/Release with Material 3 Expressive considerations 2025                         */
+/* ===============================================================*/
 
 /* ─── System Fonts ──────────────────────────
    - Inter: Base UI font for almost everything
@@ -20,7 +20,6 @@
 /* ──────────────────────────────────────────── */
 
 :root {
-  /* Editable Material Color Palette */
 
 
 --md-sys-color-primary: 				#b19ee0;
@@ -37,15 +36,14 @@
 
 
   /* Light and Dark */  
-  --color-text-body:       				#ffffffcc; /* semi-transparent white */
-  --bg-color:                      		                #181818;   /* dark base background ^ Keep these opposites */
-  --transparent-bg:           			        #00000000; /* fully transparent */
+  --color-text-body:       				#ffffffcc;         /* semi-transparent white */
+  --bg-color:                      		                #181818;         /* dark base background ^ Keep these opposites */
+  --transparent-bg:           			        #00000000;  /* fully transparent */
 
   /* Design details */
-  --md-border-radius:                	10px;
-  --blur:                           	        blur(10px) saturate(180%);
+  --md-border-radius:                	               10px;
+  --blur:                           	               blur(10px) saturate(180%);
 }
-
 
 html {
   box-sizing: border-box;
@@ -279,7 +277,7 @@ html {
   color: var(--md-sys-color-on-primary) !important;
 }
 
-/* Headings (30% smaller than md std) */
+/* Headings (All 30% smaller than md std) */
 h1 {
   font-size: clamp(2.1rem, 3.5vw, 2.49375rem); /* Display Large */
   font-weight: 400;
@@ -414,7 +412,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
     background-color: color-mix(in srgb, var(--bg-color) 50%, transparent);
 }
 
-/* This slider thumb needs discrete styling on  Firefox */
+/* This slider thumb needs discrete styling on Firefox */
 .mdl-slider::-moz-range-thumb {
   background-color: var(--md-sys-color-primary);
   border: 1px solid var(--md-sys-color-on-primary-container);
@@ -476,12 +474,12 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 .mdl-slider-background-lower {
   background: linear-gradient(
     90deg,
-    var(--md-sys-color-primary-container)          0%,
+    var(--md-sys-color-primary-container)         0%,
     var(--md-sys-color-primary-container)        45%,	
     var(--md-sys-color-primary-container)        50%,	
     var(--md-sys-color-primary-container)        55%,
-    var(--md-sys-color-primary)                          65%,
-    var(--md-sys-color-primary)                          75%,
+    var(--md-sys-color-primary)                  65%,
+    var(--md-sys-color-primary)                  75%,
     var(--md-sys-color-primary-container)        90%
   );
 }
@@ -614,8 +612,6 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
     transition: 5s cubic-bezier(1, 0.02, 0.86, 0.99) !important;
 }
 
-
-
 /* Header Logo */
 .pageTitleWithLogo.pageTitleWithDefaultLogo {
 	transform: translateY(-5px) scale(0.8);
@@ -718,7 +714,6 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 .headerTabs .emby-tab-button[data-index="3"]::before {
   content: "☘️" !important;
   filter: brightness(0) saturate(100%) invert(1) !important;
-
 }
 
 
@@ -976,7 +971,7 @@ html.preload.layout-desktop {
   z-index: 4;
 }
 
-/* Pad just the first section on the homepage */
+/* Pad just the first section on the homepage a bit*/
 .sectionTitle.padded-left:nth-of-type(1) {
   margin-top: 1em !important;
   margin-bottom: 0.1em;
