@@ -36,17 +36,17 @@ Use the code block below and modify the hex values to create your own colorschem
 ```css
 @import url("https://cdn.jsdelivr.net/gh/JSethCreates/jellyfin-theme-sethstyle@v1.0.0/sethstyle.css");
 :root {
-  --md-sys-color-primary:               #b19ee0 !important;
-  --md-sys-color-secondary:             #cbc2db !important;
-  --md-sys-color-tertiary:              #03a3dc !important;
+  --md-sys-color-primary:               #81d3df !important;
+  --md-sys-color-secondary:             #b1cbcf !important;
+  --md-sys-color-tertiary:              #b9c6ea !important;
 
-  --md-sys-color-on-primary:            #381e72 !important;
-  --md-sys-color-primary-container:     #4f378a !important;
-  --md-sys-color-on-primary-container:  #e9ddff !important;
+  --md-sys-color-on-primary:            #00363c !important;
+  --md-sys-color-primary-container:     #004f57 !important;
+  --md-sys-color-on-primary-container:  #9df0fc !important;
 
-  --md-sys-color-surface:               #1c1b1e !important;
-  --md-sys-color-on-surface:            #e6e1e6 !important;
-  --md-sys-color-outline:               #948f99 !important;
+  --md-sys-color-surface:               #0e1415 !important;
+  --md-sys-color-on-surface:            #dee4e4 !important;
+  --md-sys-color-outline:               #899294 !important;
 }
 
 ```
