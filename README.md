@@ -6,7 +6,7 @@
 Originally built with Material Design 3 principles and root color definitions in 2023.  
 Redesigned and released with Material 3 Expressive considerations in May 2025.
 
-> **Video Demo Coming Soon**
+▶️ [Demo](https://vimeo.com/1095523100)
 
  
 GNAT features a number of quality-of-life changes, with a focus on **media item pages**: prioritizing the **tagline and plot** while de-emphasizing technical data like codecs and stream selections, which are now moved toward the bottom of the page.
