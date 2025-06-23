@@ -2,15 +2,15 @@
 
 **God, Not Another Theme!**  
 Originally built with Material Design 3 principles and root color definitions in 2023.  
-Redesigned and released with Material 3 Expressive considerations in 2025.
+Redesigned and released with Material 3 Expressive considerations in May 2025.
 
 > **Video Demo Coming Soon**
 
-This theme is designed for a lean-back, cinematic experience.  
-It introduces a number of subtle quality-of-life changes, with a focus on **media item pages**: prioritizing the **tagline and plot** while de-emphasizing technical data like codecs, subtitles, and stream selections, which are now moved toward the bottom of the page.
+ 
+GNAT features a number of quality-of-life changes, with a focus on **media item pages**: prioritizing the **tagline and plot** while de-emphasizing technical data like codecs and stream selections, which are now moved toward the bottom of the page.
 
 GNAT follows MD3 guidelines — primary action buttons are **visually distinct**, the **color system is fully swappable**, and **semantic styling** makes the entire layout more cohesive.  
-The code is **thoroughly commented**, making it a strong starting point for anyone creating a new theme — all color targets are already mapped and unified.
+The code is well commented, making it a solid starting point for anyone creating a new theme. All color targets are already mapped and unified.
 
 ---
 
@@ -35,11 +35,10 @@ Paste the following into your Jellyfin dashboard:
 
 ## Alternate Color Schemes
 
-Use the code block below and modify the hex values to create your own look.
+Use the code block below and modify the hex values to create your own colorscheme.
 
 ```css
 @import url("https://cdn.jsdelivr.net/gh/JSethCreates/jellyfin-theme-sethstyle@v1.0.0/sethstyle.css");
-
 :root {
   --md-sys-color-primary:               #b19ee0 !important;
   --md-sys-color-secondary:             #cbc2db !important;
@@ -53,12 +52,8 @@ Use the code block below and modify the hex values to create your own look.
   --md-sys-color-on-surface:            #e6e1e6 !important;
   --md-sys-color-outline:               #948f99 !important;
 }
+
 ```
-
----
-
-## Create Your Own Palette
-
 > “Yo dog, Google heard you like themes, so they put a scheme on your theme on your style.”
 
 Material 3 Expressive allows you to build **vibrant, accessible, contrast-safe color systems** — fast. Use Google’s seed system and export the tokens directly into Jellyfin.
@@ -66,8 +61,6 @@ Material 3 Expressive allows you to build **vibrant, accessible, contrast-safe c
 🎨 [**Launch the MD3 Palette Generator Tool**](https://jsethcreates.github.io/web-tool-md3-palette-lab/)
 
 ---
-
-### More Screenshots (Alt Color Themes)
 
 ![Color Variant - Movie](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/4movie.png)  
 ![Series Page](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/5series.png)  
@@ -78,7 +71,7 @@ Material 3 Expressive allows you to build **vibrant, accessible, contrast-safe c
 
 ## License
 
-With thanks to [@tedhinklater](https://github.com/tedhinklater) and [@alexyle](https://github.com/alexyle), whose spirits of **Finimalism** and **Glassmorphism** echo throughout this project.
+With props to [@tedhinklater](https://github.com/tedhinklater) and [@alexyle](https://github.com/alexyle), whose Who's souls of **Finimalism** and **Glassmorphism** are probably still in here.. 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
