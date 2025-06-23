@@ -1023,6 +1023,10 @@ html.preload.layout-desktop {
   border-top-left-radius: var(--md-border-radius);
 }
 
+.card.scalableCard.imageEditorCard {
+  width: auto !important;
+}
+
 /* Backdrop force for small screen resolutions */
 .itemBackdrop {
     display: block !important;
