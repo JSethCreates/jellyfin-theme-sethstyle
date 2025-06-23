@@ -5,16 +5,21 @@
 ---
 **God, Not Another Theme!**  
 Originally built with Material Design 3 principles and root color definitions in 2023.  
-Redesigned and released with Material 3 Expressive considerations in May 2025.
+Redesigned and released with Material 3 Expressive considerations in May 2025 for jellyfin v10.10.x.
  
-GNAT features a number of quality-of-life changes, with a focus on **media item pages**: prioritizing the **tagline and plot** while de-emphasizing technical data like codecs and stream selections, which are now moved toward the bottom of the page.
+GNAT features a number of quality-of-life changes, with a focus on media item pages: -Fixing the primary action panel, and flex-wraping secondary info containers,
+-Prioritizing the cinematic elements (logo, tagline, plot, cast) while shifting more technical buckets like codecs and stream selections lower on the page.
+-Custom slider thumb designs on WebKit/Firefox, fixed-position progress bar to prevent bouncing, OSD time text styling and placement
+-Replacing header Text-button tabs with Material Icons (or Emoji example coded)
 
-GNAT follows MD3 guidelines — primary action buttons are **visually distinct**, the **color system is fully swappable**, and **semantic styling** makes the entire layout more cohesive.  
-The code is well commented, making it a solid starting point for anyone creating a new theme. All color targets are already mapped and unified.
+GNAT follows MD3 guidelines -primary action buttons are **visually distinct**, the **color system is fully swappable**, and **semantic styling** makes the entire layout more cohesive.
+-MD3 Subtle growth, shadow, and background color transitions, Rounded corners everywhere, Typography & Headings unified, -Styles buttons, FABs, progress indicators, list-item hovers, 
+checkboxes, sliders, spinners, and card placeholders all styled within the 9 color MD3 palette, including hover/focus tints and mix-in backgrounds. 
+
+I tried to make it a solid starting point for anyone creating a new theme. All color targets are already mapped and unified in the initial sections of the CSS.
 🎓 [Learn more about MD3](https://material-foundation.github.io/material-theme-builder/)
 
 ---
-
 ## Installation
 
 Paste the following into your Jellyfin dashboard:  
@@ -24,16 +29,15 @@ Paste the following into your Jellyfin dashboard:
 @import url("https://cdn.jsdelivr.net/gh/JSethCreates/jellyfin-theme-sethstyle@v5.2.7/jellyfin-theme-sethstyle.css");
 ```
 
-This theme was designed for use as a lean-back interface for JFWeb on a TV or Android-box, with remote control, at 1080p+.  
+**Note:** This theme was designed for use as a lean-back interface for JFWeb on a TV or Android-box, with remote control, at 1080p+.  
 At resolutions < 1000 pixels wide, this theme will revert to standard JFWeb, with nominal color changes.
+
+![Basic OSD](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/3osd.png)
 
 ---
 
-![Basic OSD](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/3osd.png)
-![Color Variant - Movie](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/4movie.png)  
-
 ## Alternate Color Schemes
-
+![Color Variant - Movie](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/4movie.png)  
 Use the code block below and modify the hex values to create your own colorscheme.
 
 ```css
@@ -69,7 +73,7 @@ Material 3 Expressive promotes more vibrant palettes and you can test, request, 
 
 ## License
 
-With props to [@tedhinklater](https://github.com/tedhinklater) and [@alexyle](https://github.com/alexyle), whose Who's souls of **Finimalism** and **Glassmorphism** are probably still in here.. 
+With props to [@tedhinklater](https://github.com/tedhinklater) and [@alexyle](https://github.com/alexyle), who's souls of **Finimalism** and **Glassmorphism** are probably still in here.. 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
