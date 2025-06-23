@@ -2,8 +2,9 @@
 ![Homepage with Seth's Spotlight](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/1homepage.png)
 ![Media Item Page](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/2movie.png)
 ▶️ [Watch the Demo](https://vimeo.com/1095523100)
+
 ---
-**God, Not Another Theme!**  
+## God, Not Another Theme!   
 Originally built with Material Design 3 principles and root color definitions in 2023.  
 Redesigned and released with Material 3 Expressive considerations in May 2025 for jellyfin v10.10.x.
  
