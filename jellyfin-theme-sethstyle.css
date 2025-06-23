@@ -1,7 +1,5 @@
 /* ============================================
-   Seth's GNAT Jellyfin Material Design 3 Style (v5.1.4)
-
-
+Jellyfin GNAT MD3 Seth Style (v5.1.8)
 ============================================ */
 
 /* ─── System Fonts ──────────────────────────
@@ -12,26 +10,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+/* ──────────────────────────────────────────── */
 
-/* ─── COLORS HERE – Editable Root Tokens ──
-   Replace these variables to restyle theme
-   JF Colors Purple - primary: #8a3ca2;
-   JF Colors Teal - tertiary: #06a1db;
-──────────────────────────────────────────── */
 :root {
-  /* Material Color Palette */
+
+  /* Editable Material Color Palette */
 
 
 --md-sys-color-primary: 				#cfbcff;
---md-sys-color-secondary: 				#cbc2db;
+--md-sys-color-secondary: 			#cbc2db;
 --md-sys-color-tertiary: 				#03a3dc;
 
---md-sys-color-on-primary: 				#381e72;
---md-sys-color-primary-container: 		#4f378a;
---md-sys-color-on-primary-container: 	#e9ddff;
+--md-sys-color-on-primary: 			#381e72;
+--md-sys-color-primary-container: 	#4f378a;
+--md-sys-color-on-primary-container: #e9ddff;
 
 --md-sys-color-surface: 				#1c1b1e;
---md-sys-color-on-surface: 				#e6e1e6;
+--md-sys-color-on-surface: 			#e6e1e6;
 --md-sys-color-outline: 				#948f99;
 
 
@@ -616,10 +611,12 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 
 /* Header Logo */
 .pageTitleWithLogo.pageTitleWithDefaultLogo {
-	transform: scale(0.8);
+	transform: translateY(-5px) scale(0.8);
 	transform-origin: left;
 }
-
+.headerUserButtonRound div, .headerUserImage {
+    bottom: 5px !important;
+}
 
 /* Replace Header Labels With Icons, If they Exist */
 /* ─── SHARED BASE STYLES ─── */
@@ -864,6 +861,11 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   max-width: none !important;
   flex: 1 1 auto !important;
 }
+
+.listItemBody {
+    max-width: 39vw !important;
+}
+
 
 .layout-mobile .detailPageSecondaryContainer {
     top: 0 !important;
@@ -1143,7 +1145,6 @@ h3.itemName.infoText.subtitle.focuscontainer-x a.button-link::after {
   display: grid !important;
   grid-template-columns: 1fr !important;
   grid-auto-rows: auto;
-  row-gap: 1em;
 }
 
 /* Default everything to the bottom */
@@ -1218,7 +1219,6 @@ h3.itemName.infoText.subtitle.focuscontainer-x a.button-link::after {
   gap: 0.5em !important;
 }
 
-
 /* Override default paddings */
 .detailPageContent {
   padding-left: 3% !important;
@@ -1243,7 +1243,7 @@ h3.itemName.infoText.subtitle.focuscontainer-x a.button-link::after {
     display: flex !important;
     flex-wrap: wrap !important;
     align-items: flex-start !important;
-    gap: 1rem !important;            /* optional spacing between items */
+    gap: 1rem !important;            optional spacing between items */
 
     overflow-x: hidden !important;
     overflow-y: auto !important;
