@@ -20,7 +20,7 @@ Paste the following into your Jellyfin dashboard:
 **Admin > Dashboard > General > Custom CSS**
 
 ```css
-@import url("https://cdn.jsdelivr.net/gh/JSethCreates/jellyfin-theme-sethstyle@v1.0.0/sethstyle.css");
+@import url("https://cdn.jsdelivr.net/gh/JSethCreates/jellyfin-theme-sethstyle@v5.2.7/jellyfin-theme-sethstyle.css");
 ```
 
 This theme was designed for use as a lean-back interface for JFWeb on a TV or Android-box, with remote control, at 1080p+.  
@@ -36,7 +36,7 @@ At resolutions < 1000 pixels wide, this theme will revert to standard JFWeb, wit
 Use the code block below and modify the hex values to create your own colorscheme.
 
 ```css
-@import url("https://cdn.jsdelivr.net/gh/JSethCreates/jellyfin-theme-sethstyle@v1.0.0/sethstyle.css");
+@import url("https://cdn.jsdelivr.net/gh/JSethCreates/jellyfin-theme-sethstyle@v5.2.7/jellyfin-theme-sethstyle.css");
 :root {
   --md-sys-color-primary:               #81d3df !important;
   --md-sys-color-secondary:             #b1cbcf !important;
