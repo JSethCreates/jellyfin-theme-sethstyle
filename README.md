@@ -24,9 +24,12 @@ Paste the following into your Jellyfin dashboard:
 ```css
 @import url("https://cdn.jsdelivr.net/gh/JSethCreates/jellyfin-theme-sethstyle@v1.0.0/sethstyle.css");
 ```
-This theme was designed for use as a lean-back interface for JFWeb on a TV or Android-box, with remote control, at 1080p +.
+
+This theme was designed for use as a lean-back interface for JFWeb on a TV or Android-box, with remote control, at 1080p+.  
 At resolutions < 1000 pixels wide, this theme will revert to standard JFWeb, with nominal color changes.
+
 ---
+
 ![Basic OSD](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/3osd.png)
 ![Color Variant - Movie](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/4movie.png)  
 
