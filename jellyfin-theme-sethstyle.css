@@ -1,5 +1,5 @@
 /* ============================================================== */
-/*                                        Jellyfin GNAT-MD3 (Seths-Style v5.2.7)                                            */
+/*                                        Jellyfin GNAT-MD3 (Seths-Style v5.3.0)                                            */
 /*                                                                                                                                                         */
 /*                      With props to github.com/tedhinklater & github.com/alexyle                            */
 /*                    Whos souls of finimalism / glassmorphism are probably still in here                  */
@@ -117,8 +117,6 @@ html {
 /* --- Translucent BG    --bg-color mix ---------------------------- */
 .skinHeader-withBackground,
 .collapseContent,
-.formDialogFooter:not(.formDialogFooter-clear),
-.formDialogHeader:not(.formDialogHeader-clear),
 .paperList,
 .mainDrawer,
 .dialog,
@@ -127,6 +125,12 @@ html {
 .playlistSectionButton {
   background-color: color-mix(in srgb, var(--bg-color) 30%, transparent) !important;
 }
+
+.formDialogFooter:not(.formDialogFooter-clear),
+.formDialogHeader:not(.formDialogHeader-clear) {
+  background-color: color-mix(in srgb, var(--bg-color) 50%, transparent) !important;
+}
+
 
 .backgroundContainer,
 .nowPlayingPlaylist,
@@ -277,7 +281,8 @@ html {
   color: var(--md-sys-color-on-primary) !important;
 }
 
-/* Headings (All 30% smaller than md std) */
+/* Headings, adjusted only on 1080p+ screens */
+@media (min-width: 62em) {
 h1 {
   font-size: clamp(2.1rem, 3.5vw, 2.49375rem); /* Display Large */
   font-weight: 400;
@@ -321,6 +326,7 @@ h5 {
   letter-spacing: 0.01em;
   color: var(--color-text-body);
   margin-bottom: 0.4em;
+}
 }
 
 /* Rounded Items */
@@ -614,12 +620,10 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 
 /* Header Logo */
 .pageTitleWithLogo.pageTitleWithDefaultLogo {
-	transform: translateY(-5px) scale(0.8);
+	transform: scale(0.8);
 	transform-origin: left;
 }
-.headerUserButtonRound div, .headerUserImage {
-    bottom: 5px !important;
-}
+
 
 /* Replace Header Labels With Icons, If they Exist */
 /* ─── SHARED BASE STYLES ─── */
@@ -669,15 +673,15 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 .headerTabs .emby-tab-button[data-index="1"]:hover,
 .headerTabs .emby-tab-button[data-index="2"]:hover,
 .headerTabs .emby-tab-button[data-index="3"]:hover {
-    background: var(--md-sys-color-on-primary) !important;
-    color: var(--md-sys-color-primary) !important;
+    background: var(--md-sys-color-primary) !important;
+    color: var(--color-text-body) !important;
 }
 
 .headerTabs .emby-tab-button[data-index="0"]:hover .emby-button-foreground::before,
 .headerTabs .emby-tab-button[data-index="1"]:hover .emby-button-foreground::before,
 .headerTabs .emby-tab-button[data-index="2"]:hover::before,
 .headerTabs .emby-tab-button[data-index="3"]:hover::before {
-    color: var(--md-sys-color-primary) !important;
+    color: var(--md-sys-color-on-primary) !important;
 }
 
 /* ─── INDEX 0: HOME ─── */
