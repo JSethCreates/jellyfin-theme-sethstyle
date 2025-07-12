@@ -1,5 +1,5 @@
 /* ============================================================== */
-/*                                        Jellyfin GNAT-MD3 (Seths-Style v5.3.0)                                            */
+/*                                        Jellyfin GNAT-MD3 (Seths-Style v5.4.0)                                            */
 /*                                                                                                                                                         */
 /*                      With props to github.com/tedhinklater & github.com/alexyle                            */
 /*                    Whos souls of finimalism / glassmorphism are probably still in here                  */
@@ -901,6 +901,15 @@ html.preload.layout-desktop {
   width: 100vw;
 }
 
+.backdropImage {
+    filter: brightness(60%) !important;
+}
+
+.backdropImageFadeIn {
+    -webkit-animation: backdrop-fadein 0.1s ease-in normal both !important;
+    animation: backdrop-fadein 0.1s ease-in normal both !important;
+}
+
 /* Backdrop container */
 .backdropContainer {
   height: 100vh;
@@ -1042,8 +1051,6 @@ html.preload.layout-desktop {
     background-position: top left;
     background-repeat: no-repeat;
     background-size: cover;
-    backdrop-filter: brightness(60%) !important;
-    
     cursor: none !important;
     z-index: -1;
 }
@@ -1057,9 +1064,9 @@ html.preload.layout-desktop {
 .detailImageContainer .card {
     position: fixed !important;
     top: 35% !important; /* Vertically centered slightly higher */
-    left: 2% !important;
-    transform: translateY(-50%) !important;
-    height: 40vh !important;
+    left: 3% !important;
+    transform: translateY(-55%) !important;
+    height: 45vh !important;
     aspect-ratio: 2 / 3 !important;
     width: auto !important;
     display: flex !important;
