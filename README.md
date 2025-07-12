@@ -1,4 +1,4 @@
-## GNAT (MD3) — Seth's Style for Jellyfin
+## GNAT (MD3) - Seth's Style for Jellyfin
 ![Homepage with Seth's Spotlight](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/1homepage.png)
 ![Media Item Page](https://raw.githubusercontent.com/JSethCreates/jellyfin-theme-sethstyle/main/screenshots/2movie.png)
 ▶️ [Watch the Demo](https://vimeo.com/1095523100)
