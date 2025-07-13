@@ -1,5 +1,5 @@
 /* ==============================================================  */
-/*                                        Jellyfin GNAT-MD3 (Seths-Style v5.4.3)                                             */
+/*                                        Jellyfin GNAT-MD3 (Seths-Style v6.0.0)                                             */
 /*                                                                                                                                                          */
 /*                                                   God, Not Another Theme!                                                           */
 /*                         Built with Md3 principles and root color definitions in 2023                            */
@@ -24,8 +24,8 @@
 --md-sys-color-tertiary: 				#03a3dc;
 
 --md-sys-color-on-primary: 			#381e72;
---md-sys-color-primary-container: 	#4f378a;
---md-sys-color-on-primary-container: #e9ddff;
+--md-sys-color-primary-container: 	        #4f378a;
+--md-sys-color-on-primary-container:     #e9ddff;
 
 --md-sys-color-surface: 				#1c1b1e;
 --md-sys-color-on-surface: 			#e6e1e6;
@@ -538,9 +538,14 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
     color: var(--md-sys-color-primary);
 }
 
-.sectionTitle.sectionTitle-cards {
-  margin-left: -0.5em !important;
+#homeTab .sectionTitle.sectionTitle-cards {
+  margin-left: -1em !important;
 }
+
+.sectionTitle.sectionTitle-cards {
+  margin-left: 1.2em !important;
+}
+
 
 /* Move Specials to appear after Seasons */
 .childrenItemsContainer .card[data-prefix="SPE"] {
@@ -822,7 +827,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 /* Primary content (play, trailer, like.. buttons) on media page styling */
 .detailPagePrimaryContainer {
   position: fixed !important;
-  top: calc(35% + 21vh) !important;
+  bottom: 19vh !important;
 
   display: block !important;
   align-content: flex-start !important;
@@ -859,7 +864,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
    text-align: left !important;;
 }
 .layout-mobile h1.itemName, .layout-mobile h1.parentName {
-    font-size: clamp(1.1rem, 2.1vw, 2.49375rem) !important;
+    font-size: clamp(1.1rem, 1.8vw, 2.49375rem) !important;
 }
 
 .detailSectionContent {
@@ -1064,10 +1069,10 @@ html.preload.layout-desktop {
 
 .detailImageContainer .card {
     position: fixed !important;
-    top: 35% !important; /* Vertically centered slightly higher */
+    top: 38vh !important;
     left: 3% !important;
     transform: translateY(-55%) !important;
-    height: 45vh !important;
+    height: 55vh !important;
     aspect-ratio: 2 / 3 !important;
     width: auto !important;
     display: flex !important;
@@ -1093,7 +1098,7 @@ html.preload.layout-desktop {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    font-size: clamp(0.5rem, 2.5vw, 3.5rem);
+    font-size: clamp(0.5rem, 2.2vw, 3.5rem);
     max-width: 100% !important;
     margin-bottom: 0.2em !important;
 }
@@ -1731,7 +1736,7 @@ a.button-link.itemAction.emby-button {
   align-items: center !important;
   justify-content: center !important;
   padding: 0.2em 0.7em !important;
-  font-size: clamp(1rem, 2.1vw, 3rem) !important;
+  font-size: clamp(1rem, 1.9vw, 3rem) !important;
   font-weight: 500 !important;
   text-decoration: none !important;
   border: 1px solid var(--md-sys-color-outline) !important;
