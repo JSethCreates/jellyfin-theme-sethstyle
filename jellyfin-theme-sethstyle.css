@@ -1,13 +1,10 @@
-/* ============================================================== */
-/*                                        Jellyfin GNAT-MD3 (Seths-Style v5.4.0)                                            */
-/*                                                                                                                                                         */
-/*                      With props to github.com/tedhinklater & github.com/alexyle                            */
-/*                    Whos souls of finimalism / glassmorphism are probably still in here                  */
+/* ==============================================================  */
+/*                                        Jellyfin GNAT-MD3 (Seths-Style v5.4.3)                                             */
 /*                                                                                                                                                          */
 /*                                                   God, Not Another Theme!                                                           */
 /*                         Built with Md3 principles and root color definitions in 2023                            */
 /*               Redesign/Release with Material 3 Expressive considerations 2025                         */
-/* ===============================================================*/
+/* ==============================================================  */
 
 /* ─── System Fonts ──────────────────────────
    - Inter: Base UI font for almost everything
@@ -542,7 +539,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 }
 
 .sectionTitle.sectionTitle-cards {
-  margin-left: 1em !important;
+  margin-left: -0.5em !important;
 }
 
 /* Move Specials to appear after Seasons */
@@ -740,8 +737,12 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 /* If phone or device has full width, we can apply all styles */
 @media (min-width: 62em) {
 
+.emby-scroller {
+    padding-left: max(env(safe-area-inset-left),1.3%) !important;
+}
+
 .overflowBackdropCard, .overflowSmallBackdropCard {
-    width: 18.5vw;
+    width: 16.35vw;
     margin-top: -0.8em;
 }
 .overflowPortraitCard, .overflowSmallPortraitCard {
