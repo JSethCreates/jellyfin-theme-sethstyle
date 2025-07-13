@@ -1,5 +1,5 @@
 /* ==============================================================  */
-/*                                        Jellyfin GNAT-MD3 (Seths-Style v6.0.0)                                             */
+/*                                        Jellyfin GNAT-MD3 (Seths-Style v6.0.1)                                              */
 /*                                                                                                                                                          */
 /*                                                   God, Not Another Theme!                                                           */
 /*                         Built with Md3 principles and root color definitions in 2023                            */
@@ -193,9 +193,13 @@ html {
 .playstatebutton-icon-played,
 .selectLabelFocused,
 .ratingbutton-icon-withrating,
-.upNextDialog-countdownText,
-.material-icons.chevron_right {
+.upNextDialog-countdownText {
   color: var(--md-sys-color-tertiary) !important;
+}
+
+.material-icons.chevron_right,
+.material-icons.chevron_left {
+  color: var(--md-sys-color-outline) !important;
 }
 
 .selectionCommandsPanel,
@@ -526,7 +530,14 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 }
 
 .emby-scrollbuttons.padded-right {
-  display: none !important;
+  transform: scale(0.65) translateY(-1em);
+  opacity: 0.2;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.emby-scrollbuttons.padded-right:hover {
+  transform: scale(0.9) translateY(-1em);
+  opacity: 1;
 }
 
 .cardOverlayButton.cardOverlayButton-br {
