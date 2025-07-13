@@ -1,5 +1,5 @@
 /* ==============================================================  */
-/*                                        Jellyfin GNAT-MD3 (Seths-Style v6.0.1)                                              */
+/*                                        Jellyfin GNAT-MD3 (Seths-Style v6.0.2)                                              */
 /*                                                                                                                                                          */
 /*                                                   God, Not Another Theme!                                                           */
 /*                         Built with Md3 principles and root color definitions in 2023                            */
@@ -762,7 +762,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
     margin-top: -0.8em;
 }
 .overflowPortraitCard, .overflowSmallPortraitCard {
-    width: 12vw;
+    width: 10.9vw;
 }
 #castContent .personCard {
     width: 10vw;
