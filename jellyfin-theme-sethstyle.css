@@ -1,5 +1,5 @@
 /* ==============================================================  */
-/*                                        Jellyfin GNAT-MD3 (Seths-Style v6.0.2)                                              */
+/*                                        Jellyfin GNAT-MD3 (Seths-Style v6.0.3)                                              */
 /*                                                                                                                                                          */
 /*                                                   God, Not Another Theme!                                                           */
 /*                         Built with Md3 principles and root color definitions in 2023                            */
@@ -550,7 +550,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 }
 
 #homeTab .sectionTitle.sectionTitle-cards {
-  margin-left: -1em !important;
+  margin-left: -0.6em !important;
 }
 
 .sectionTitle.sectionTitle-cards {
@@ -1008,7 +1008,7 @@ html.preload.layout-desktop {
 }
 
 .sectionTitleContainer-cards {
-    padding-top: .25em !important;
+    padding-top: 0.9em !important;
 }
 .sectionTitleTextButton>.sectionTitle {
     margin-bottom: 0em !important;
