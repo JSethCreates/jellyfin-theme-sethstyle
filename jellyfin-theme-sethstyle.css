@@ -1,5 +1,5 @@
 /* ==============================================================  */
-/*                                        Jellyfin GNAT-MD3 (Seths-Style v6.1.0)                                              */
+/*                                        Jellyfin GNAT-MD3 (Seths-Style v6.1.1)                                              */
 /*                                                                                                                                                          */
 /*                                                   God, Not Another Theme!                                                           */
 /*                         Built with Md3 principles and root color definitions in 2023                            */
@@ -104,7 +104,6 @@ html, body, *, *::before, *::after {
 .wizardStartForm,
 .ui-corner-all,
 .ui-shadow,
-.backgroundContainer,
 .nowPlayingPlaylist,
 .nowPlayingContextMenu,
 html {
@@ -132,7 +131,7 @@ html {
 .backgroundContainer,
 .nowPlayingPlaylist,
 .nowPlayingContextMenu {
-  background-color: color-mix(in srgb, black 60%, transparent) !important;
+  background-color: color-mix(in srgb, black 78%, transparent) !important;
 }
 
 /* --- Transparent BG     --transparent-bg ------------------------- */
@@ -835,8 +834,12 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   transform: scale(1.05) !important; /* Slight growth */
 }
 
+/* Adjustmetns to make phone and desktop clients render the same */ 
 .detailRibbon {
     height: 0 !important;
+    margin-top: 0 !important;
+}
+.layout-mobile .itemBackdrop {
     margin-top: 0 !important;
 }
 
@@ -922,10 +925,6 @@ html.preload.layout-desktop {
   position: fixed;
   right: 0%;
   width: 100vw;
-}
-
-.backdropImage {
-    filter: brightness(60%) !important;
 }
 
 .backdropImageFadeIn {
