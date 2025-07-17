@@ -1,5 +1,5 @@
 /* ==============================================================  */
-/*                                        Jellyfin GNAT-MD3 (Seths-Style v6.1.1)                                              */
+/*                                        Jellyfin GNAT-MD3 (Seths-Style v6.1.2)                                              */
 /*                                                                                                                                                          */
 /*                                                   God, Not Another Theme!                                                           */
 /*                         Built with Md3 principles and root color definitions in 2023                            */
@@ -847,8 +847,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 .detailPagePrimaryContainer {
  position: fixed !important;
 
- bottom: 38vh !important; /* sits flush to screen bottom */
- //bottom: clamp(100px, 38vh, 432px);
+ bottom: 40vh !important;
 
   display: block !important;
   align-content: flex-start !important;
@@ -1085,10 +1084,10 @@ html.preload.layout-desktop {
 
 .detailImageContainer .card {
     position: fixed !important;
-    top: 37vh !important;
+    top: 36vh !important;
     left: 3% !important;
     transform: translateY(-55%) !important;
-    height: 50vh !important;
+    height: 48vh !important;
     aspect-ratio: 2 / 3 !important;
     width: auto !important;
     display: flex !important;
@@ -1150,32 +1149,43 @@ html.preload.layout-desktop {
   justify-content: left !important;
 }
 
-/* Decrease the font size of the Season-/episode line */
+/* Season-/episode line */
 h3.itemName.infoText.subtitle.focuscontainer-x {
-    display: block !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    font-size: clamp(1rem, 1.4vw, 2.0rem) !important;
+    line-height: 1.3 !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    font-size: clamp(1rem, 1.4vw, 2.0rem) !important;
-    line-height: 1.3 !important;
-    margin-top: 0.2rem !important;
-    margin-bottom: 0.4rem !important;
+    gap: 0.5rem !important;
+}
+
+/* Make sure the Season button stays on the same line and doesn't grow */
+h3.itemName.infoText.subtitle.focuscontainer-x .emby-button {
+    display: inline-flex !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
     max-width: 100% !important;
 }
 
-/* Ensure the link inside follows the same size */
-h3.itemName.infoText.subtitle.focuscontainer-x a.button-link {
-  font-size: inherit !important;
-  line-height: inherit !important;
-  display: inline-block !important;
-}
-h3.itemName.infoText.subtitle.focuscontainer-x a.button-link::after {
-  content: "";
-  display: block;
-  /* optional spacing below the link: */
-  margin-bottom: 0.2rem;
+/* Target the episode title text node via fallback and make it shrink properly */
+h3.itemName.infoText.subtitle.focuscontainer-x > *:not(.emby-button) {
+    flex-grow: 1 !important;
+    flex-shrink: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
 }
 
+.nameContainer {
+    margin-bottom: 1em;
+}
 
 /* ============================================================= */
 /*      Right Side Media Page - Reordered Column Grid            */
@@ -1748,11 +1758,13 @@ a[href*="tvmaze.com"] {
 }
 
 a.button-link.itemAction.emby-button {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  display: block !important;
+  max-width: 23vw !important;
   padding: 0.2em 0.7em !important;
-  font-size: clamp(1rem, 1.9vw, 3rem) !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-size: clamp(0.5rem, 2.2vw, 3.5rem) !important;
   font-weight: 500 !important;
   text-decoration: none !important;
   border: 1px solid var(--md-sys-color-outline) !important;
