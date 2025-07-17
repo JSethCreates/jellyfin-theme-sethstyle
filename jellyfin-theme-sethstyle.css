@@ -1,5 +1,5 @@
 /* ==============================================================  */
-/*                                        Jellyfin GNAT-MD3 (Seths-Style v6.0.3)                                              */
+/*                                        Jellyfin GNAT-MD3 (Seths-Style v6.1.0)                                              */
 /*                                                                                                                                                          */
 /*                                                   God, Not Another Theme!                                                           */
 /*                         Built with Md3 principles and root color definitions in 2023                            */
@@ -32,7 +32,7 @@
 --md-sys-color-outline: 				#948f99;
 
 
-  /* Light and Dark */  
+/* Light and Dark */  
   --color-text-body:       				#ffffffcc;         /* semi-transparent white */
   --bg-color:                      		                #181818;         /* dark base background ^ Keep these opposites */
   --transparent-bg:           			        #00000000;  /* fully transparent */
@@ -835,10 +835,17 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   transform: scale(1.05) !important; /* Slight growth */
 }
 
+.detailRibbon {
+    height: 0 !important;
+    margin-top: 0 !important;
+}
+
 /* Primary content (play, trailer, like.. buttons) on media page styling */
 .detailPagePrimaryContainer {
-  position: fixed !important;
-  bottom: 19vh !important;
+ position: fixed !important;
+
+ bottom: 38vh !important; /* sits flush to screen bottom */
+ //bottom: clamp(100px, 38vh, 432px);
 
   display: block !important;
   align-content: flex-start !important;
@@ -847,7 +854,6 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 
   width: auto !important;
   max-width: 25vw !important;
-  max-height: 40vh;
   margin-top: 1vh !important;
   margin-left: 3vw !important;
 
@@ -1080,10 +1086,10 @@ html.preload.layout-desktop {
 
 .detailImageContainer .card {
     position: fixed !important;
-    top: 38vh !important;
+    top: 37vh !important;
     left: 3% !important;
     transform: translateY(-55%) !important;
-    height: 55vh !important;
+    height: 50vh !important;
     aspect-ratio: 2 / 3 !important;
     width: auto !important;
     display: flex !important;
