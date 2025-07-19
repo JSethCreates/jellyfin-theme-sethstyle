@@ -1,5 +1,5 @@
 /* ==============================================================  */
-/*                                        Jellyfin GNAT-MD3 (Seths-Style v6.1.3)                                              */
+/*                                        Jellyfin GNAT-MD3 (Seths-Style v7.0.0)                                              */
 /*                                                                                                                                                          */
 /*                                                   God, Not Another Theme!                                                           */
 /*                         Built with Md3 principles and root color definitions in 2023                            */
@@ -17,7 +17,6 @@
 /* ──────────────────────────────────────────── */
 
 :root {
-
 
 --md-sys-color-primary: 				#b19ee0;
 --md-sys-color-secondary: 			#cbc2db;
@@ -124,7 +123,7 @@ html {
 
 .formDialogFooter:not(.formDialogFooter-clear),
 .formDialogHeader:not(.formDialogHeader-clear) {
-  background-color: color-mix(in srgb, var(--bg-color) 50%, transparent) !important;
+  background-color: color-mix(in srgb, var(--bg-color) 0%, transparent) !important;
 }
 
 
@@ -166,10 +165,79 @@ html {
   background-color: var(--md-sys-color-primary) !important;
 }
 
-/* --- Primary Hover Tint --md-sys-color-primary (hover) ----------- */
+/* ----------------------------------------
+   Primary Hover (MD3 Sheen Layer Style)
+----------------------------------------- */
+
+/* Base icon buttons (light tone) */
+.paper-icon-button-light {
+  position: relative;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover sheen using ::after */
+.paper-icon-button-light::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
 .paper-icon-button-light:hover:not(:disabled) {
   background-color: var(--md-sys-color-primary) !important;
   color: var(--md-sys-color-on-primary) !important;
+}
+
+.btnPause.paper-icon-button-light:hover:not(:disabled) {
+    background-color: var(--md-sys-color-primary-container) !important;
+    color: var(--md-sys-color-on-primary-container) !important;
+}
+
+/* ----------------------------------------
+   Scroll Buttons Hover Transform
+----------------------------------------- */
+.emby-scrollbuttons.padded-right {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.emby-scrollbuttons.padded-right:hover {
+  transform: scale(0.9) translateY(-1em);
+  opacity: 1;
+}
+
+/* ----------------------------------------
+   Raised Buttons (with MD3 Hover Sheen)
+----------------------------------------- */
+.raised,
+.raised-mini {
+  position: relative;
+  background-color: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover sheen layer */
+.raised::after,
+.raised-mini::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: var(--md-sys-color-on-primary-container);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .raised:hover:not(:disabled)::after,
+  .raised-mini:hover:not(:disabled)::after {
+    opacity: 0.1;
+  }
 }
 
 /* --- Primary Surface    --md-sys-color-surface ------------------- */
@@ -456,7 +524,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 }
 
 .btnPause:hover {
-  transform: scale(1.9)  !important;
+  transform: scale(1.8)  !important;
 }
 
 .upNextDialog-title {
@@ -534,11 +602,6 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.emby-scrollbuttons.padded-right:hover {
-  transform: scale(0.9) translateY(-1em);
-  opacity: 1;
-}
-
 .cardOverlayButton.cardOverlayButton-br {
   display: none !important;
   pointer-events: none !important;
@@ -546,6 +609,18 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 }
 .cardOverlayButton {
     color: var(--md-sys-color-primary);
+}
+
+.cardOverlayContainer > .cardOverlayFab-primary {
+    -webkit-transform: scale(0.7) !important;
+    transform: scale(0.7) !important;
+    transition: transform 0.2s ease !important;
+    background-color: rgba(0,0,0,.3) !important;
+}
+
+.cardOverlayContainer > .cardOverlayFab-primary:hover {
+    -webkit-transform: scale(0.9) !important;
+    transform: scale(0.9) !important;
 }
 
 #homeTab .sectionTitle.sectionTitle-cards {
@@ -801,38 +876,84 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   transition: 0.3s all ease-in-out;
 }
 
-/* Card styles */
+/* ------------------------------------
+   Card Styles (MD3 Subset with Sheen)
+------------------------------------- */
 .cardBox {
-  background-color: color-mix(in srgb, var(--md-sys-color-primary-container) 50%, transparent);
+  position: relative; /* Needed for sheen overlay */
+  background-color: var(--md-sys-color-primary-container);
   border-radius: var(--md-border-radius);
   padding: 2.5em;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
   overflow: visible;
   margin-right: 1em !important;
   margin-top: 1em !important;
   border: 1px solid rgba(128, 128, 128, 0.4);
 }
-/* Homepage-specific margin-top adjustment (allows hover grow) */
+
+/* Homepage-specific offset for hover scaling */
 .homePage .cardBox {
   margin-top: 1.8em !important;
 }
-/* allows cards to grow and overclip */
+
+/* Disable shadow/rounding for internal elements */
 .cardBox:not(.visualCardBox) .cardPadder,
 .cardContent-shadow {
-    box-shadow: none !important;
-    background-color: transparent !important;
-    border-radius: 0 !important;
-}
-.card:not(.show-animation) {
-    contain: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
 }
 
-.itemsContainer > .card > .cardBox:hover {
-  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5) !important;
-  background-color: var(--md-sys-color-primary) !important;
-  transform: scale(1.05) !important; /* Slight growth */
+/* Allow hover scale to overflow */
+.card:not(.show-animation) {
+  contain: none !important;
 }
+
+/* ------------------------------------
+   Hover Effect with 8% On-Primary Sheen
+------------------------------------- */
+.itemsContainer > .card > .cardBox:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Pseudo-layer sheen using on-primary-container @ 8% */
+.itemsContainer > .card > .cardBox::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--md-sys-color-on-primary-container);
+  opacity: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.itemsContainer > .card > .cardBox:hover::after {
+  opacity: 0.1;
+}
+
+/* ------------------------------------
+   Card Text Styles
+------------------------------------- */
+.cardText {
+  font-size: clamp(0.25rem, 1vw, 1.8rem) !important;
+  font-weight: 400;
+  line-height: 1.3 !important;
+  padding: 0.2em 1em !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+}
+
+.cardText-secondary {
+  font-size: 0.9rem !important;
+  font-weight: 500;
+  line-height: 1 !important;
+  padding: 0.2em 1em !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  opacity: 0.72 !important;
+}
+
 
 /* Adjustmetns to make phone and desktop clients render the same */ 
 .detailRibbon {
@@ -966,14 +1087,6 @@ html.preload.layout-desktop {
   background-color: color-mix(in srgb, var(--md-sys-color-primary) 50%, transparent);
 }
 
-/* Floating action button (FAB) for cards */
-.cardOverlayFab-primary {
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
-  background-color: var(--md-sys-color-tertiary);
-  backdrop-filter: var(--blur);
-  border: 2px solid transparent;
-}
-
 /* Progress Bar Shenanigans */
 .innerCardFooter {
   height: 0 !important;
@@ -1021,22 +1134,6 @@ html.preload.layout-desktop {
     font-size: 1em !important;
     margin-bottom: 0.35em !important;
     margin-top: .4em !important;
-}
-
-/* Other hover effects */
-@media (hover: hover) and (pointer: fine) {
-  .paper-icon-button-light:hover:not(:disabled) {
-    background-color: var(--md-sys-color-primary) !important;
-    color: var(--md-sys-color-on-primary) !important;
-  }
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .raised:hover:not(:disabled),
-  .raised-mini:hover:not(:disabled) {
-    background-color: var(--md-sys-color-primary) !important;
-    color: var(--md-sys-color-on-primary) !important;
-  }
 }
 
 /* Other styles */
@@ -1329,29 +1426,6 @@ h3.itemName.infoText.subtitle.focuscontainer-x > *:not(.emby-button) {
   text-align: center !important;
 } 
 
-/* Card Text styles */
-.cardText {
-  font-size: clamp(0.25rem, 1vw, 1.8rem) !important;
-  font-weight: 400;
-  line-height: 1.3 !important;
-  padding: 0.2em 1em !important;
-  color: var(--md-sys-color-on-primary-container) !important;
-}
-
-.cardText-secondary {
-  font-size: 0.9rem !important;
-  font-weight: 500;
-  line-height: 1 !important;
-  padding: 0.2em 1em !important;
-  color: var(--md-sys-color-on-primary-container) !important;
-  opacity: 0.72 !important;
-}
-
-.itemsContainer > .card > .cardBox:hover .cardText,
-.itemsContainer > .card > .cardBox:hover .cardText-secondary {
-  color: var(--md-sys-color-on-primary) !important;
-}
-
 /*---External Links Styling (IMDb, Trakt, etc.) ---*/
 .itemExternalLinks {
   position: fixed !important;
@@ -1433,7 +1507,7 @@ a[href*="tvmaze.com"] {
 }
 
 /* MD3 Dialog Box Styling — Dark Container with Light Text */
-.dialog.dialog-fixedSize.dialog-small.formDialog {
+.dialog.dialog-fixedSize.dialog-small {
   background-color: var(--md-sys-color-on-primary-container);
   border-radius: var(--md-border-radius);
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
@@ -1462,8 +1536,8 @@ a[href*="tvmaze.com"] {
 .formDialogHeader .btnCancel {
   background-color: transparent;
   border: none;
-  background-color: var(--md-sys-color-on-primary);
-  color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
   padding: 0.3em;
   border-radius: 50%;
   transition: background-color 0.2s ease;
@@ -1528,29 +1602,38 @@ a[href*="tvmaze.com"] {
   background-color: var(--md-sys-color-primary-container);
 }
 
-/* Dialog footer & buttons */
+/* Dialog footer  */
 .formDialogFooter {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1em;
-  margin-top: 2em;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 0.5em !important;
+  flex-wrap: nowrap !important; /* force single row */
 }
-.formDialogFooterItem.button-submit {
+
+button.formDialogFooterItem {
+  font-size: 1rem !important;
+  padding: 0.5em 0.6em !important;
+  flex: 0 1 auto !important;       /* shrink if needed */
+  min-width: 0 !important;         /* allow tight fit */
+  max-width: 10vw !important;     /* optional: cap size */
+  white-space: nowrap !important; /* prevent label wrap */
+}
+ 
+.formDialogFooterItem.button {
   background-color: var(--md-sys-color-primary);
-  
   border-radius: var(--md-border-radius);
-  padding: 0.6em 1.5em;
-  font-size: 1rem;
+  padding: 0.1em 0.1em;
+  font-size: 0.7rem;
   border: none;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
-.formDialogFooterItem.button-submit:hover {
+.formDialogFooterItem.button:hover {
   background-color: var(--md-sys-color-on-primary);
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* MD3 Action Sheet Container */
+
 .dialog.actionSheet {
   background-color: var(--md-sys-color-on-primary-container);
   border-radius: var(--md-border-radius);
@@ -1619,7 +1702,11 @@ a[href*="tvmaze.com"] {
 /* ============================================================= */
 
 
+/* ------------------------------------
+   Play Button (MD3 Subset Styling)
+------------------------------------- */
 .btnPlay.detailButton {
+  position: relative; /* Needed for state-layer */
   background-color: var(--md-sys-color-primary-container) !important;
   color: var(--md-sys-color-on-primary-container) !important;
   border: none !important;
@@ -1633,34 +1720,59 @@ a[href*="tvmaze.com"] {
   justify-content: center !important;
   text-transform: none !important;
   padding: 1.5em !important;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease !important;
   transform: translateY(-0.7em) !important;
   z-index: 2 !important;
   margin-right: -0.6em !important;
 }
 
-/* Play vs Resume Button Styling */
-.btnPlay::after {
-  color: var(--md-sys-color-on-primary) !important;
-  content: attr(title);
-  font-size: 0.6em;
-}
-.btnPlay[title="Resume"]::after {
-  color: var(--md-sys-color-on-primary-container) !important;
-  content: "Resume";
-  font-size: 0.6em;
-}
-.btnPlay[title="Resume"].detailButton:hover::after {
-  color: var(--md-sys-color-on-primary) !important;
-}
-.btnPlay[title="Play"]::after {
+/* Hover state-layer overlay (8% sheen) */
+.btnPlay.detailButton::after {
   content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--md-sys-color-on-primary-container);
+  opacity: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity 0.2s ease-in-out;
 }
 
+.btnPlay.detailButton:hover::after {
+  opacity: 0.1;
+}
+
+/* Optional: slight transform on hover */
 .btnPlay.detailButton:hover {
-  background-color: var(--md-sys-color-primary) !important;
-  color: var(--md-sys-color-on-primary) !important;
   transform: translateY(-0.7em) scale(1.2) !important;
+}
+
+/* ------------------------------------
+   Play vs Resume Label Overlay
+------------------------------------- */
+.btnPlay::before {
+  content: attr(title);
+  position: absolute;
+  top: calc(100% - 2.2em);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6em;
+  color: var(--md-sys-color-on-primary-container) !important;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.btnPlay[title="Resume"]::before {
+  content: "Resume";
+  color: var(--transparent-bg) !important;
+}
+
+.btnPlay[title="Resume"].detailButton:hover::before {
+  color: var(--md-sys-color-on-primary-container) !important;
+}
+
+.btnPlay[title="Play"]::before {
+  content: "";
 }
 
 /* Segmented Button Group (Secondary Actions)*/
