@@ -1854,6 +1854,7 @@ button.formDialogFooterItem {
 .mainDetailButtons > .btnMoreCommands.detailButton:not(.hide) {
   display: inline-flex !important;
   width: 100% !important;
+  min-width: clamp(2.5em, 3.5vw, 5.5em) !important;
   align-items: center !important;
   justify-content: center !important;
   padding: clamp(0.3em, 1vw, 0.6em) clamp(0.6em, 2vw, 1em);
