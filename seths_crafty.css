@@ -1,0 +1,2012 @@
+/* ==============================================================  */
+/*                                        Jellyfin GNAT-MD3 (Seths-Style CRAFTY VERSION v8.0.1)                                              */
+/*                                                                                                                                                          */
+/*                                                   God, Not Another Theme!                                                           */
+/*                         Built with Md3 principles and root color definitions in 2023                            */
+/*               Redesign/Release with Material 3 Expressive considerations 2025                         */
+/* ==============================================================  */
+
+/* ─── System Fonts ──────────────────────────
+   - Inter: Base UI font for almost everything
+   - Special Elite: For tagline/branding text
+   - Material Icons: Used in header
+──────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Crafty+Girls&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+/* ──────────────────────────────────────────── */
+
+:root {
+
+--md-sys-color-primary: 				#b19ee0;
+--md-sys-color-secondary: 			#cbc2db;
+--md-sys-color-tertiary: 				#03a3dc;
+
+--md-sys-color-on-primary: 			#381e72;
+--md-sys-color-primary-container: 	#4f378a;
+--md-sys-color-on-primary-container: #e9ddff;
+
+--md-sys-color-surface: 				#1c1b1e;
+--md-sys-color-on-surface: 			#e6e1e6;
+--md-sys-color-outline: 				#948f99;
+
+
+/* Light and Dark */  
+  --color-text-body:       				#ffffffcc;         /* semi-transparent white */
+  --bg-color:                      		                #0b0b0b;         /* dark base background ^ Keep these opposites */
+  --transparent-bg:           			        #00000000;  /* fully transparent */
+
+  /* Design details */
+  --md-border-radius:                	               8px;
+  --blur:                           	               blur(10px) saturate(180%);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif !important;
+  font-weight: 450;
+  margin: 0;
+  padding: 0;
+}
+
+.skinHeader {
+  position: relative !important;
+}
+
+#indexPage {
+  background-color: var(--bg-color) !important;
+  min-height: 350vh;
+
+/* BG Pattern */
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(100,100,100,0.05) 0px,
+      rgba(100,100,100,0.05) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+}
+
+/* Elements with transparency and blur effects.. Aero/Liquid glass retro cool :p */
+.skinHeader.semiTransparent,
+.skinHeader,
+.mainDrawer,
+.actionSheet,
+select:enabled,
+option {
+  background-color: var(--bg-color);
+  backdrop-filter: var(--blur) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+}
+/* vestige?*/
+select:enabled,
+option {
+  border-radius: var(--md-border-radius);
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+
+/* override hide-cursor */
+html, body, *, *::before, *::after {
+  cursor: default !important;
+}
+
+
+/* ============================================================= */
+/*                         COLOR SECTION                         */
+/* ============================================================= */
+
+
+/* --- Background        --bg-color -------------------------------- */
+.wizardStartForm,
+.ui-corner-all,
+.ui-shadow,
+.nowPlayingPlaylist,
+.nowPlayingContextMenu,
+html {
+  background-color: var(--bg-color);
+}
+
+/* --- Translucent BG    --bg-color mix ---------------------------- */
+.skinHeader-withBackground,
+.collapseContent,
+.paperList,
+.mainDrawer,
+.dialog,
+.visualCardBox,
+.appfooter,
+.playlistSectionButton {
+  background-color: color-mix(in srgb, var(--bg-color) 30%, transparent) !important;
+}
+
+.formDialogFooter:not(.formDialogFooter-clear),
+.formDialogHeader:not(.formDialogHeader-clear) {
+  background-color: color-mix(in srgb, var(--bg-color) 0%, transparent) !important;
+}
+
+
+.backgroundContainer,
+.nowPlayingPlaylist,
+.nowPlayingContextMenu {
+  background-color: color-mix(in srgb, black 78%, transparent) !important;
+}
+
+/* --- Transparent BG     --transparent-bg ------------------------- */
+.cardOverlayContainer {
+  background-color: var(--transparent-bg);
+}
+
+/* --- Primary Container  --md-sys-color-primary-container --------- */
+
+.fab,
+.raised,
+.toast {
+  background: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+}
+.listItemIcon {
+  color: var(--md-sys-color-primary) !important;
+  background: var(--transparent-bg) !important;
+}
+
+
+/* --- Primary            --md-sys-color-primary ------------------- */
+
+.alphaPickerButton-tv:focus,
+.selectionCommandsPanel,
+.navMenuOption-selected,
+.progressring-spiner,
+.emby-checkbox:checked + span + .checkboxOutline,
+.fullSyncIndicator,
+.mediaSourceIndicator,
+.playedIndicator,
+.emby-button.detailFloatingButton,
+.iconOsdProgressInner,
+.mdl-slider::-webkit-slider-thumb {
+  background: var(--md-sys-color-primary) !important;
+  background-color: var(--md-sys-color-primary) !important;
+}
+
+/* ----------------------------------------
+   Primary Hover (MD3 Sheen Layer Style)
+----------------------------------------- */
+
+/* Base icon buttons (light tone) */
+.paper-icon-button-light {
+  position: relative;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover sheen using ::after */
+.paper-icon-button-light::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.paper-icon-button-light:hover:not(:disabled) {
+  background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
+}
+
+.btnPause.paper-icon-button-light:hover:not(:disabled) {
+    background-color: var(--md-sys-color-primary-container) !important;
+    color: var(--md-sys-color-on-primary-container) !important;
+}
+
+/* ----------------------------------------
+   Scroll Buttons Hover Transform
+----------------------------------------- */
+.emby-scrollbuttons.padded-right {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.emby-scrollbuttons.padded-right:hover {
+  transform: scale(0.9) translateY(-1em);
+  opacity: 1;
+}
+
+/* ----------------------------------------
+   Raised Buttons (with MD3 Hover Sheen)
+----------------------------------------- */
+.raised,
+.raised-mini {
+  position: relative;
+  background-color: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover sheen layer */
+.raised::after,
+.raised-mini::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: var(--md-sys-color-on-primary-container);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .raised:hover:not(:disabled)::after,
+  .raised-mini:hover:not(:disabled)::after {
+    opacity: 0.1;
+  }
+}
+
+/* --- Primary Surface    --md-sys-color-surface ------------------- */
+.emby-button.detailFloatingButton.layout-tv:focus {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-primary);
+}
+
+/* --- Primary Hover Mix  --md-sys-color-primary (hover mix) ------- */
+.listItem:hover {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) 50%, transparent);
+}
+
+/* --- On-Primary-Container --md-sys-color-on-primary-container --- */
+.sliderMarker.watched {
+  background-color: var(--md-sys-color-on-primary-container) !important;
+}
+
+/* --- Emotional Color    --md-sys-color-tertiary ------------------- */
+.playstatebutton-icon-played,
+.selectLabelFocused,
+.ratingbutton-icon-withrating,
+.upNextDialog-countdownText {
+  color: var(--md-sys-color-tertiary) !important;
+}
+
+.material-icons.chevron_right,
+.material-icons.chevron_left {
+  color: var(--md-sys-color-outline) !important;
+}
+
+.selectionCommandsPanel,
+.cardOverlayFab-primary:hover {
+  background-color: var(--md-sys-color-tertiary) !important;
+}
+
+.itemSelectionPanel {
+  border-color: var(--md-sys-color-tertiary) !important;
+}
+
+.button-submit:focus {
+    background: var(--md-sys-color-surface) !important;
+    color: var(--md-sys-color-on-surface) !important;
+}
+
+
+.css-17c09up.Mui-selected {
+    background-color: var(--md-sys-color-secondary) !important;
+}
+
+
+/* --- Primary Border     --md-sys-color-primary ------------------- */
+.emby-input:focus,
+.emby-textarea:focus,
+.emby-checkbox:focus + span + .checkboxOutline,
+.emby-checkbox:checked + span + .checkboxOutline,
+.emby-select-withcolor:focus,
+.emby-select-tv-withcolor:focus {
+  border-color: var(--md-sys-color-primary) !important;
+}
+
+/* --- Main Text      --color-text-body ------------------- */
+.fieldDescription,
+.guide-programNameCaret,
+.nowPlayingBarSecondaryText,
+.programSecondaryTitle,
+.secondaryText,
+.listItemBody,
+.listItem .secondary,
+.alphaPickerButton,
+.emby-tab-button,
+.emby-tab-button:focus,
+.emby-tab-button:hover,
+.checkboxListLabel,
+.inputLabel,
+.inputLabelUnfocused,
+.button-link,
+.paperListLabel,
+.formDialogHeaderTitle,
+.castButton,
+.textareaLabelUnfocused {
+  color: var(--color-text-body) !important;
+}
+
+/* --- Secondary Text       --md-sys-color-on-primary --------------- */
+.paper-icon-button-light:hover:not(.btnPause),
+.paper-icon-button-light:hover:not(:disabled):not(.btnPause),
+.paper-icon-button-light:active:not(:disabled):not(.btnPause),
+.paper-icon-button-light.show-focus:focus:not(.btnPause),
+.raised.homeLibraryButton:hover,
+.button-flat:hover,
+.emby-tab-button:hover,
+.emby-tab-button.show-focus:focus,
+.inputLabelFocused,
+.textareaLabelFocused,
+.guide-date-tab-button.emby-tab-button-active,
+.guide-date-tab-button:focus,
+.metadataSidebarIcon,
+.emby-button.detailFloatingButton:focus,
+#dialogToc .bookplayerButtonIcon:hover,
+#dialogToc .toc li a:active,
+#dialogToc .toc li a:hover,
+.mdl-slider,
+.alphaPickerButton-tv:focus,
+.selectionCommandsPanel,
+.navMenuOption-selected,
+.emby-button.detailFloatingButton,
+.emby-select-withcolor:focus,
+.emby-select-tv-withcolor:focus {
+  color: var(--md-sys-color-on-primary) !important;
+}
+
+/* Headings, adjusted only on 1080p+ screens */
+@media (min-width: 62em) {
+h1 {
+  font-size: clamp(2.1rem, 3.5vw, 2.49375rem); /* Display Large */
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text-body);
+  margin-bottom: 0.5em;
+}
+/* H2 - Used for Hompage section titles */
+h2 {
+  font-size: clamp(1.05rem, 1.4vw, 1.4rem); /* Display Medium */
+  font-family: 'Crafty Girls', cursive;
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--md-sys-color-tertiary);
+  margin-bottom: 0.2em;
+}
+/* H3 - Used for OSD Title */
+h3 {
+  font-size: clamp(1.4rem, 1.8vw, 1.575rem); /* Display Small */
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: var(--color-text-body);
+  margin-bottom: 0.5em;
+}
+
+h4 {
+  font-size: clamp(1.225rem, 1.75vw, 1.45rem); /* Headline Large */
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: var(--color-text-body);
+  margin-bottom: 0.4em;
+}
+
+h5 {
+  font-size: clamp(1.05rem, 1.4vw, 1.225rem); /* Headline Medium */
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--color-text-body);
+  margin-bottom: 0.4em;
+}
+}
+
+/* Rounded Items */
+progress,
+progress::-webkit-progress-bar,
+progress::-moz-progress-bar,
+progress::-webkit-progress-value,
+.taskProgressOuter,
+.taskProgressInner,
+.cardOverlayContainer,
+.missingIndicator,
+.unairedIndicator,
+.detailTable,
+.primaryImageWrapper > img,
+.toast,
+.paperList,
+.cardContent,
+.sessionNowPlayingInnerContent,
+.listItem:hover,
+.cardImage,
+.fab,
+.raised,
+.multiSelectCheckboxOutline,
+.itemSelectionPanel,
+.cardContent-button,
+.cardContent-shadow,
+.itemDetailImage,
+.cardImageContainer,
+.cardPadder,
+.listItemImage,
+.listItemImageButton,
+.listItemButton,
+.blurhash-canvas,
+.dialog,
+.countIndicator,
+.playedIndicator,
+.listItemIcon,
+.listItem-border,
+.visualCardBox,
+.checkboxOutline,
+.emby-select-withcolor,
+.chapterThumbTextContainer,
+.chapterThumbContainer,
+.chapterThumb,
+.emby-input,
+.emby-textarea,
+.nowPlayingPageImage,
+.upNextDialog-poster-img,
+.upNextContainer,
+.cardOverlayButtonIcon,
+.formDialogHeader,
+.osdPoster img,
+.button.btnPause.osdExtrasMode,
+.mdl-slider::-moz-range-thumb,
+.mdl-slider::-ms-thumb,
+.mdl-slider::-webkit-slider-thumb {
+  border-radius: var(--md-border-radius) !important;
+}
+
+/* ——— Form dialog footer: bottom corners only ——— */
+.formDialogFooter {
+  border-bottom-left-radius:  var(--md-border-radius) !important;
+  border-bottom-right-radius: var(--md-border-radius) !important;
+}
+
+/* ——— Controlgroup buttons: left/right endcaps ——— */
+div[data-role="controlgroup"] a[data-role="button"]:first-child {
+  border-top-left-radius:     var(--md-border-radius) !important;
+  border-bottom-left-radius:  var(--md-border-radius) !important;
+}
+
+div[data-role="controlgroup"] a[data-role="button"]:last-child {
+  border-top-right-radius:    var(--md-border-radius) !important;
+  border-bottom-right-radius: var(--md-border-radius) !important;
+}
+
+/* ——— Dashboard, Virtual Folders & User Profiles: top corners only ——— */
+#dashboardPage .cardContent,
+#dashboardPage .sessionNowPlayingInnerContent,
+#divVirtualFolders .cardContent,
+#divVirtualFolders .cardImageContainer,
+#userProfilesPage .cardContent,
+#userProfilesPage .cardImage {
+  border-radius: var(--md-border-radius) var(--md-border-radius) 0 0 !important;
+}
+
+.sliderBubble {
+    border-radius: 12px !important;
+    background-color: color-mix(in srgb, var(--bg-color) 50%, transparent);
+}
+
+/* This slider thumb needs discrete styling on Firefox */
+.mdl-slider::-moz-range-thumb {
+  background-color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-on-primary-container);
+  box-shadow:
+    0 0 0 2px var(--md-sys-color-primary-container),
+    inset 0 0 0 2px var(--md-sys-color-on-primary),
+    0 0 4px rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  z-index: 1 !important;
+}
+/* WebKit browsers (Chrome, Edge, Safari) */
+.mdl-slider::-webkit-slider-thumb {
+  background-color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-on-primary-container);
+  box-shadow:
+    0 0 0 2px var(--md-sys-color-primary-container),  /* outer ring */
+    inset 0 0 0 2px var(--md-sys-color-on-primary),    /* inner ring for texture */
+    0 0 4px rgba(0, 0, 0, 0.5);                         /* subtle glow */
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  z-index: 1 !important;
+  appearance: none;
+}
+
+
+/* Pause/play button hover effect */
+.btnPause {
+  display: inline-flex; /* ensures transform scales whole button */
+  transform-origin: center center;
+  transition: transform 0.3s ease;
+  z-index: 10 !important;
+}
+
+.btnPause:hover {
+  transform: scale(1.8)  !important;
+}
+
+.upNextDialog-title {
+    width: 18.5em !important;
+}
+
+/* Cast Placeholder Card Colors*/
+.defaultCardBackground1{background-color: color-mix(in srgb, var(--md-sys-color-primary) 70%, transparent);}
+.defaultCardBackground2{background-color: color-mix(in srgb, var(--md-sys-color-secondary) 70%, transparent);}
+.defaultCardBackground3{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 70%, transparent);}
+.defaultCardBackground4{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 30%, transparent);}
+.defaultCardBackground5{background-color: color-mix(in srgb, var(--md-sys-color-tertiary) 50%, transparent);}
+
+/*Spinner*/
+.mdl-spinner__layer-1{border-color:var(--md-sys-color-primary);}
+.mdl-spinner__layer-2{border-color:var(--md-sys-color-primary-container);}
+.mdl-spinner__layer-3{border-color:var(--md-sys-color-tertiary);}
+.mdl-spinner__layer-4{border-color:var(--md-sys-color-surface);}
+
+/* Progress bar gradient */
+.mdl-slider-background-lower {
+  background: linear-gradient(
+    90deg,
+    var(--md-sys-color-primary-container)         0%,
+    var(--md-sys-color-primary-container)        45%,	
+    var(--md-sys-color-primary-container)        50%,	
+    var(--md-sys-color-primary-container)        55%,
+    var(--md-sys-color-primary)                  65%,
+    var(--md-sys-color-primary)                  75%,
+    var(--md-sys-color-primary-container)        90%
+  );
+}
+.mdl-slider-background-upper {
+	background: var(--md-sys-color-on-primary);
+}
+.mdl-slider::-moz-range-thumb,.mdl-slider::-ms-thumb,.mdl-slider::-webkit-slider-thumb{border-radius:var(--md-border-radius);}
+
+#txtCustomCss, #txtLocalCustomCss {
+  height: 800px !important;
+  max-height: none !important;
+  overflow-y: scroll !important;
+  resize: vertical !important;
+
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-surface);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-border-radius);
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  padding: 1em;
+}
+
+/* Stop the progress bar bouncing with time */
+.flex-grow.mdl-slider-container {
+    position: fixed !important;
+    left: 6.7em !important;
+    width: 83vw !important;
+}
+
+/* Time font */
+.osdTextContainer.startTimeText.osdPositionText,
+.osdTextContainer.endTimeText.osdDurationText {
+  font-family: "Inter", sans-serif !important;
+  font-size: 1.4rem !important;
+  font-weight: 300 !important;
+}
+.osdTextContainer.endTimeText.osdDurationText {
+    position: fixed !important;
+    right: 4.5vw !important;
+}
+
+.emby-scrollbuttons.padded-right {
+  transform: scale(0.65) translateY(-1em);
+  opacity: 0.2;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.cardOverlayButton.cardOverlayButton-br {
+  display: none !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+.cardOverlayButton {
+    color: var(--md-sys-color-primary);
+}
+
+.cardOverlayContainer > .cardOverlayFab-primary {
+    -webkit-transform: scale(0.7) !important;
+    transform: scale(0.7) !important;
+    transition: transform 0.2s ease !important;
+    background-color: rgba(0,0,0,.3) !important;
+}
+
+.cardOverlayContainer > .cardOverlayFab-primary:hover {
+    -webkit-transform: scale(0.9) !important;
+    transform: scale(0.9) !important;
+}
+
+#homeTab .sectionTitle.sectionTitle-cards {
+  margin-left: -0.6em !important;
+}
+
+.sectionTitle.sectionTitle-cards {
+  margin-left: 1.2em !important;
+}
+
+
+/* Move Specials to appear after Seasons */
+.childrenItemsContainer .card[data-prefix="SPE"] {
+  order:  999 !important;
+}
+
+/* Reorder the Media Items Page */
+.detailPagePrimaryContent {
+	display: flex;
+	flex-direction: column;
+}
+
+#childrenCollapsible {
+	order: 1 !important;
+}
+
+#castCollapsible {
+	order: 2 !important;
+  margin-bottom: 1.6em;
+}
+
+#specialsCollapsible {
+  order: 3 !important;
+}
+
+#similarCollapsible {
+	order: 4 !important;
+}
+
+.nextUpSection {
+	order: 5 !important;
+}
+
+.moreFromSeasonSection {
+	order: 6 !important;
+}
+
+
+/* ============================================================= */
+/*                        HEADER SECTION                         */
+/* ============================================================= */
+
+
+.skinHeader,
+.actionSheet,
+.mainDrawer {
+  border: 1px solid var(--md-sys-color-outline);
+}
+
+.headerTabs { margin: -4.0em auto 0 auto !important; width: fit-content !important; }
+
+.skinHeader {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
+/* Style for .skinHeader-withBackground.osdHeader */
+.skinHeader-withBackground.osdHeader {
+  border: 0;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background: linear-gradient(180deg, rgba(28, 27, 31, 0.75), rgba(28, 27, 31, 0)) !important;
+  color: var(--md-sys-color-surface) !important;
+  height: 20em !important;
+  pointer-events: none !important;
+  position: relative !important;
+  transition: opacity 5s cubic-bezier(1, 0.02, 0.86, 0.99) !important;
+  z-index: 1 !important;
+}
+.videoOsdBottom {
+    transition: 5s cubic-bezier(1, 0.02, 0.86, 0.99) !important;
+}
+
+/* Header Logo */
+.pageTitleWithLogo.pageTitleWithDefaultLogo {
+	transform: scale(0.8);
+	transform-origin: left;
+}
+
+
+/* Replace Header Labels With Icons, If they Exist */
+/* ─── SHARED BASE STYLES ─── */
+.headerTabs .emby-tab-button[data-index="0"],
+.headerTabs .emby-tab-button[data-index="1"],
+.headerTabs .emby-tab-button[data-index="2"],
+.headerTabs .emby-tab-button[data-index="3"] {
+    position: relative !important;
+    overflow: visible !important;
+    transition: background 0.2s ease, color 0.2s ease !important;
+    color: var(--md-sys-color-on-primary) !important;
+    text-indent: -9999px !important;
+    white-space: nowrap !important;
+    width: 6em !important;
+    height: 3em !important;
+    padding: 0 !important;
+}
+
+/* ─── FIX LAYOUT SHIFT FROM .emby-button-foreground ─── */
+.headerTabs .emby-tab-button[data-index="0"] .emby-button-foreground,
+.headerTabs .emby-tab-button[data-index="1"] .emby-button-foreground {
+    visibility: hidden !important;
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+}
+
+/* ─── SHARED ICON POSITIONING ─── */
+.headerTabs .emby-tab-button[data-index="0"] .emby-button-foreground::before,
+.headerTabs .emby-tab-button[data-index="1"] .emby-button-foreground::before,
+.headerTabs .emby-tab-button[data-index="2"]::before,
+.headerTabs .emby-tab-button[data-index="3"]::before {
+    font-size: 1.6em !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    pointer-events: none !important;
+    color: var(--color-text-body) !important;
+    visibility: visible !important;
+    text-indent: 0 !important;
+    white-space: normal !important;
+}
+
+/* ─── SHARED HOVER STYLES ─── */
+.headerTabs .emby-tab-button[data-index="0"]:hover,
+.headerTabs .emby-tab-button[data-index="1"]:hover,
+.headerTabs .emby-tab-button[data-index="2"]:hover,
+.headerTabs .emby-tab-button[data-index="3"]:hover {
+    background: var(--md-sys-color-primary) !important;
+    color: var(--color-text-body) !important;
+}
+
+.headerTabs .emby-tab-button[data-index="0"]:hover .emby-button-foreground::before,
+.headerTabs .emby-tab-button[data-index="1"]:hover .emby-button-foreground::before,
+.headerTabs .emby-tab-button[data-index="2"]:hover::before,
+.headerTabs .emby-tab-button[data-index="3"]:hover::before {
+    color: var(--md-sys-color-on-primary) !important;
+}
+
+/* ─── INDEX 0: HOME ─── */
+.headerTabs .emby-tab-button[data-index="0"] {
+    font-family: 'Material Icons' !important;
+}
+.headerTabs .emby-tab-button[data-index="0"] .emby-button-foreground::before {
+    content: "home" !important;
+    font-family: 'Material Icons' !important;
+}
+
+/* ─── INDEX 1: FAVORITES ─── */
+.headerTabs .emby-tab-button[data-index="1"] {
+    font-family: 'Material Icons' !important;
+}
+.headerTabs .emby-tab-button[data-index="1"] .emby-button-foreground::before {
+    content: "favorite" !important;
+    font-family: 'Material Icons' !important;
+}
+
+/* ─── INDEX 2: REQUEST ─── */
+.headerTabs .emby-tab-button[data-index="2"] {
+    font-family: 'Material Icons' !important;
+}
+.headerTabs .emby-tab-button[data-index="2"]::before {
+    content: "movie_edit" !important;
+    font-family: 'Material Icons' !important;
+}
+
+/* ─── INDEX 3: LUCKY ─── */
+.headerTabs .emby-tab-button[data-index="3"] {
+    font-family: inherit !important;
+}
+.headerTabs .emby-tab-button[data-index="3"]::before {
+  content: "☘️" !important;
+  filter: brightness(0) saturate(100%) invert(1) !important;
+}
+
+
+/* ============================================================= */
+/*                SCREEN WIDTH DEPENDENT STYLING                 */
+/* ============================================================= */
+
+
+/* If phone portrait mode we dont change the structure of media pages */ 
+/* ie. Nothing beyond this point is executed for screens <1000px width */
+
+@media (max-width: 61em) {
+ 
+  .headerTabs .emby-tab-button[data-index="0"] .emby-button-foreground,
+  .headerTabs .emby-tab-button[data-index="1"] .emby-button-foreground,
+  .headerTabs .emby-tab-button[data-index="2"] .emby-button-foreground,
+  .headerTabs .emby-tab-button[data-index="3"] .emby-button-foreground,
+  .headerTabs .emby-tab-button[data-index="0"]::before,
+  .headerTabs .emby-tab-button[data-index="1"]::before,
+  .headerTabs .emby-tab-button[data-index="2"]::before,
+  .headerTabs .emby-tab-button[data-index="3"]::before {
+    display: none !important;
+  }
+
+.pageTitle {
+	color: var(--color-text-body) !important;
+}
+
+}
+
+/* If phone or device has full width, we can apply all styles */
+@media (min-width: 62em) {
+
+.emby-scroller {
+    padding-left: max(env(safe-area-inset-left),1.3%) !important;
+}
+
+.overflowBackdropCard, .overflowSmallBackdropCard {
+    width: 16.35vw;
+    margin-top: -0.8em;
+}
+.overflowPortraitCard, .overflowSmallPortraitCard {
+    width: 10.9vw;
+}
+#castContent .personCard {
+    width: 10vw;
+    font-size: 0.3em !important;
+    padding-right: 1em !important;
+	padding-left: 1em !important;
+}
+[dir=ltr] .no-padding {
+    padding-top: 0.3em !important;
+}
+
+.card {
+  padding-left: 0.1em;
+
+}
+.cardScalable {
+  border-radius: var(--md-border-radius);
+  /* border: 1px solid var(--md-sys-color-outline); */ 
+}
+.cardImageContainer {
+  border-radius: inherit;
+}
+
+.customCssContainer textarea {
+	height: auto !important;
+}
+
+/* Overlay elements */
+.cardOverlayContainer,
+.cardScalable,
+.cardPadder {
+  overlay: none;
+}
+
+/* List and transition effects */
+.listItem {
+  transition: 0.3s all ease-in-out;
+}
+
+/* ------------------------------------
+   Card Styles (MD3 Subset with Sheen)
+------------------------------------- */
+.cardBox {
+  position: relative; /* Needed for sheen overlay */
+  background-color: color-mix(in srgb, var(--md-sys-color-primary-container) 60%, transparent) !important;
+  border-radius: var(--md-border-radius);
+  padding: 2.5em;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
+  overflow: visible;
+  margin-right: 1em !important;
+  margin-top: 1em !important;
+  /* border: 1px solid rgba(128, 128, 128, 0.4); Killed by popular demand */
+}
+
+/* Homepage-specific offset for hover scaling */
+.homePage .cardBox {
+  margin-top: 1.8em !important;
+}
+
+/* Disable shadow/rounding for internal elements */
+.cardBox:not(.visualCardBox) .cardPadder,
+.cardContent-shadow {
+  box-shadow: none !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+}
+
+/* Allow hover scale to overflow */
+.card:not(.show-animation) {
+  contain: none !important;
+}
+
+/* ------------------------------------
+   Hover Effect with 8% On-Primary Sheen
+------------------------------------- */
+.itemsContainer > .card > .cardBox:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Pseudo-layer sheen using on-primary-container @ 8% */
+.itemsContainer > .card > .cardBox::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--md-sys-color-primary-container);
+  opacity: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.itemsContainer > .card > .cardBox:hover::after {
+  opacity: 0.1;
+}
+
+/* ------------------------------------
+   Card Text Styles
+------------------------------------- */
+.cardText {
+  font-size: clamp(0.25rem, 0.8vw, 1.8rem) !important;
+  font-weight: 400;
+  line-height: 1.3 !important;
+  padding: 0.2em 1em !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+}
+
+.cardText-secondary {
+  font-size: 0.9rem !important;
+  font-weight: 500;
+  line-height: 1 !important;
+  padding: 0.2em 1em !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  opacity: 0.72 !important;
+}
+
+
+/* Adjustmetns to make phone and desktop clients render the same */ 
+.detailRibbon {
+    height: 0 !important;
+    margin-top: 0 !important;
+}
+.layout-mobile .itemBackdrop {
+    margin-top: 0 !important;
+}
+
+/* Primary content (play, trailer, like.. buttons) on media page styling */
+.detailPagePrimaryContainer {
+ position: fixed !important;
+
+ bottom: 40vh !important;
+
+  display: block !important;
+  align-content: flex-start !important;
+  align-items: flex-start !important;
+  justify-content: left !important;
+
+  width: auto !important;
+  max-width: 25vw !important;
+  margin-top: 1vh !important;
+  margin-left: 3vw !important;
+
+  padding: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  box-sizing: content-box !important;
+  border-radius: var(--md-border-radius);
+  background: none;
+  font-size: clamp(0.9rem, 1.3vw, 1.8rem) !important;
+
+  z-index: 98 !important;
+}
+.layout-mobile[dir="ltr"] .infoWrapper {
+    padding-left: 0 !important;
+}
+ .layout-mobile [dir=ltr] .mainDetailButtons {
+    padding-left: 0% !important;
+}
+.layout-mobile .subtitle {
+    margin: 0 !important;
+}
+.layout-mobile .itemMiscInfo, .layout-mobile .itemName, .layout-mobile .mainDetailButtons, .layout-mobile .parentName {
+   text-align: left !important;;
+}
+.layout-mobile h1.itemName, .layout-mobile h1.parentName {
+    font-size: clamp(1.1rem, 1.8vw, 2.49375rem) !important;
+}
+
+.detailSectionContent {
+  margin: 1vh !important;
+  width: 60vw !important;
+  max-width: none !important;
+  flex: 1 1 auto !important;
+}
+
+.listItemBody {
+    max-width: 39vw !important;
+}
+
+.layout-mobile .detailPageSecondaryContainer {
+    top: 0 !important;
+}
+
+.layout-desktop .detailPagePrimaryContent {
+  width: 45%;
+}
+
+.layout-desktop .detailPageSecondaryContainer {
+  background-color: var(--transparent-bg);
+  margin: 0 0 1.25em 0;
+}
+
+/* Desktop background settings */
+html.preload.layout-desktop {
+  background-color: #181818;
+}
+
+.itemBackdrop {
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: fixed;
+  right: 0%;
+  width: 100vw;
+}
+
+.backdropImageFadeIn {
+    -webkit-animation: backdrop-fadein 0.1s ease-in normal both !important;
+    animation: backdrop-fadein 0.1s ease-in normal both !important;
+}
+
+/* Backdrop container */
+.backdropContainer {
+  height: 100vh;
+  left: 0%;
+  position: fixed;
+  width: 100vw;
+}
+
+.layout-desktop .detailPageWrapperContainer {
+  margin-top: -65vh;
+}
+
+.layout-desktop a.overview-expand.emby-button {
+  margin: 0;
+  padding: 0;
+}
+
+/* Status indicators */
+.countIndicator,
+.fullSyncIndicator,
+.mediaSourceIndicator,
+.playedIndicator {
+  backdrop-filter: var(--blur) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  background-color: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  box-shadow: none;
+}
+
+/* Hover effects for menu options */
+.actionSheetMenuItem:hover,
+.navMenuOption:hover {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) 50%, transparent);
+}
+
+/* Progress Bar Shenanigans */
+.innerCardFooter {
+  height: 0 !important;
+  overflow: visible !important;
+  z-index: 2;
+}
+.itemProgressBar {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0;
+  width: 100%;
+  height: 8px !important;
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  z-index: 3;
+}
+
+.itemProgressBarForeground {
+  background-color: color-mix(in srgb,var(--md-sys-color-tertiary)70%,transparent) !important;
+  height: 8px !important;
+  border-radius: 999px !important;
+  box-shadow: 0 0px 30px 18px color-mix(in srgb,var(--md-sys-color-tertiary)78%,transparent) !important;
+  position: absolute !important;
+  left: 0;
+  top: 0;
+  z-index: 4;
+}
+
+/* Pad just the first section on the homepage a bit*/
+.sectionTitle.padded-left:nth-of-type(1) {
+  margin-top: 1em !important;
+  margin-bottom: 0.1em;
+}
+
+.sectionTitleContainer-cards {
+    padding-top: 1em !important;
+}
+.sectionTitleTextButton>.sectionTitle {
+    margin-bottom: 0em !important;
+}
+.sectionTitleTextButton>.material-icons {
+    font-size: 1em !important;
+    margin-bottom: 0.35em !important;
+    margin-top: .4em !important;
+}
+
+/* Other styles */
+.raised {
+  border-radius: var(--md-border-radius);
+}
+
+.paperList {
+  border-radius: 1em;
+}
+
+.sliderContainer {
+  height: 1em;
+}
+
+.cardImageContainer {
+  border-top-right-radius: var(--md-border-radius);
+  border-top-left-radius: var(--md-border-radius);
+}
+
+.card.scalableCard.imageEditorCard {
+  width: auto !important;
+}
+
+/* Backdrop force for small screen resolutions */
+.itemBackdrop {
+    display: block !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-attachment: scroll;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: none !important;
+    z-index: -1;
+}
+
+/* Media Page Adjustments */
+.listItemImage-large {
+    height: 10vw !important;
+    width: 16vw !important;
+}
+
+.detailImageContainer .card {
+    position: fixed !important;
+    top: 36vh !important;
+    left: 3% !important;
+    transform: translateY(-55%) !important;
+    height: 48vh !important;
+    aspect-ratio: 2 / 3 !important;
+    width: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+/* Poster image styling */
+.detailImageContainer .cardImageContainer {
+    height: 100% !important;
+    width: 100% !important;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.parentName.focuscontainer-x {
+    padding-bottom: 0.2em;
+}
+
+.itemName {
+    display: block !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    font-size: clamp(0.5rem, 2.2vw, 3.5rem);
+    max-width: 100% !important;
+    margin-bottom: 0.2em !important;
+}
+.itemName .season::after {
+  content: "\A"; /* New line */
+  white-space: pre;
+}
+
+.infoWrapper {
+    max-width: 23vw !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+    font-size: clamp(0.9rem, 1vw, 1.4rem) !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+}
+
+.itemMiscInfo-primary {
+  margin-left: 0em;
+  white-space: normal !important;
+  line-height: 1em !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.5em;
+  align-items: center;
+  font-size: clamp(0.9rem, 1.3vw, 1.6rem) !important;
+  font-weight: 300 !important;
+  min-width: 0 !important;
+  justify-content: left !important;
+}
+
+/* Season-/episode line */
+h3.itemName.infoText.subtitle.focuscontainer-x {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    font-size: clamp(1rem, 1.4vw, 2.0rem) !important;
+    line-height: 1.3 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    gap: 0.5rem !important;
+}
+
+/* Make sure the Season button stays on the same line and doesn't grow */
+h3.itemName.infoText.subtitle.focuscontainer-x .emby-button {
+    display: inline-flex !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    max-width: 100% !important;
+}
+
+/* Target the episode title text node via fallback and make it shrink properly */
+h3.itemName.infoText.subtitle.focuscontainer-x > *:not(.emby-button) {
+    flex-grow: 1 !important;
+    flex-shrink: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
+}
+
+.nameContainer {
+    margin-bottom: 1em;
+}
+
+/* ============================================================= */
+/*      Right Side Media Page - Reordered Column Grid            */
+/* ============================================================= */
+
+
+.detailPageContent {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-auto-rows: auto;
+}
+
+/* Default everything to the bottom */
+.detailPageContent > * {
+  grid-row: 99 !important;
+}
+
+/* Flatten just the primary wrappers (but not the form) */
+.detailPageContent > .detailPagePrimaryContent,
+.detailPageContent > .detailPagePrimaryContent > .detailSection,
+.detailPageContent > .detailPagePrimaryContent > .detailSection > .detailSectionContent {
+  display: contents !important;
+}
+
+/* 1) Logo */
+.detailPageContent > .detailLogo {
+  grid-row: 1 !important;
+}
+
+/* 2) Tagline */
+.detailPageContent > h3.tagline {
+  grid-row: 2 !important;
+}
+
+/* 3) Plot paragraph */
+.detailPageContent > bdi > p {
+  grid-row: 3 !important;
+}
+.detailPageContent * p {
+  margin-left: 0.5em !important;
+  font-style: italic;
+}
+
+/* 4) Birthday */
+.detailPageContent > #itemBirthday {
+  grid-row: 4 !important;
+  margin-left: 0.5em !important;
+}
+
+/* 5) Birth place */
+.detailPageContent > #itemBirthLocation {
+  grid-row: 5 !important;
+  margin-left: 0.5em !important;
+}
+
+/* 6) Seasons */
+.detailPageContent > #childrenCollapsible {
+  grid-row: 6 !important;
+  margin-left: 1.2em !important;
+}
+
+/* 7–11) Carousels & Sections */
+.detailPageContent > #castCollapsible           { grid-row: 7 !important; }
+.detailPageContent > #specialsCollapsible       { grid-row: 8 !important; }
+.detailPageContent > #similarCollapsible        { grid-row: 9 !important; }
+.detailPageContent > .nextUpSection             { grid-row: 10 !important; }
+.detailPageContent > .moreFromSeasonSection     { grid-row: 11 !important; }
+
+/* 12) Director / Writers / Studios box */
+.detailPageContent .itemDetailsGroup {
+  grid-row: 12 !important;
+  margin: 1em 0 !important;
+  margin-left: 1.2em !important;
+}
+
+ .detailPageContent .itemDetailsGroup::before {
+  content: "Credits";
+  display: block;
+  font-size: clamp(1.05rem, 1.4vw, 1.4rem); /* Display Medium */
+  font-family: 'Crafty Girls', cursive;
+  font-weight: 400;
+  line-height: 1.0;
+  color: var(--md-sys-color-tertiary);
+  margin-bottom: 0.7em;
+  margin-left: 0.4em !important;
+}
+
+/* 13) Track-selection form */
+.detailPageContent form.trackSelections {
+  grid-row: 13 !important;
+  margin: 3em 0 !important;
+  margin-left: 1.2em !important;
+}
+
+form.trackSelections::before {
+  content: "Technical Details";
+  display: block;
+  font-size: clamp(1.05rem, 1.4vw, 1.4rem); /* Display Medium */
+  font-family: 'Crafty Girls', cursive;
+  font-weight: 400;
+  line-height: 1.0;
+  color: var(--md-sys-color-tertiary);
+  margin-bottom: 0.7em;
+  margin-left: 0.4em !important;
+}
+
+/* 14) Tags */
+.detailPageContent .itemTags {
+  grid-row: 14 !important;
+  margin: 3em 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.5em !important;
+ margin-left: 1.2em !important;
+}
+
+.itemTags {
+  font-size: 1.4em !important;
+  font-family: 'Crafty Girls', cursive;
+  font-weight: 400;
+  color: var(--md-sys-color-tertiary);
+}
+.itemTags a {
+  font-family: "Inter", sans-serif;
+  font-size: 92% !important;
+  font-weight: 400;
+  color: var(--color-text-body);
+}
+
+/* Override default paddings */
+.detailPageContent {
+  padding-left: 3% !important;
+  padding-right: 0 !important;
+}
+
+.detailPageSecondaryContainer {
+
+    font-size: 1.2em !important;
+    line-height: 1.5em !important;
+    font-weight: 350;
+    position: relative;
+    top: 65vh !important;
+    left: 25vw !important;
+    width: 71.3vw !important;
+    padding: 0vh 0vw 0 2vw !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* ensure text within items wraps properly */
+.detailPageSecondaryContainer * {
+    min-width: 0;                    /* allow flex items to shrink below their content width */
+    overflow-wrap: break-word;       /* break long words/URLs */
+}
+.detailPageSecondaryContainer::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.detailLogo {
+  position: static;
+  display: block !important;
+  margin: 8vh auto 2em auto;
+  padding: 2em auto 2em auto !important;
+  transform: translateX(43%) scale(1.5);
+  transform-origin: top center;
+  width: 30vw !important;
+}
+
+.tagline {
+  font-size: clamp(1.2rem, 1.5vw, 4rem);
+  line-height: 1.3;
+  font-family: 'Special Elite', monospace;
+  font-weight: 400;
+  text-align: center !important;
+} 
+
+/*---External Links Styling (IMDb, Trakt, etc.) ---*/
+.itemExternalLinks {
+  position: fixed !important;
+  top: 95vh !important;
+  left: 0 !important;
+  width: 28vw !important;
+  display: flex !important;
+  justify-content: center !important;
+  transform: translateX(-1%) !important;
+  flex-direction: row !important;
+  gap: 0.6em !important;
+  font-size: 0 !important;
+  z-index: 98 !important;
+}
+
+/* Remove commas between links */
+.itemExternalLinks::before,
+.itemExternalLinks::after {
+  content: none !important;
+}
+.itemExternalLinks > * + *::before {
+  content: "" !important;
+}
+
+/* Shared logo styling */
+.itemExternalLinks a::before {
+  content: "";
+  display: inline-block;
+  width: 2.4em;
+  height: 2.4em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: grayscale(100%) brightness(60%) opacity(0.4);
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+/* Hover effect to restore color */
+.itemExternalLinks a:hover::before {
+  filter: grayscale(0%) brightness(100%) opacity(1);
+}
+
+/* Shared logo link styles */
+a[href*="imdb.com"]::before,
+a[href*="trakt.tv"]::before,
+a[href*="themoviedb.org"]::before,
+a[href*="themoviedb.org/collection"]::before,
+a[href*="thetvdb.com"]::before,
+a[href*="tvmaze.com"]::before {
+	content: "";
+	display: inline-block;
+	width: 50px;
+	height: 25px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-right: 15px;
+	vertical-align: middle;
+}
+
+/* Individual logos */
+a[href*="imdb.com"]::before { background-image: url('https://i.imgur.com/pbNvPMX.png'); }
+a[href*="trakt.tv"]::before { background-image: url('https://i.imgur.com/c1zc8d7.png'); }
+a[href*="themoviedb.org"]::before { background-image: url('https://i.imgur.com/RlC69qy.png'); }
+a[href*="themoviedb.org/collection"]::before { background-image: url('https://i.imgur.com/HDodxf3.png'); }
+a[href*="thetvdb.com"]::before { background-image: url('https://i.imgur.com/Jp1VNqp.png'); }
+a[href*="tvmaze.com"]::before { background-image: url('https://i.imgur.com/sd2al6G.png'); }
+
+/* Hide text for all links */
+a[href*="imdb.com"],
+a[href*="trakt.tv"],
+a[href*="themoviedb.org"],
+a[href*="thetvdb.com"],
+a[href*="tvmaze.com"] {
+	font-size: 0;
+}
+
+.trackSelections .selectContainer .selectLabel,
+.detailsGroupItem .label {
+  font-size: 1.2em !important;
+  font-weight: 300 !important;
+}
+
+/* MD3 Dialog Box Styling — Dark Container with Light Text */
+.dialog.dialog-fixedSize.dialog-small {
+  background-color: var(--md-sys-color-on-primary-container);
+  border-radius: var(--md-border-radius);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
+  color: var(--md-sys-color-on-primary); /* LIGHT TEXT FOR DARK BG */
+  padding: 1.5em;
+  max-width: 500px;
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--md-sys-color-outline);
+}
+
+/* Dialog header */
+.formDialogHeader {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: 1.3rem;
+  font-weight: 500;
+
+  background-color: transparent;
+  color: var(--md-sys-color-primary);
+  margin-bottom: 1em;
+}
+
+/* Back icon */
+.formDialogHeader .btnCancel {
+  background-color: transparent;
+  border: none;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  padding: 0.3em;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+.formDialogHeader .btnCancel:hover {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+/* Dialog content */
+.formDialogContent {
+  background-color: transparent;
+  color: var(--md-sys-color-on-primary);
+  font-size: 1rem;
+  padding: 0;
+}
+
+/* Select & checkbox containers */
+.selectContainer,
+.checkboxContainer {
+  margin-bottom: 1.5em;
+}
+.selectContainer select.emby-select,
+.emby-checkbox {
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-border-radius);
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary) !important; 
+  padding: 0.6em;
+  font-size: 1rem;
+}
+
+/* Labels and descriptions  */
+.selectLabel,
+
+.fieldDescription,
+.formDialogContent label,
+.emby-input, 
+.emby-textarea,
+.formDialogContent span {
+  color: var(--color-text-body) !important;
+}
+
+.checkboxLabel,
+.selectArrowContainer {
+  color: var(--md-sys-color-primary) !important; 
+}
+
+/* Checkbox visuals */
+.checkboxOutline {
+  border-radius: var(--md-border-radius);
+  border: 1px solid var(--md-sys-color-outline);
+  background-color: var(--md-sys-color-primary-container);
+}
+.emby-checkbox:checked + span + .checkboxOutline {
+    background-color: var(--md-sys-color-primary-container) !important;
+}
+
+.checkboxIcon {
+  font-size: 1.2rem;
+  color: var(--md-sys-color-primary) !important;
+  background-color: var(--md-sys-color-primary-container);
+}
+
+/* Dialog footer  */
+.formDialogFooter {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 0.5em !important;
+  flex-wrap: nowrap !important; /* force single row */
+}
+
+button.formDialogFooterItem {
+  font-size: 1rem !important;
+  padding: 0.5em 0.6em !important;
+  flex: 0 1 auto !important;       /* shrink if needed */
+  min-width: 0 !important;         /* allow tight fit */
+  max-width: 10vw !important;     /* optional: cap size */
+  white-space: nowrap !important; /* prevent label wrap */
+}
+ 
+.formDialogFooterItem.button {
+  background-color: var(--md-sys-color-primary);
+  border-radius: var(--md-border-radius);
+  padding: 0.1em 0.1em;
+  font-size: 0.7rem;
+  border: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.formDialogFooterItem.button:hover {
+  background-color: var(--md-sys-color-on-primary);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+.dialog.actionSheet {
+  background-color: var(--md-sys-color-on-primary-container);
+  border-radius: var(--md-border-radius);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.4);
+  color: var(--md-sys-color-on-primary); /* Light text for dark container */
+  padding: 1em 0;
+  border: 1px solid var(--md-sys-color-outline);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+}
+
+/* Scrollable content */
+.actionSheetScroller {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Action Sheet Buttons */
+.actionSheetMenuItem {
+  display: flex !important;
+  align-items: center;
+  padding: 0.8em 1.2em;
+  border: none;
+  background: transparent;
+  width: 100%;
+  color: var(--md-sys-color-on-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover state for menu items */
+.actionSheetMenuItem:hover {
+  background-color: color-mix(in srgb, var(--md-sys-color-primary) 50%, transparent);
+  color: var(--md-sys-color-on-primary);
+}
+
+/* Menu item icon */
+.actionsheetMenuItemIcon {
+  font-size: 1.5rem;
+  margin-right: 1em;
+  color: var(--md-sys-color-primary) !important;
+  background-color: var(---transparent-bg) !important;
+}
+
+/* Text inside the item */
+.actionSheetItemText {
+  color: var(--color-text-body);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Divider styling */
+.actionsheetDivider {
+  height: 1px;
+  margin: 0.5em 1em;
+  background-color: var(--md-sys-color-outline);
+  opacity: 0.5;
+  border-radius: 1px;
+}
+
+
+/* ============================================================= */
+/*                      BUTTON SECTION                           */
+/* ============================================================= */
+
+
+/* ------------------------------------
+   Play Button (MD3 Subset Styling)
+------------------------------------- */
+.btnPlay.detailButton {
+  position: relative; /* Needed for state-layer */
+  background-color: var(--md-sys-color-primary-container) !important;
+  color: var(--md-sys-color-on-primary-container) !important;
+  border: none !important;
+  border-radius: var(--md-border-radius) !important;
+  width: 4.4em !important;
+  height: 4.4em !important;
+  font-size: 1.4rem !important;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-transform: none !important;
+  padding: 1.5em !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease !important;
+  transform: translateY(-0.7em) !important;
+  z-index: 2 !important;
+  margin-right: -0.6em !important;
+}
+
+/* Hover state-layer overlay (8% sheen) */
+.btnPlay.detailButton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--md-sys-color-on-primary-container);
+  opacity: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.btnPlay.detailButton:hover::after {
+  opacity: 0.1;
+}
+
+/* Optional: slight transform on hover */
+.btnPlay.detailButton:hover {
+  transform: translateY(-0.7em) scale(1.2) !important;
+}
+
+/* ------------------------------------
+   Play vs Resume Label Overlay
+------------------------------------- */
+.btnPlay::before {
+  content: attr(title);
+  position: absolute;
+  top: calc(100% - 2.2em);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6em;
+  color: var(--md-sys-color-on-primary-container) !important;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.btnPlay[title="Resume"]::before {
+  content: "Resume";
+  color: var(--transparent-bg) !important;
+}
+
+.btnPlay[title="Resume"].detailButton:hover::before {
+  color: var(--md-sys-color-on-primary-container) !important;
+}
+
+.btnPlay[title="Play"]::before {
+  content: "";
+}
+
+/* Segmented Button Group (Secondary Actions)*/
+.segmentedButtonGroup {
+  display: inline-flex !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--md-sys-color-outline) !important;
+  background-color: transparent !important;
+  padding: 0.1em !important;
+  box-sizing: border-box !important;
+  z-index: 1 !important;
+}
+
+/* Individual Segmented Buttons — visible only */
+.mainDetailButtons > .btnReplay.detailButton:not(.hide),
+.mainDetailButtons > .btnPlayTrailer.detailButton:not(.hide),
+.mainDetailButtons > .btnShuffle.detailButton:not(.hide),
+.mainDetailButtons > .btnPlaystate.detailButton:not(.hide),
+.mainDetailButtons > .btnUserRating.detailButton:not(.hide),
+.mainDetailButtons > .btnMoreCommands.detailButton:not(.hide) {
+  display: inline-flex !important;
+  width: 100% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: clamp(0.3em, 1vw, 0.6em) clamp(0.6em, 2vw, 1em);
+  font-size: clamp(0.7rem, 2vw, 0.95rem);
+  flex-grow: 1 !important;
+  color: var(--md-sys-color-primary);
+  background-color: transparent;
+  border: 1px solid var(--md-sys-color-outline);
+  border-top: 1px solid var(--md-sys-color-outline);
+  border-bottom: 1px solid var(--md-sys-color-outline);
+  transition: background-color 0.2s ease, color 0.2s ease, border-radius 0.2s ease !important;
+  text-transform: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Left and right caps  (ive uncapped the left edge here, just cause, uncomment this for symmetry)
+.mainDetailButtons > .btnReplay.detailButton:not(.hide) {
+  border-top-left-radius: 999px !important;
+  border-bottom-left-radius: 999px !important;
+}  */
+
+.mainDetailButtons > .btnMoreCommands.detailButton:not(.hide) {
+  border-top-right-radius: 999px !important;
+  border-bottom-right-radius: 999px !important;
+}
+
+/* Segment Dividers */
+.mainDetailButtons > .btnReplay.detailButton:not(.hide):not(:last-child),
+.mainDetailButtons > .btnPlayTrailer.detailButton:not(.hide):not(:last-child),
+.mainDetailButtons > .btnShuffle.detailButton:not(.hide):not(:last-child),
+.mainDetailButtons > .btnPlaystate.detailButton:not(.hide):not(:last-child),
+.mainDetailButtons > .btnUserRating.detailButton:not(.hide):not(:last-child) {
+  border-right: 1px solid var(--md-sys-color-outline) !important;
+}
+
+/* Segment Hover */
+.mainDetailButtons > .btnReplay.detailButton:not(.hide):hover,
+.mainDetailButtons > .btnPlayTrailer.detailButton:not(.hide):hover,
+.mainDetailButtons > .btnShuffle.detailButton:not(.hide):hover,
+.mainDetailButtons > .btnPlaystate.detailButton:not(.hide):hover,
+.mainDetailButtons > .btnUserRating.detailButton:not(.hide):hover,
+.mainDetailButtons > .btnMoreCommands.detailButton:not(.hide):hover {
+  background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
+  border-radius: 0 !important;
+}
+
+/* Preserve right edge rounding on hover */
+.mainDetailButtons > .btnMoreCommands.detailButton:not(.hide):hover {
+  border-top-right-radius: 999px !important;
+  border-bottom-right-radius: 999px !important;
+}
+
+/* Preserve left edge rounding on hover */
+.mainDetailButtons > .btnReplay.detailButton:not(.hide):hover {
+  border-top-left-radius: 999px !important;
+  border-bottom-left-radius: 999px !important;
+}
+
+/* Shared Icon/Layout Styling */
+.detailButton-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.4em !important;
+}
+
+.detailButton-icon {
+  font-size: 1.3em !important;
+  vertical-align: middle !important;
+  transition: color 0.2s ease !important;
+}
+
+a.button-link.itemAction.emby-button {
+  display: block !important;
+  max-width: 23vw !important;
+  padding: 0.2em 0.7em !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-size: clamp(0.5rem, 2.2vw, 3.5rem) !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  border: 1px solid var(--md-sys-color-outline) !important;
+  border-radius: 999px !important; /* Full pill shape */
+  background-color: transparent !important;
+  color: var(--color-text-body) !important; /* Light text by default */
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+  cursor: pointer !important;
+  line-height: 1.2 !important;
+}
+
+a.button-link.itemAction.emby-button:hover {
+  background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
+  border-color: var(--md-sys-color-outline) !important;
+}
+
+a.button-link.itemAction.emby-button:focus {
+  outline: 2px solid var(--md-sys-color-primary) !important;
+  outline-offset: 2px !important;
+}
+/* Overview "Show More" — pill-style outline */
+a.overview-expand.emby-button {
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.2em 0.7em !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  border: 1px solid var(--md-sys-color-outline) !important;
+  border-radius: 999px !important;
+  background-color: transparent !important;
+  color: var(--md-sys-color-primary) !important;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+  cursor: pointer !important;
+  line-height: 1.2 !important;
+}
+
+a.overview-expand.emby-button:hover {
+  background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
+}
+
+/* "More" Button — Raised Mini Tonal Button */
+button.raised.more.raised-mini.noIcon.emby-button {
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.2em 0.7em !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  border: 1px solid var(--md-sys-color-outline) !important;
+  border-radius: 999px !important;
+  background-color: transparent !important;
+  color: var(--md-sys-color-primary) !important;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+  cursor: pointer !important;
+  line-height: 1.2 !important;
+}
+
+button.raised.more.raised-mini.noIcon.emby-button:hover {
+  background-color: var(--md-sys-color-primary) !important;
+  color: var(--md-sys-color-on-primary) !important;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.25) !important;
+}
+
+/*Respect Jellyfin's logic for hidden buttons*/
+.detailButton.hide{display:none!important;}
+.emby-button.hide{display:none!important;}
+}
