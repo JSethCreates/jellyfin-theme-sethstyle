@@ -1,5 +1,5 @@
 /* ==============================================================  */
-/*                                        Jellyfin GNAT-MD3 (Seths-Style v7.0.0)                                              */
+/*                                        Jellyfin GNAT-MD3 (Seths-Style v8.0.0)                                              */
 /*                                                                                                                                                          */
 /*                                                   God, Not Another Theme!                                                           */
 /*                         Built with Md3 principles and root color definitions in 2023                            */
@@ -23,8 +23,8 @@
 --md-sys-color-tertiary: 				#03a3dc;
 
 --md-sys-color-on-primary: 			#381e72;
---md-sys-color-primary-container: 	        #4f378a;
---md-sys-color-on-primary-container:     #e9ddff;
+--md-sys-color-primary-container: 	#4f378a;
+--md-sys-color-on-primary-container: #e9ddff;
 
 --md-sys-color-surface: 				#1c1b1e;
 --md-sys-color-on-surface: 			#e6e1e6;
@@ -33,7 +33,7 @@
 
 /* Light and Dark */  
   --color-text-body:       				#ffffffcc;         /* semi-transparent white */
-  --bg-color:                      		                #181818;         /* dark base background ^ Keep these opposites */
+  --bg-color:                      		                #0b0b0b;         /* dark base background ^ Keep these opposites */
   --transparent-bg:           			        #00000000;  /* fully transparent */
 
   /* Design details */
@@ -61,8 +61,8 @@ html {
   background-image:
     repeating-linear-gradient(
       45deg,
-      rgba(255,255,255,0.05) 0px,
-      rgba(255,255,255,0.05) 1px,
+      rgba(100,100,100,0.05) 0px,
+      rgba(100,100,100,0.05) 1px,
       transparent 1px,
       transparent 5px
     );
@@ -317,6 +317,7 @@ html {
 .button-link,
 .paperListLabel,
 .formDialogHeaderTitle,
+.castButton,
 .textareaLabelUnfocused {
   color: var(--color-text-body) !important;
 }
@@ -361,10 +362,10 @@ h1 {
 }
 /* H2 - Used for Hompage section titles */
 h2 {
-  font-size: clamp(1.05rem, 1.4vw, 1.4rem); /* Display Medium */
-  font-weight: 300;
+  font-size: clamp(1.05rem, 1.3vw, 1.5rem); /* Display Medium */
+  font-family: "Inter", sans-serif !important;
+  font-weight: 500;
   line-height: 1.0;
-  letter-spacing: -0.01em;
   color: var(--md-sys-color-tertiary);
   margin-bottom: 0.2em;
 }
@@ -881,7 +882,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 ------------------------------------- */
 .cardBox {
   position: relative; /* Needed for sheen overlay */
-  background-color: var(--md-sys-color-primary-container);
+  background-color: color-mix(in srgb, var(--md-sys-color-primary-container) 60%, transparent) !important;
   border-radius: var(--md-border-radius);
   padding: 2.5em;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -889,7 +890,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   overflow: visible;
   margin-right: 1em !important;
   margin-top: 1em !important;
-  border: 1px solid rgba(128, 128, 128, 0.4);
+  /* border: 1px solid rgba(128, 128, 128, 0.4); Killed by popular demand */
 }
 
 /* Homepage-specific offset for hover scaling */
@@ -923,7 +924,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: var(--md-sys-color-on-primary-container);
+  background-color: var(--md-sys-color-primary-container);
   opacity: 0;
   pointer-events: none;
   border-radius: inherit;
@@ -1338,8 +1339,13 @@ h3.itemName.infoText.subtitle.focuscontainer-x > *:not(.emby-button) {
   margin-left: 0.5em !important;
 }
 
-/* 6–11) Carousels & Sections */
-.detailPageContent > #childrenCollapsible       { grid-row: 6 !important; }
+/* 6) Seasons */
+.detailPageContent > #childrenCollapsible {
+  grid-row: 6 !important;
+  margin-left: 1.2em !important;
+}
+
+/* 7–11) Carousels & Sections */
 .detailPageContent > #castCollapsible           { grid-row: 7 !important; }
 .detailPageContent > #specialsCollapsible       { grid-row: 8 !important; }
 .detailPageContent > #similarCollapsible        { grid-row: 9 !important; }
@@ -1349,13 +1355,39 @@ h3.itemName.infoText.subtitle.focuscontainer-x > *:not(.emby-button) {
 /* 12) Director / Writers / Studios box */
 .detailPageContent .itemDetailsGroup {
   grid-row: 12 !important;
-  margin: 3em 0 !important;
+  margin: 1em 0 !important;
+  margin-left: 1.2em !important;
+}
+
+ .detailPageContent .itemDetailsGroup::before {
+  content: "Credits";
+  display: block;
+  font-family: "Inter", sans-serif !important;
+  font-size: clamp(1.05rem, 1.3vw, 1.5rem); /* Display Medium */
+  font-weight: 500;
+  line-height: 1.0;
+  color: var(--md-sys-color-tertiary);
+  margin-bottom: 0.7em;
+  margin-left: 0.4em !important;
 }
 
 /* 13) Track-selection form */
 .detailPageContent form.trackSelections {
   grid-row: 13 !important;
   margin: 3em 0 !important;
+  margin-left: 1.2em !important;
+}
+
+form.trackSelections::before {
+  content: "Technical Details";
+  display: block;
+  font-family: "Inter", sans-serif !important;
+  font-size: clamp(1.05rem, 1.3vw, 1.5rem); /* Display Medium */
+  font-weight: 500;
+  line-height: 1.0;
+  color: var(--md-sys-color-tertiary);
+  margin-bottom: 0.7em;
+  margin-left: 0.4em !important;
 }
 
 /* 14) Tags */
@@ -1365,6 +1397,20 @@ h3.itemName.infoText.subtitle.focuscontainer-x > *:not(.emby-button) {
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 0.5em !important;
+ margin-left: 1.2em !important;
+}
+
+.itemTags {
+  font-family: "Inter", sans-serif !important;
+  font-size: 1.4em !important;
+  font-weight: 500;
+  color: var(--md-sys-color-tertiary);
+}
+.itemTags a {
+  font-family: "Inter", sans-serif;
+  font-size: 92% !important;
+  font-weight: 400;
+  color: var(--color-text-body);
 }
 
 /* Override default paddings */
