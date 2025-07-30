@@ -823,6 +823,17 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 
 @media (max-width: 61em) {
  
+  .headerTabs .emby-tab-button[data-index="0"] .emby-button-foreground,
+  .headerTabs .emby-tab-button[data-index="1"] .emby-button-foreground,
+  .headerTabs .emby-tab-button[data-index="2"] .emby-button-foreground,
+  .headerTabs .emby-tab-button[data-index="3"] .emby-button-foreground,
+  .headerTabs .emby-tab-button[data-index="0"]::before,
+  .headerTabs .emby-tab-button[data-index="1"]::before,
+  .headerTabs .emby-tab-button[data-index="2"]::before,
+  .headerTabs .emby-tab-button[data-index="3"]::before {
+    display: none !important;
+  }
+
 .pageTitle {
 	color: var(--color-text-body) !important;
 }
