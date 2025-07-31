@@ -1361,6 +1361,9 @@ h3.itemName.infoText.subtitle.focuscontainer-x > *:not(.emby-button) {
   grid-row: 6 !important;
   margin-left: 1.2em !important;
 }
+.childrenItemsContainer {
+  padding-right: 0 !important;
+}
 
 /* 7–11) Carousels & Sections */
 .detailPageContent > #castCollapsible           { grid-row: 7 !important; }
