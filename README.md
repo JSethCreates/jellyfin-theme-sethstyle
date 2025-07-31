@@ -8,7 +8,7 @@
 Originally built with Material Design 3 principles and root color definitions in 2023.  
 Redesigned and released with Material 3 Expressive considerations in May 2025 for jellyfin v10.10.x.
  
-GNAT features a number of quality-of-life changes, with a focus on media item pages: -Fixing the primary action panel, and flex-wraping secondary info containers,
+GNAT features a number of quality-of-life changes, **with a focus restructuring the media item pages:** -Fixing the primary action panel, and flex-wraping secondary info containers,
 -Prioritizing the cinematic elements (logo, tagline, plot, cast) while shifting more technical buckets like codecs and stream selections lower on the page.
 -Custom slider thumb designs on WebKit/Firefox, fixed-position progress bar to prevent bouncing, OSD time text styling and placement
 -Replacing header Text-button tabs with Material Icons (or Emoji example coded)
