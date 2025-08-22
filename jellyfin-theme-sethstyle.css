@@ -585,7 +585,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 /* Stop the progress bar bouncing with time */
 .flex-grow.mdl-slider-container {
     position: fixed !important;
-    left: 6.5em !important;
+    left: 6.5em;
     right: calc(6em + 2vw) !important;
 }
 
