@@ -1,5 +1,5 @@
 /* ==============================================================  */
-/*                                        Jellyfin GNAT-MD3 (Seths-Style v8.0.2)                                              */
+/*                                        Jellyfin GNAT-MD3 (Seths-Style v8.1.0)                                              */
 /*                                                                                                                                                          */
 /*                                                   God, Not Another Theme!                                                           */
 /*                         Built with Md3 principles and root color definitions in 2023                            */
@@ -585,8 +585,8 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
 /* Stop the progress bar bouncing with time */
 .flex-grow.mdl-slider-container {
     position: fixed !important;
-    left: 6.7em !important;
-    width: 83vw !important;
+    left: 6.5em !important;
+    right: calc(6em + 2vw) !important;
 }
 
 /* Time font */
@@ -596,9 +596,14 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   font-size: 1.4rem !important;
   font-weight: 300 !important;
 }
+
 .osdTextContainer.endTimeText.osdDurationText {
     position: fixed !important;
-    right: 4.5vw !important;
+    right: 0 !important;
+    width: 5em;              /* lock width so text doesn’t push left */
+    text-align: right;       /* keep text anchored to the right */
+    white-space: nowrap;     /* prevent wrapping */
+    z-index: 9999 !important;
 }
 
 .emby-scrollbuttons.padded-right {
@@ -706,6 +711,7 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
   transition: opacity 5s cubic-bezier(1, 0.02, 0.86, 0.99) !important;
   z-index: 1 !important;
 }
+
 .videoOsdBottom {
     transition: 5s cubic-bezier(1, 0.02, 0.86, 0.99) !important;
 }
@@ -1034,6 +1040,10 @@ div[data-role="controlgroup"] a[data-role="button"]:last-child {
     max-width: 39vw !important;
 }
 
+.childrenItemsContainer {
+  padding-right: 0 !important;
+}
+
 .layout-mobile .detailPageSecondaryContainer {
     top: 0 !important;
 }
@@ -1358,9 +1368,6 @@ h3.itemName.infoText.subtitle.focuscontainer-x > *:not(.emby-button) {
 .detailPageContent > #childrenCollapsible {
   grid-row: 6 !important;
   margin-left: 1.2em !important;
-}
-.childrenItemsContainer {
-  padding-right: 0 !important;
 }
 
 /* 7–11) Carousels & Sections */
